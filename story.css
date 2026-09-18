@@ -1,0 +1,380 @@
+.story-page {
+  background: var(--cream);
+}
+
+.story-page .site-header nav a[aria-current="page"] {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .35rem;
+}
+
+.story-hero {
+  padding: clamp(3.5rem, 7vw, 6.5rem) max(1.25rem, calc((100vw - var(--max))/2)) 0;
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.story-hero-copy {
+  max-width: 980px;
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+  border-left: 7px solid var(--red);
+}
+
+.story-kicker {
+  margin: 0 0 .8rem;
+  color: var(--red);
+  font-size: .9375rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.story-kicker-gold {
+  color: var(--gold);
+}
+
+.story-hero h1 {
+  max-width: 970px;
+  margin: 0;
+  font: 800 clamp(3.4rem, 8vw, 7.8rem)/.9 "Libre Franklin", sans-serif;
+  letter-spacing: -.065em;
+}
+
+.story-deck {
+  max-width: 780px;
+  margin: 1.75rem 0 0;
+  color: #d7e0e9;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.story-hero-photo {
+  position: relative;
+  height: clamp(340px, 52vw, 650px);
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
+  overflow: hidden;
+}
+
+.story-hero-photo img,
+.story-side-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-hero-photo picture,
+.story-side-photo picture {
+  display: block;
+  height: 100%;
+}
+
+.story-hero-photo img {
+  object-position: center 42%;
+}
+
+.story-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(transparent, rgba(7, 27, 51, .86));
+}
+
+.story-hero-photo figcaption,
+.story-side-photo figcaption {
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.story-hero-photo figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  max-width: 430px;
+  padding: .7rem .9rem;
+  background: var(--cream);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.story-opening,
+.story-chapter,
+.story-dc {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 7rem) 1.25rem;
+}
+
+.story-opening {
+  display: grid;
+  grid-template-columns: 70px minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.story-number {
+  margin: .4rem 0 0;
+  color: var(--red);
+  font: 800 1.1rem/1 "Libre Franklin", sans-serif;
+}
+
+.story-page h2 {
+  margin: .3rem 0 1rem;
+  font-size: clamp(2.35rem, 5vw, 5rem);
+}
+
+.story-prose {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.story-prose p:first-child {
+  margin-top: 0;
+}
+
+.story-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.story-prose-lead > p:first-child {
+  color: var(--blue);
+  font: 700 clamp(1.35rem, 2.5vw, 2rem)/1.45 "Libre Franklin", sans-serif;
+}
+
+.story-dark {
+  padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - var(--max))/2));
+  background: var(--blue);
+  color: var(--white);
+}
+
+.story-dark-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.story-dark .story-prose {
+  color: #d8e2eb;
+}
+
+.story-pullquote {
+  max-width: 1000px;
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(.5rem, 1vw, 1rem) clamp(1.25rem, 3vw, 2.5rem);
+  border-top: 1px solid #53708d;
+  border-left: 7px solid var(--gold);
+}
+
+.story-pullquote p {
+  margin: 0;
+  color: var(--gold);
+  font: 800 clamp(2rem, 4.3vw, 4.25rem)/1.06 "Libre Franklin", sans-serif;
+  letter-spacing: -.04em;
+}
+
+.story-chapter {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.story-chapter-copy .story-number {
+  margin-bottom: 1.5rem;
+}
+
+.story-side-photo {
+  display: grid;
+  grid-template-rows: minmax(380px, 650px) auto;
+  background: var(--navy);
+  color: var(--white);
+  border-bottom: 8px solid var(--red);
+}
+
+.story-side-photo img {
+  object-position: center 35%;
+}
+
+.story-side-photo figcaption {
+  padding: 1rem 1.25rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.story-bridge {
+  padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - var(--max))/2));
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.story-bridge h2 {
+  max-width: 1000px;
+}
+
+.story-columns {
+  columns: 2 340px;
+  column-gap: clamp(2rem, 6vw, 5rem);
+  max-width: 1050px;
+  margin-top: 2rem;
+}
+
+.story-columns p {
+  break-inside: avoid;
+}
+
+.isabelle-story {
+  position: relative;
+  min-height: 650px;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(4rem, 9vw, 8rem) max(1.25rem, calc((100vw - var(--max))/2));
+  background: var(--red);
+  color: var(--white);
+}
+
+.isabelle-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.isabelle-copy h2 {
+  max-width: 980px;
+}
+
+.isabelle-copy .story-prose {
+  max-width: 760px;
+}
+
+.isabelle-word {
+  position: absolute;
+  right: -.04em;
+  bottom: -.14em;
+  color: transparent;
+  font: 800 clamp(9rem, 25vw, 24rem)/.8 "Libre Franklin", sans-serif;
+  letter-spacing: -.09em;
+  -webkit-text-stroke: 2px rgba(255, 248, 233, .28);
+  opacity: .8;
+}
+
+.story-dc {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.story-final {
+  padding: clamp(4rem, 9vw, 8rem) max(1.25rem, calc((100vw - 1050px)/2));
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+.story-final h2 {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.story-final > p:not(.story-kicker) {
+  max-width: 800px;
+  margin: 1.5rem auto 0;
+  color: #d7e0e9;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.story-final .story-final-line {
+  color: var(--gold);
+  font: 700 clamp(1.25rem, 2.2vw, 1.75rem)/1.5 "Libre Franklin", sans-serif;
+}
+
+.story-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .85rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 850px) {
+  .story-opening {
+    grid-template-columns: 45px 1fr;
+  }
+
+  .story-prose-lead {
+    grid-column: 2;
+  }
+
+  .story-dark-grid,
+  .story-chapter,
+  .story-dc {
+    grid-template-columns: 1fr;
+  }
+
+  .story-side-photo {
+    grid-template-rows: 500px auto;
+  }
+}
+
+@media (max-width: 540px) {
+  .story-hero-copy {
+    padding-left: 1rem;
+  }
+
+  .story-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.6rem);
+  }
+
+  .story-hero-photo {
+    height: 390px;
+    margin-top: 2.5rem;
+  }
+
+  .story-hero-photo img {
+    object-position: 70% center;
+  }
+
+  .story-hero-photo figcaption {
+    right: .75rem;
+    bottom: .75rem;
+    left: .75rem;
+  }
+
+  .story-opening {
+    grid-template-columns: 1fr;
+  }
+
+  .story-number {
+    display: none;
+  }
+
+  .story-prose-lead {
+    grid-column: 1;
+  }
+
+  .story-side-photo {
+    grid-template-rows: 390px auto;
+  }
+
+  .story-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .story-actions .button {
+    width: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  .story-hero-copy,
+  .story-pullquote,
+  .story-side-photo {
+    border: 2px solid CanvasText;
+  }
+}

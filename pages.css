@@ -1,0 +1,507 @@
+.page-hero {
+  padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - var(--max))/2));
+  background: var(--navy);
+  color: var(--white);
+  border-top: 1px solid #284664;
+}
+
+.page-hero-inner {
+  max-width: 980px;
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+  border-left: 7px solid var(--red);
+}
+
+.page-hero h1 {
+  max-width: 1000px;
+  margin: .55rem 0 1.3rem;
+  font: 800 clamp(3.2rem, 7vw, 7rem)/.9 "Libre Franklin", sans-serif;
+  letter-spacing: -.06em;
+}
+
+.page-hero p:last-child {
+  max-width: 780px;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.page-section {
+  padding: clamp(3.5rem, 7vw, 6rem) max(1.25rem, calc((100vw - var(--max))/2));
+}
+
+.page-section.white { background: var(--white); }
+.page-section.navy { background: var(--blue); color: var(--white); }
+.page-section.gold { background: var(--gold); color: var(--navy); }
+
+.page-intro-grid,
+.split-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.page-section h2 {
+  max-width: 930px;
+}
+
+.page-section h3 {
+  font: 800 clamp(1.25rem, 2vw, 1.7rem)/1.2 "Libre Franklin", sans-serif;
+}
+
+.page-copy {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.page-copy p:first-child { margin-top: 0; }
+.page-copy p:last-child { margin-bottom: 0; }
+
+.date-panel {
+  align-self: start;
+  padding: 1.75rem;
+  background: var(--navy);
+  color: var(--white);
+  border-top: 8px solid var(--gold);
+}
+
+.date-panel span {
+  display: block;
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.date-panel strong {
+  display: block;
+  margin-top: .7rem;
+  font: 800 clamp(2rem, 4vw, 3.7rem)/1.08 "Libre Franklin", sans-serif;
+  letter-spacing: -.04em;
+}
+
+.priority-list,
+.evidence-grid,
+.resource-grid,
+.follow-grid {
+  display: grid;
+  gap: 1px;
+  margin: 2.5rem 0 0;
+  padding: 1px;
+  list-style: none;
+  background: var(--line);
+}
+
+.priority-list { grid-template-columns: repeat(3, 1fr); }
+.evidence-grid { grid-template-columns: repeat(2, 1fr); }
+.resource-grid { grid-template-columns: repeat(3, 1fr); }
+.follow-grid { grid-template-columns: repeat(4, 1fr); }
+
+.priority-list li,
+.evidence-grid article,
+.resource-grid article,
+.follow-grid article {
+  padding: clamp(1.4rem, 3vw, 2rem);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.priority-list .item-number {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.priority-list p,
+.evidence-grid p,
+.resource-grid p,
+.follow-grid p {
+  color: var(--muted);
+}
+
+.credential-list {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.credential-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.quote-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.quote-list blockquote {
+  margin: 0;
+  padding: 1.75rem;
+  background: var(--navy);
+  color: var(--white);
+  border-left: 6px solid var(--gold);
+}
+
+.quote-list blockquote p {
+  margin: 0 0 1rem;
+  font: 800 clamp(1.35rem, 2.3vw, 2rem)/1.3 "Libre Franklin", sans-serif;
+}
+
+.quote-list cite {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.advocacy-quote {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 930px;
+  margin-top: 2rem;
+}
+
+.download-card {
+  padding: clamp(2rem, 4vw, 3rem);
+  background: var(--red);
+  color: var(--white);
+}
+
+.download-card h2 { color: var(--white); }
+.download-card p { max-width: 700px; font-size: 1.125rem; }
+
+.plain-link {
+  font-weight: 800;
+  text-underline-offset: .3rem;
+}
+
+.status-label {
+  display: inline-block;
+  padding: .3rem .55rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: .9rem;
+  font-weight: 800;
+}
+
+.access-list li { margin-bottom: .75rem; }
+
+@media (max-width: 850px) {
+  .page-intro-grid,
+  .split-grid,
+  .priority-list,
+  .evidence-grid,
+  .resource-grid,
+  .follow-grid,
+  .quote-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (forced-colors: active) {
+  .page-hero-inner,
+  .date-panel,
+  .priority-list li,
+  .evidence-grid article,
+  .resource-grid article,
+  .follow-grid article,
+  .quote-list blockquote,
+  .download-card {
+    border: 2px solid CanvasText;
+  }
+}
+
+
+/* Expandable narrative article (DC Mission) — featured Colorado-to-Washington block */
+.story-article {
+  max-width: 980px;
+}
+
+.story-article-panel {
+  border: 1px solid var(--line);
+  border-top: 8px solid var(--gold);
+  background: var(--cream);
+  box-shadow: 0 12px 36px rgba(7, 27, 51, 0.12);
+  overflow: hidden;
+}
+
+.story-article-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem) clamp(1.35rem, 3.2vw, 2rem);
+  display: grid;
+  gap: .95rem;
+  background: var(--navy);
+  color: var(--white);
+  border-bottom: 4px solid var(--red);
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+
+.story-article-summary::-webkit-details-marker { display: none; }
+
+.story-article-summary:hover {
+  background: var(--blue);
+}
+
+.story-article-summary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.story-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0;
+  padding: .35rem .7rem;
+  background: var(--gold);
+  color: var(--navy);
+  font: 800 .72rem/1 "DM Sans", sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.story-article-summary h2 {
+  margin: 0;
+  max-width: 18ch;
+  font: 800 clamp(2.15rem, 5vw, 3.55rem)/1.02 "Libre Franklin", sans-serif;
+  letter-spacing: -.045em;
+  color: var(--white);
+}
+
+.story-article-teaser {
+  margin: 0;
+  max-width: 62ch;
+  color: #c9d5e2;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.story-article-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .15rem;
+  font: 700 1rem/1.4 "DM Sans", sans-serif;
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: .28em;
+}
+
+.story-article-summary:hover .story-article-toggle {
+  color: var(--cream);
+}
+
+.story-article-toggle .when-open { display: none; }
+.story-article-panel[open] .story-article-toggle .when-closed { display: none; }
+.story-article-panel[open] .story-article-toggle .when-open { display: inline; }
+.story-article-panel[open] .story-article-teaser { display: none; }
+
+.story-article-panel[open] .story-article-summary {
+  box-shadow: inset 0 -1px 0 rgba(245, 189, 73, 0.35);
+}
+
+.story-article-body {
+  padding: clamp(1.5rem, 3.5vw, 2.35rem) clamp(1.35rem, 3.2vw, 2rem) clamp(1.75rem, 3.5vw, 2.5rem);
+  background: var(--cream);
+  border-top: 1px solid rgba(7, 27, 51, 0.08);
+  color: var(--ink);
+}
+
+.story-beat {
+  margin: 0 0 2rem;
+  padding: 0 0 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.story-beat:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.story-beat h3 {
+  margin: 0 0 1rem;
+  color: var(--red);
+  font: 800 .78rem/1.2 "DM Sans", sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.story-beat > p:first-of-type {
+  margin-top: 0;
+}
+
+.story-beat > p:last-child {
+  margin-bottom: 0;
+}
+
+.story-pullquote {
+  margin: 1.75rem 0;
+  padding: 1.35rem 1.35rem 1.35rem 1.5rem;
+  background: var(--navy);
+  color: var(--cream);
+  border-left: 6px solid var(--red);
+  box-shadow: 0 8px 24px rgba(7, 27, 51, 0.14);
+}
+
+.story-pullquote p {
+  margin: 0;
+  color: var(--gold);
+  font: 800 clamp(1.25rem, 2.4vw, 1.85rem)/1.28 "Libre Franklin", sans-serif;
+  letter-spacing: -.02em;
+}
+
+.story-figure {
+  margin: 1.5rem 0 0;
+}
+
+.story-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--navy);
+}
+
+.story-figure figcaption {
+  margin-top: .65rem;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .story-article-summary h2 {
+    max-width: none;
+  }
+  .story-figure img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-article-panel { scroll-behavior: auto; }
+  .story-article-summary { transition: none; }
+}
+
+@media (forced-colors: active) {
+  .story-article-panel,
+  .story-article-summary,
+  .story-chip,
+  .story-pullquote,
+  .story-figure img {
+    border: 2px solid CanvasText;
+  }
+}
+
+
+/* Full Circle — first-person narrative (DC Mission) */
+.story-firstperson {
+  max-width: 760px;
+  margin: 0;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.35rem, 3.2vw, 2.15rem);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-top: 8px solid var(--gold);
+  box-shadow: 0 12px 36px rgba(7, 27, 51, 0.1);
+}
+
+.story-firstperson-kicker {
+  margin: 0 0 .85rem;
+  display: inline-flex;
+  align-items: center;
+  padding: .35rem .7rem;
+  background: var(--navy);
+  color: var(--gold);
+  font: 800 .72rem/1 "DM Sans", sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.story-firstperson > h2 {
+  margin: 0 0 1.5rem;
+  max-width: 18ch;
+  color: var(--navy);
+  font: 800 clamp(2.15rem, 4.6vw, 3.4rem)/1.05 "Libre Franklin", sans-serif;
+  letter-spacing: -.045em;
+}
+
+.story-firstperson-body {
+  color: var(--ink);
+}
+
+.story-firstperson-body p {
+  margin: 0 0 1.15rem;
+}
+
+.story-firstperson-body p:last-child {
+  margin-bottom: 0;
+}
+
+.story-footnote {
+  margin: 1.75rem 0 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+.story-footnote a {
+  color: var(--blue);
+  font-weight: 700;
+  text-underline-offset: .28em;
+}
+
+.story-footnote a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.story-footnote cite {
+  font-style: italic;
+}
+
+.story-transition-figure {
+  max-width: 760px;
+  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+}
+
+.story-transition-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--navy);
+  border: 1px solid var(--line);
+}
+
+.story-transition-figure figcaption {
+  margin-top: .65rem;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .story-firstperson > h2 {
+    max-width: none;
+  }
+  .story-transition-figure img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (forced-colors: active) {
+  .story-firstperson,
+  .story-firstperson-kicker,
+  .story-transition-figure img {
+    border: 2px solid CanvasText;
+  }
+}

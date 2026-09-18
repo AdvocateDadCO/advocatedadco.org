@@ -1,0 +1,1216 @@
+/* Premium editorial longform — Project INSPIRE feature
+   Mobile-first; stacks on small screens; overflow guarded;
+   prefers-reduced-motion respected; no parallax/carousel/autoplay.
+   Uses site brand tokens from styles.css. No Tailwind. No braille-dots. */
+
+.feature-article {
+  --feature-body: 760px;
+  --feature-shell: 1100px;
+  --feature-prose: 68ch;
+  overflow-x: clip;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.feature-article a:not(.button):not(.nav-cta) {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.feature-article a:not(.button):focus-visible,
+.feature-article .button:focus-visible,
+.feature-article .resource-card a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Shared shells */
+.article-shell {
+  width: min(100% - 2.5rem, var(--feature-shell));
+  margin-inline: auto;
+}
+
+.article-body {
+  width: min(100% - 2.5rem, var(--feature-body));
+  margin-inline: auto;
+  max-width: var(--feature-prose);
+  font-size: 1.125rem; /* ≥16px */
+  line-height: 1.8;
+}
+
+.article-body--left {
+  margin-inline: 0;
+  width: 100%;
+  max-width: var(--feature-prose);
+}
+
+.article-body > p {
+  margin: 0 0 1.35rem;
+}
+
+.article-body > p:last-child {
+  margin-bottom: 0;
+}
+
+.section-label {
+  margin: 0 0 0.75rem;
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.section-label.light {
+  color: var(--gold);
+}
+
+.editorial-section {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.editorial-section h2 {
+  max-width: 22ch;
+  margin: 0 0 1.5rem;
+  font: 800 clamp(1.85rem, 3.6vw, 3rem) / 1.08 "Libre Franklin", sans-serif;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+}
+
+/* ---------- 1. HERO ---------- */
+.feature-hero {
+  padding: clamp(3.75rem, 9vw, 7rem) 0;
+  background: var(--navy);
+  color: var(--white);
+  border-top: 1px solid #284664;
+}
+
+.feature-hero-inner {
+  padding-left: clamp(1rem, 2.5vw, 1.75rem);
+  border-left: 7px solid var(--red);
+  max-width: min(100% - 2.5rem, 980px);
+  margin-inline: auto;
+}
+
+.feature-eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.feature-hero h1 {
+  max-width: 14ch;
+  margin: 0 0 1.35rem;
+  font: 800 clamp(2.5rem, 7vw, 5.5rem) / 0.95 "Libre Franklin", sans-serif;
+  letter-spacing: -0.05em;
+  color: var(--white);
+}
+
+.feature-deck {
+  max-width: 40rem;
+  margin: 0 0 1.5rem;
+  color: #e1e9f0;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.55;
+}
+
+.feature-byline {
+  margin: 0 0 1.25rem;
+  color: #aab9c7;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0;
+  color: #8fa3b5;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.feature-labels span:not(:last-child)::after {
+  content: "·";
+  margin-left: 1rem;
+  color: #5f7386;
+}
+
+/* ---------- 2. OPENING ---------- */
+.opening-story {
+  background: var(--cream);
+  padding-top: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.opening-story .article-body > p:nth-child(-n+5) {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.opening-story .article-body > p:nth-child(1) {
+  font-size: 1.25rem;
+}
+
+/* ---------- 3. PULL QUOTE BAND ---------- */
+.pull-quote-band {
+  background: var(--white);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  border-block: 1px solid var(--line);
+}
+
+.pull-quote {
+  margin: 0 auto;
+  max-width: min(100% - 2.5rem, 820px);
+  padding: 0 0 0 clamp(1.25rem, 3vw, 2rem);
+  border-left: 5px solid var(--red);
+}
+
+.pull-quote p {
+  margin: 0 0 1rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.45rem, 3.2vw, 2.35rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.pull-quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pull-quote--hero p {
+  font-size: clamp(1.6rem, 3.8vw, 2.75rem);
+}
+
+.pull-quote--band {
+  margin-block: 2rem 2.75rem;
+  border-left-color: var(--gold);
+}
+
+.pull-quote--band p {
+  color: var(--white);
+}
+
+.pull-quote--band cite {
+  color: #aab9c7;
+}
+
+.pull-quote--inline {
+  margin: 1.75rem 0 0;
+  max-width: none;
+}
+
+.pull-quote--inline p {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+}
+
+.pull-quote--peak {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  max-width: min(100%, 900px);
+  border-left-width: 6px;
+}
+
+.pull-quote--peak p {
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  color: var(--white);
+}
+
+.pull-quote--peak cite {
+  color: #aab9c7;
+}
+
+/* ---------- 4. PROVE SECTION ---------- */
+.prove-section {
+  background: var(--cream);
+}
+
+.feature-reflect {
+  margin-top: 1.75rem !important;
+  padding: 1.25rem 1.35rem;
+  border-left: 4px solid var(--gold);
+  background: var(--white);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ---------- 5. IMPACT / FACT BAND ---------- */
+.impact-band {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.impact-band h2 {
+  color: var(--white);
+}
+
+.inspire-fact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid #3a5a7a;
+}
+
+.inspire-fact-list li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 11rem) 1fr;
+  gap: 1rem 1.5rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid #3a5a7a;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.inspire-fact-list strong {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.inspire-fact-list span {
+  color: #d7e0e9;
+}
+
+.impact-source {
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+}
+
+.impact-source a {
+  color: var(--gold);
+}
+
+/* ---------- 6. FUNDING ---------- */
+.funding-section {
+  background: var(--white);
+}
+
+.funding-beats {
+  list-style: none;
+  margin: 1.75rem 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.funding-beats li {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  font-size: 1.05rem;
+}
+
+.funding-beats strong {
+  color: var(--navy);
+}
+
+/* ---------- 7. FEATURE BAND + IMPACT FLOW ---------- */
+.feature-band {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.feature-band h2 {
+  max-width: 18ch;
+  color: var(--white);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+}
+
+.impact-flow-intro {
+  margin: 0 0 1.5rem;
+  color: #c5d2de;
+  font-size: 1.1rem;
+  max-width: 50rem;
+}
+
+.impact-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #2f4a66;
+}
+
+.impact-flow li {
+  position: relative;
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid #2f4a66;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.impact-flow li:last-child {
+  border-bottom: 0;
+}
+
+.impact-flow-step {
+  display: block;
+  font: 700 1.05rem "Libre Franklin", sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--gold);
+}
+
+.impact-flow li:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6a8299;
+  font-size: 0.85rem;
+}
+
+.impact-flow-sentence {
+  margin: 1.5rem 0 0;
+  color: #aab9c7;
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 52rem;
+}
+
+/* ---------- 8. PENNY SPLIT ---------- */
+.penny-section {
+  background: var(--cream);
+}
+
+.penny-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.quote-panel {
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background: var(--navy);
+  color: var(--white);
+  border-top: 6px solid var(--red);
+}
+
+.quote-panel blockquote {
+  margin: 0;
+}
+
+.quote-panel p {
+  margin: 0 0 1.25rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.quote-panel cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ---------- 9. FULL CIRCLE ---------- */
+.full-circle {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.full-circle h2 {
+  color: var(--white);
+  max-width: 16ch;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+}
+
+.then-now-next {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.then-now-next article {
+  padding: 1.35rem 1.4rem;
+  border: 1px solid #3a5a7a;
+  background: rgba(7, 27, 51, 0.25);
+}
+
+.then-now-next h3 {
+  margin: 0 0 0.65rem;
+  font: 800 0.8rem "Libre Franklin", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.then-now-next p {
+  margin: 0;
+  color: #d7e0e9;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.feature-photo {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.feature-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  border: 1px solid #3a5a7a;
+}
+
+.feature-photo figcaption {
+  margin-top: 0.75rem;
+  color: #aab9c7;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* ---------- 10. TIMELINE ---------- */
+.timeline-section {
+  background: var(--white);
+}
+
+.story-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 3px solid var(--line);
+}
+
+.story-timeline li {
+  position: relative;
+  padding: 0 0 2rem 1.75rem;
+}
+
+.story-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.story-timeline li::before {
+  content: "";
+  position: absolute;
+  left: -0.55rem;
+  top: 0.35rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--red);
+}
+
+.timeline-marker {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--red);
+  font: 800 0.78rem "Libre Franklin", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.story-timeline p {
+  margin: 0;
+  max-width: 48rem;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+/* ---------- 11. CLOSING VOICE ---------- */
+.closing-voice {
+  background: var(--cream);
+}
+
+.closing-voice h2 {
+  max-width: 18ch;
+}
+
+/* ---------- 12. RESOURCES ---------- */
+.resource-area {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.resource-lead {
+  max-width: 48rem;
+  margin: -0.5rem 0 2.25rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.featured-resource {
+  margin: 0 0 2rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--red);
+  background: var(--cream);
+}
+
+.featured-resource h3 {
+  margin: 0.35rem 0 0.85rem;
+  font: 800 clamp(1.6rem, 3vw, 2.2rem) / 1.1 "Libre Franklin", sans-serif;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.featured-resource p:not(.host-label) {
+  max-width: 48rem;
+  margin: 0 0 1.35rem;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.host-label {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.resource-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.resource-card h3 {
+  margin: 0;
+  font: 800 1.2rem / 1.2 "Libre Franklin", sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.resource-card p:not(.host-label) {
+  margin: 0;
+  flex: 1;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.resource-card a {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.resource-card a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- 13. MISSION CTA ---------- */
+.mission-cta {
+  background: var(--red);
+  color: var(--white);
+}
+
+.mission-cta h2 {
+  max-width: 18ch;
+  color: var(--white);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+.mission-cta > .article-shell > p {
+  max-width: 42rem;
+  margin: 0 0 1.75rem;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #ffe8e4;
+}
+
+.mission-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.button.outline-navy {
+  border-color: var(--navy);
+  background: transparent;
+  color: var(--navy);
+}
+
+.button.outline-navy:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* ---------- Desktop / tablet ---------- */
+@media (min-width: 700px) {
+  .inspire-fact-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+    border-top: 0;
+  }
+
+  .inspire-fact-list li {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid #3a5a7a;
+  }
+
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .then-now-next {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .penny-split {
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 3rem;
+  }
+
+  .impact-flow {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .impact-flow li {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 1.25rem 0.85rem;
+    border-bottom: 0;
+    border-right: 1px solid #2f4a66;
+    text-align: center;
+  }
+
+  .impact-flow li:last-child {
+    border-right: 0;
+  }
+
+  .impact-flow li:not(:last-child)::after {
+    content: "→";
+    right: 0.15rem;
+    top: 50%;
+    font-size: 0.75rem;
+  }
+
+  .impact-flow-step {
+    font-size: 0.95rem;
+  }
+
+  .resource-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (min-width: 1100px) {
+  .inspire-fact-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Narrow phones: stack buttons, prevent overflow */
+@media (max-width: 540px) {
+  .article-shell,
+  .article-body,
+  .feature-hero-inner,
+  .pull-quote {
+    width: min(100% - 2rem, var(--feature-shell));
+  }
+
+  .inspire-fact-list li {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .mission-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mission-cta-actions .button {
+    width: 100%;
+  }
+
+  .feature-labels span:not(:last-child)::after {
+    margin-left: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-article *,
+  .feature-article *::before,
+  .feature-article *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========== Cross-page Project INSPIRE callouts (other pages depend on these) ========== */
+
+.home-featured-story {
+  padding: clamp(3.5rem, 7vw, 5.5rem) max(1.25rem, calc((100vw - var(--max)) / 2));
+  background: var(--navy);
+  color: var(--white);
+}
+
+.home-featured-story-inner {
+  max-width: 760px;
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  border-left: 6px solid var(--red);
+}
+
+.home-featured-story .kicker {
+  color: var(--gold);
+}
+
+.home-featured-story h2 {
+  max-width: 16ch;
+  margin: 0.35rem 0 1rem;
+  color: var(--white);
+  font: 800 clamp(2rem, 4.5vw, 3.4rem) / 1.05 "Libre Franklin", sans-serif;
+  letter-spacing: -0.045em;
+}
+
+.home-featured-story p:not(.kicker) {
+  max-width: 42rem;
+  margin: 0 0 1.5rem;
+  color: #d7e0e9;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.dc-story-callout {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--red);
+}
+
+.dc-story-callout h3 {
+  margin: 0 0 0.75rem;
+  font: 800 clamp(1.35rem, 2.5vw, 1.85rem) / 1.15 "Libre Franklin", sans-serif;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.dc-story-callout p {
+  max-width: 48rem;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.story-feature-card {
+  margin: clamp(2rem, 4vw, 3rem) max(1.25rem, calc((100vw - var(--max)) / 2));
+  padding: clamp(1.5rem, 3vw, 2.15rem);
+  max-width: 760px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--gold);
+}
+
+.story-feature-card h3 {
+  margin: 0.35rem 0 0.75rem;
+  font: 800 clamp(1.35rem, 2.4vw, 1.75rem) / 1.15 "Libre Franklin", sans-serif;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.story-feature-card p:not(.kicker) {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.story-feature-card .plain-link {
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.story-feature-card .plain-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.resources-inspire-feature {
+  margin: 0;
+  padding: clamp(2.5rem, 5vw, 4rem) max(1.25rem, calc((100vw - var(--max)) / 2));
+  background: var(--navy);
+  color: var(--white);
+}
+
+.resources-inspire-feature .kicker {
+  color: var(--gold);
+}
+
+.resources-inspire-feature h2 {
+  max-width: 16ch;
+  margin: 0.35rem 0 1rem;
+  color: var(--white);
+  font: 800 clamp(2rem, 4vw, 3rem) / 1.05 "Libre Franklin", sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.resources-inspire-feature > p {
+  max-width: 46rem;
+  margin: 0 0 1.25rem;
+  color: #d7e0e9;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.resources-inspire-links {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  max-width: 900px;
+}
+
+.resources-inspire-links a {
+  display: block;
+  padding: 0.85rem 1rem;
+  border: 1px solid #3a5a7a;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.resources-inspire-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.resources-inspire-links a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (min-width: 700px) {
+  .resources-inspire-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .resources-inspire-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-featured-story *,
+  .dc-story-callout *,
+  .story-feature-card *,
+  .resources-inspire-feature * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========== Full Circle feature (scoped; do not alter Project INSPIRE bands) ========== */
+
+.feature-article--full-circle .opening-story .article-body > p:nth-child(-n+5) {
+  font-weight: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+
+.feature-article--full-circle .opening-story .article-body > p:first-child {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1.25rem;
+}
+
+.feature-article--full-circle .feature-hero h1 {
+  max-width: 16ch;
+}
+
+.parallel-paths .parallel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.parallel-card {
+  padding: 1.35rem 1.4rem;
+  border: 1px solid #3a5a7a;
+  background: rgba(7, 27, 51, 0.22);
+}
+
+.parallel-card h3 {
+  margin: 0 0 0.85rem;
+  font: 800 0.8rem "Libre Franklin", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.parallel-card p {
+  margin: 0 0 1rem;
+  color: #d7e0e9;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.parallel-card p:last-child {
+  margin-bottom: 0;
+}
+
+.convergence-section h2 {
+  max-width: 18ch;
+}
+
+.peak-band {
+  background: var(--cream);
+  border-block: 0;
+  border-top: 1px solid var(--line);
+}
+
+.research-cite {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.research-cite h2 {
+  max-width: 16ch;
+}
+
+.research-cite-card {
+  max-width: 48rem;
+  padding: clamp(1.5rem, 3vw, 2.15rem);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--gold);
+  background: var(--cream);
+}
+
+.research-cite-card p {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.research-cite-card p:last-child {
+  margin-bottom: 0;
+}
+
+.research-cite-title {
+  font-size: 1.1rem !important;
+}
+
+.research-cite-title a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.research-cite-meta {
+  color: var(--muted) !important;
+  font-size: 0.95rem !important;
+}
+
+@media (min-width: 800px) {
+  .parallel-paths .parallel-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .feature-article--full-circle .feature-hero h1 {
+    max-width: none;
+  }
+
+  .mission-cta-actions .button.outline-light {
+    width: 100%;
+  }
+}
+
+/* DC Mission Full Circle teaser (replaces on-page longform) */
+.dc-story-callout--depth {
+  border-left-color: var(--gold);
+}
+
+.dc-story-callout .kicker {
+  margin: 0 0 0.65rem;
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.dc-story-callout h2 {
+  margin: 0 0 0.85rem;
+  max-width: 18ch;
+  font: 800 clamp(1.6rem, 3vw, 2.35rem) / 1.1 "Libre Franklin", sans-serif;
+  letter-spacing: -0.035em;
+  color: var(--navy);
+}
+
+.dc-teaser-note {
+  max-width: 48rem;
+  margin: 0 0 1.35rem !important;
+  color: var(--muted) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.6;
+}
+
+.related-story-beat {
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+  max-width: 46rem;
+  color: #c5d2de;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.related-story-beat a {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+
+/* DC Mission: stories-first band + clearer pillars */
+.dc-stories-band {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.dc-stories-intro {
+  max-width: var(--max);
+  margin: 0 auto clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.dc-stories-intro h2 {
+  max-width: 18ch;
+  margin: 0.35rem 0 1rem;
+  font: 800 clamp(1.85rem, 3.5vw, 2.75rem) / 1.08 "Libre Franklin", sans-serif;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+}
+
+.dc-stories-stack {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.dc-stories-stack .dc-story-callout {
+  margin: 0;
+  max-width: none;
+}
+
+.dc-stories-stack .dc-story-callout--depth {
+  background: var(--navy);
+  color: var(--white);
+  border: 1px solid #284664;
+  border-left: 7px solid var(--gold);
+}
+
+.dc-stories-stack .dc-story-callout--depth .kicker {
+  color: var(--gold);
+}
+
+.dc-stories-stack .dc-story-callout--depth h2 {
+  color: var(--white);
+  max-width: 16ch;
+}
+
+.dc-stories-stack .dc-story-callout--depth p {
+  color: #d7e0e9;
+}
+
+.dc-pillars-lead {
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.priority-list--clear li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.priority-list--clear h3 {
+  margin: 0;
+}
+
+.priority-list--clear .pillar-plain,
+.priority-list--clear .pillar-ask {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.priority-list--clear .pillar-ask {
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+  color: var(--navy);
+}
+
+@media (max-width: 900px) {
+  .priority-list--clear {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,193 @@
+/* Consistent, accessible type and spacing scale */
+:root {
+  --red: #b52a1d;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+p,
+li,
+blockquote {
+  text-wrap: pretty;
+}
+
+.brand small,
+.site-header nav a,
+.hero-topline,
+.eyebrow,
+.kicker,
+.manifesto-label,
+.card-no,
+.agenda li span,
+.osep-quote cite,
+figcaption,
+footer p {
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.brand small,
+.hero-topline,
+.osep-quote cite,
+footer p {
+  color: #d6e0e9;
+}
+
+.advocates span {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.lead,
+.statement-copy p,
+.section-heading > div > p:last-child,
+.trip-intro p:last-child,
+.act p {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.act .light,
+.power-attribution {
+  color: var(--cream);
+}
+
+.hero-stage {
+  /* Top spacing is owned by hero-v2.css; do not override it here. */
+  padding-bottom: clamp(2.75rem, 5vw, 4rem);
+}
+
+.hero-photo {
+  height: clamp(290px, 38vw, 475px);
+  margin-bottom: 2rem;
+}
+
+.statement,
+.voices {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.work,
+.trip,
+.act {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.section-heading {
+  margin-bottom: 2.25rem;
+}
+
+.work article {
+  min-height: 225px;
+  padding: 1.75rem;
+}
+
+.work h3 {
+  margin-top: 1.75rem;
+}
+
+.trip-details {
+  margin-top: 2.75rem;
+}
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: .6rem;
+}
+
+.date-block p {
+  margin: 0;
+}
+
+.date-block p:first-child {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.date-block p:last-child {
+  max-width: 12ch;
+  font: 800 clamp(2rem, 4vw, 3.75rem)/1.08 "Libre Franklin", sans-serif;
+  letter-spacing: -.04em;
+}
+
+.mission-photo,
+.cane-illustration {
+  margin-top: 1rem;
+}
+
+.braille-photo {
+  height: 250px;
+}
+
+.osep-quote {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+footer {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+@media (max-width: 850px) {
+  .hero-manifesto {
+    min-height: 290px;
+  }
+}
+
+@media (max-width: 540px) {
+  .site-header {
+    min-height: 70px;
+  }
+
+  .hero-stage {
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-photo {
+    height: 330px;
+    margin-bottom: 1.5rem;
+  }
+
+  .statement,
+  .voices,
+  .work,
+  .trip,
+  .act {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .work article {
+    min-height: 0;
+  }
+
+  .trip-details {
+    margin-top: 2rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .brand-mark,
+  .nav-cta,
+  .button,
+  .hero-manifesto,
+  .work article,
+  .date-block,
+  .statement-copy,
+  .voices blockquote {
+    border: 2px solid CanvasText;
+  }
+}

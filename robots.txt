@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Allow live AI search & user retrieval
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Restrict non-search bulk training scrapers
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://advocatedadco.org/sitemap.xml

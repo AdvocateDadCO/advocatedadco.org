@@ -1,0 +1,103 @@
+.policy-lede {
+  max-width: 860px;
+  font-size: 1.2rem;
+  line-height: 1.75;
+}
+.policy-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1.25rem;
+  margin: 1.5rem 0 0;
+  color: #d6e1eb;
+  font-size: .95rem;
+}
+.policy-alert,
+.parent-takeaway,
+.action-panel {
+  margin-top: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-left: 7px solid var(--red);
+  background: var(--white);
+  color: var(--ink);
+}
+.policy-alert h3,
+.parent-takeaway h3,
+.action-panel h3 { margin-top: 0; }
+.policy-alert strong { color: var(--red); }
+.parent-takeaway { border-left-color: var(--gold); background: var(--cream); }
+.action-panel { border-left-color: var(--gold); }
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2.5rem;
+  padding: 1px;
+  background: var(--line);
+}
+.policy-card {
+  padding: clamp(1.4rem, 3vw, 2rem);
+  background: var(--white);
+}
+.policy-card h3 { margin-top: 0; }
+.policy-card p:last-child { margin-bottom: 0; }
+.policy-status {
+  display: inline-block;
+  margin-bottom: .75rem;
+  padding: .25rem .55rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.parent-questions li,
+.action-list li,
+.source-list li { margin-bottom: .8rem; }
+.iep-language {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  border-left: 6px solid var(--gold);
+}
+.iep-language p { margin: 0; font-size: 1.08rem; line-height: 1.75; }
+.source-list a,
+.policy-link {
+  font-weight: 800;
+  text-underline-offset: .25rem;
+}
+.source-note {
+  max-width: 860px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.policy-disclaimer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .9rem;
+}
+@media (max-width: 850px) {
+  .policy-grid { grid-template-columns: 1fr; }
+}
+@media (forced-colors: active) {
+  .policy-alert,
+  .parent-takeaway,
+  .action-panel,
+  .policy-card,
+  .iep-language { border: 2px solid CanvasText; }
+}
+
+/* Publication QA: contrast and keyboard focus */
+.page-section .kicker { color: #8f2118; }
+.page-section.gold .kicker { color: var(--navy); }
+.page-section a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.page-section.navy a:focus-visible,
+.iep-language a:focus-visible {
+  outline-color: var(--gold);
+}

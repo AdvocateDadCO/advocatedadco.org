@@ -1,0 +1,329 @@
+/* AdvocateDadCO site search — branded Pagefind UI (no Tailwind) */
+
+.visually-hidden,
+.search-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header .search-open-btn {
+  margin-left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.55rem 0.85rem;
+  border: 2px solid #70859b;
+  background: transparent;
+  color: var(--white);
+  font: 700 0.95rem "DM Sans", sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.site-header .search-open-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.site-header .search-open-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.site-header .search-open-btn .search-open-icon {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+
+.site-header .search-open-btn .search-open-label {
+  display: none;
+}
+
+@media (min-width: 540px) {
+  .site-header .search-open-btn .search-open-label {
+    display: inline;
+  }
+}
+
+/* Dialog overlay */
+.search-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(1rem, 8vh) 1rem 2rem;
+  background: rgba(7, 27, 51, 0.72);
+  overflow-y: auto;
+}
+
+.search-dialog-backdrop[hidden] {
+  display: none !important;
+}
+
+.search-dialog {
+  width: min(100%, 40rem);
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--line);
+  background: var(--cream);
+  color: var(--ink);
+  box-shadow: 0 16px 48px rgba(7, 27, 51, 0.35);
+}
+
+.search-dialog:focus {
+  outline: none;
+}
+
+.search-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.search-dialog-header h2 {
+  margin: 0;
+  font: 800 1.25rem/1.2 "Libre Franklin", sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+
+.search-dialog-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.4rem 0.75rem;
+  border: 2px solid #70859b;
+  background: transparent;
+  color: var(--white);
+  font: 700 0.9rem "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+.search-dialog-close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.search-dialog-close:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.search-dialog-body {
+  padding: 1.25rem;
+}
+
+.search-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.search-form label {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.search-input-wrap {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1 1 12rem;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font: 500 1.05rem/1.4 "DM Sans", sans-serif;
+}
+
+.search-input:focus {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  border-color: var(--navy);
+}
+
+.search-submit {
+  min-height: 48px;
+  padding: 0.75rem 1.1rem;
+  border: 2px solid transparent;
+  background: var(--red);
+  color: var(--white);
+  font: 700 1rem "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+.search-submit:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.search-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.search-hint kbd {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--white);
+  font: 600 0.8rem "DM Sans", sans-serif;
+  color: var(--navy);
+}
+
+.search-status {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+
+.search-results {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-results li {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.search-results a {
+  display: block;
+  padding: 1rem 0.15rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-results a:hover .search-result-title {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.search-results a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.search-result-title {
+  display: block;
+  margin: 0 0 0.35rem;
+  font: 800 1.1rem/1.3 "Libre Franklin", sans-serif;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.search-result-excerpt {
+  display: block;
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.search-result-excerpt mark {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0 0.15em;
+}
+
+.search-result-url {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+/* Dedicated search page */
+.search-page {
+  background: var(--cream);
+}
+
+.search-page .page-hero {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.search-page .page-hero .kicker {
+  color: var(--gold);
+}
+
+.search-page-panel {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) 1.25rem clamp(4rem, 8vw, 6rem);
+}
+
+.search-page-panel .search-form {
+  margin-bottom: 0.5rem;
+}
+
+.search-page-panel .search-input {
+  border-color: var(--navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-dialog-backdrop,
+  .search-dialog,
+  .search-results a,
+  .site-header .search-open-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  .site-header .search-open-btn {
+    margin-left: auto;
+  }
+}
+
+
+.header-tools .search-open-btn {
+  margin-left: 0;
+}
+
+@media (max-width: 1100px) {
+  .header-tools {
+    margin-left: auto;
+  }
+}
+
+
+/* ensure search visible desktop */
+.header-tools {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.site-header .search-open-btn {
+  display: inline-flex !important;
+}

@@ -1,0 +1,133 @@
+figure { margin: 0; }
+
+figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+figcaption {
+  font-size: .83rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.hero-photo {
+  position: relative;
+  max-width: var(--max);
+  height: clamp(300px, 47vw, 590px);
+  margin: 0 auto 3rem;
+  overflow: hidden;
+  border-left: 8px solid var(--red);
+}
+
+.hero-photo img { object-position: center 42%; }
+
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgba(7, 27, 51, .88));
+  pointer-events: none;
+}
+
+.hero-photo figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1.5rem;
+  bottom: 1.25rem;
+  max-width: 420px;
+  padding: .7rem .9rem;
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.mission-photo {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .45fr);
+  margin-top: 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.mission-photo img {
+  max-height: 520px;
+  object-position: center 36%;
+}
+
+.mission-photo figcaption {
+  align-self: end;
+  padding: 2rem;
+  color: var(--gold);
+  font-family: "Libre Franklin", sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+}
+
+.work .section-heading {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: end;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.braille-photo {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 7px solid var(--red);
+}
+
+.braille-photo img { filter: contrast(1.08); }
+
+.braille-photo figcaption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: .55rem .75rem;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.voices { align-items: center; }
+
+.cane-illustration {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(180px, .4fr) 1fr;
+  align-items: center;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+
+.cane-illustration img {
+  max-height: 310px;
+  object-fit: contain;
+}
+
+.cane-illustration figcaption {
+  padding: 2rem;
+  color: var(--blue);
+  font-family: "Libre Franklin", sans-serif;
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+}
+
+@media (max-width: 850px) {
+  .hero-photo { margin-inline: 1.25rem; }
+  .mission-photo { grid-column: 2; grid-template-columns: 1fr; }
+  .mission-photo figcaption { padding: 1.25rem; }
+  .work .section-heading { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+  .hero-photo { height: 360px; margin-bottom: 2rem; }
+  .hero-photo img { object-position: 70% center; }
+  .hero-photo figcaption { right: .75rem; bottom: .75rem; left: .75rem; }
+  .mission-photo { grid-column: 1; }
+  .braille-photo { height: 230px; }
+  .cane-illustration { grid-template-columns: 1fr; }
+  .cane-illustration img { max-height: 260px; }
+}

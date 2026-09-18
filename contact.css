@@ -1,0 +1,50 @@
+.contact {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: clamp(3.5rem, 6vw, 5.5rem) max(1.25rem, calc((100vw - var(--max))/2));
+  background: var(--cream);
+  color: var(--navy);
+  border-top: 8px solid var(--gold);
+}
+
+.contact h2 { max-width: 680px; }
+
+.contact-copy {
+  align-self: center;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--red);
+}
+
+.contact-copy > p:first-child {
+  max-width: 520px;
+  margin-top: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.contact-button {
+  margin: .75rem 0 1rem;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.contact-address { margin: .25rem 0 0; font-size: 1rem; }
+.contact-address span { font-weight: 700; }
+.contact-address a,.footer-email { font-weight: 700; text-underline-offset: .25rem; }
+.contact a:focus-visible,.footer-email:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+.footer-email { color: var(--white); }
+
+@media (max-width: 850px) {
+  .contact { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+@media (max-width: 540px) {
+  .contact-copy { padding-left: 1rem; }
+  .contact-button { width: 100%; }
+  .contact-address a { overflow-wrap: anywhere; }
+}
+
+@media (forced-colors: active) {
+  .contact,.contact-copy,.contact-button { border: 2px solid CanvasText; }
+}
