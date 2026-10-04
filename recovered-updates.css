@@ -1,0 +1,80 @@
+/* Recovered content styling; production navigation and layout remain authoritative. */
+.story-opening-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(220px, .7fr);
+  align-items: start;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.story-portrait {
+  margin: 0;
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--white);
+  border-bottom: 8px solid var(--red);
+}
+
+.story-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.story-portrait figcaption {
+  padding: 1rem 1.1rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+
+.press-photo-grid {
+  grid-template-columns: minmax(0, 20rem);
+  max-width: 20rem;
+}
+
+.press-photo-preview {
+  display: block;
+  overflow: hidden;
+  margin: calc(clamp(1.4rem, 3vw, 2rem) * -1) calc(clamp(1.4rem, 3vw, 2rem) * -1) 1.5rem;
+  background: var(--navy);
+}
+
+.press-photo-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform .2s ease;
+}
+
+.press-photo-preview:hover img {
+  transform: scale(1.025);
+}
+
+.press-photo-preview:focus-visible {
+  outline: 4px solid var(--red);
+  outline-offset: 4px;
+}
+
+.press-additional-title {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+
+.contact-secondary{font-size:1rem}
+.family-guide-grid{align-items:stretch}
+.resource-intro{max-width:850px}
+.resource-label{margin:0 0 .85rem;color:var(--red)!important;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.next-step-band{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,6vw,6rem);padding:clamp(3.5rem,7vw,6rem) max(1.25rem,calc((100vw - var(--max))/2));background:var(--blue);color:var(--white)}
+.next-step-band h2{margin-bottom:0}
+.next-step-band p{max-width:600px;font-size:1.125rem}
+@media(max-width:850px){.next-step-band{grid-template-columns:1fr}}
+@media(forced-colors:active){.next-step-band{border:2px solid CanvasText}}
+@media(max-width:850px){.story-opening-body{grid-template-columns:1fr}.story-portrait{max-width:26rem}.press-photo-grid{grid-template-columns:minmax(0,20rem)}}
+@media(prefers-reduced-motion:reduce){.press-photo-preview img{transition:none}.press-photo-preview:hover img{transform:none}}
+@media(forced-colors:active){.story-portrait,.press-photo-preview{border:2px solid CanvasText}}

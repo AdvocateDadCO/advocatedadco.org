@@ -10,16 +10,10 @@
 .newsletter-form{min-width:0;padding:clamp(1.25rem,3vw,2.5rem);background:var(--navy);color:var(--cream);border-top:5px solid var(--gold)}
 .newsletter-form h3{margin:0 0 .5rem;font:800 clamp(1.6rem,2.6vw,2.1rem)/1.2 "Libre Franklin",sans-serif;letter-spacing:-.025em}
 .newsletter-form>p:first-of-type{margin:0 0 1.75rem;color:#d6e0e9}
-.newsletter-label{display:block;margin:1.1rem 0 .4rem;font-weight:700}
-.newsletter-label span{font-weight:400;font-size:.9375rem;color:#d6e0e9}
-.newsletter-form>input:not([type=hidden]){width:100%;min-width:0;min-height:48px;border:2px solid #a7b5c4;border-radius:0;padding:.7rem .8rem;background:#fff;color:var(--navy);font:inherit}
-.newsletter-consent{display:flex;align-items:flex-start;gap:.7rem;margin:1.4rem 0;font-size:1rem;line-height:1.5;cursor:pointer}
-.newsletter-consent input{flex:0 0 auto;width:1.3rem;height:1.3rem;margin:.15rem 0 0;accent-color:var(--gold)}
-.newsletter-submit{width:100%;background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:800}
-.newsletter-submit:hover{background:var(--cream);border-color:var(--cream)}
+.newsletter-embed{display:block;width:100%;max-width:480px;height:320px;margin:0 auto;background:#fff;border:2px solid #a7b5c4}
 .newsletter-note{margin:1.25rem 0 0;color:#d6e0e9;font-size:.9375rem;line-height:1.6;overflow-wrap:anywhere}
 .newsletter-note a{text-decoration:underline;text-underline-offset:.2em}
 .newsletter-form :focus-visible{outline:3px solid var(--gold);outline-offset:4px}
-.newsletter-trap{display:none}
 @media(max-width:850px){.newsletter-inner{grid-template-columns:1fr}.newsletter-intro{max-width:none}}
-@media(forced-colors:active){.newsletter-form,.newsletter-submit{border:2px solid CanvasText}}
+@media(max-width:540px){.newsletter-form{padding:1.25rem .75rem}.newsletter-embed{height:340px}}
+@media(forced-colors:active){.newsletter-form,.newsletter-embed{border:2px solid CanvasText}}
