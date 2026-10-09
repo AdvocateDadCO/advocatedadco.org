@@ -105,15 +105,21 @@ async function preflight() {
   ]), 'Production difference exceeds the approved two-change gate.');
   const before = await html(live.url);
   const after = fs.readFileSync(path.join(process.env.RELEASE_SITE, 'policy-action.html'), 'utf8').replace(/\r\n/g, '\n');
-  const description = /<meta\s+name=["']description["']\s+content=["'][^>]*>/gi;
+  const description = /^[ \t]*<meta\b[^\r\n]*\bname=["']description["'][^\r\n]*>[ \t]*$/gmi;
   check((before.match(description) || []).length === 1 && (after.match(description) || []).length === 1, 'Expected one meta-description in each policy page.');
   check(before.replace(description, '') === after.replace(description, ''), 'Policy page change includes more than its meta-description.');
   save('baseline.json', { id: live.id, url: live.url, files: live.files });
   save('proposed-manifest.json', proposed);
   save('two-change-gate.json', { passed: true, rollback: live.id, site_files: 188, changes: delta, policy_change: 'meta-description only' });
   console.log('Two-change gate passed against authenticated production manifest.');
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+    '\n### Two-change gate passed\n\n- Production baseline and rollback: ' + live.id +
+    '\n- Verified source: ' + expected.source_commit +
+    '\n- Proposed site files: 188\n- Policy meta-description update and retired stylesheet removal only.\n');
 }
 async function beforeProduction() {
+  const preview = read('preview-receipt.json');
+  check(preview.manifest_verified && preview.policy_page_verified && preview.commit === read('source.json').commit, 'Verified preview receipt is required.');
   check((await production()).id === read('baseline.json').id, 'Production changed after preview; stop.');
   check(differences(read('proposed-manifest.json'), localManifest()).length === 0, 'Staged files changed after preview.');
   console.log('Production baseline and staged files remain unchanged.');
@@ -121,7 +127,7 @@ async function beforeProduction() {
 async function verify(mode) {
   const source = read('source.json'), baseline = read('baseline.json');
   const branch = mode === 'preview' ? 'step3-check-' + process.env.GITHUB_RUN_ID + '-' + process.env.GITHUB_RUN_ATTEMPT : 'main';
-  const deployments = await api('/deployments?env=' + (mode === 'preview' ? 'preview' : 'production') + '&per_page=100');
+  const deployments = await api('/deployments?env=' + (mode === 'preview' ? 'preview' : 'production'));
   const candidate = deployments.find(d => d.deployment_trigger?.metadata?.branch === branch && d.deployment_trigger?.metadata?.commit_hash === source.commit);
   check(candidate, 'Could not identify deployment for this exact commit and branch.');
   let deployment;
@@ -159,3 +165,4 @@ if (require.main === module) {
     throw new Error('Unknown release command.');
   }).catch(error => { console.error(error.message); process.exitCode = 1; });
 }
+
