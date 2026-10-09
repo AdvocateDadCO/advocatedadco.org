@@ -24,11 +24,12 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.repository == 'AdvocateDadCO/advocatedadco.org'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    env:
-      RELEASE_SITE: ${{ runner.temp }}/advocatedadco-site
-      RELEASE_TOOLS: ${{ runner.temp }}/advocatedadco-tools
-      RELEASE_EVIDENCE: ${{ runner.temp }}/advocatedadco-evidence
     steps:
+      - name: Set release paths
+        run: |
+          echo "RELEASE_SITE=$RUNNER_TEMP/advocatedadco-site" >> "$GITHUB_ENV"
+          echo "RELEASE_TOOLS=$RUNNER_TEMP/advocatedadco-tools" >> "$GITHUB_ENV"
+          echo "RELEASE_EVIDENCE=$RUNNER_TEMP/advocatedadco-evidence" >> "$GITHUB_ENV"
       - name: Check out the requested main commit
         uses: actions/checkout@v4
         with:
