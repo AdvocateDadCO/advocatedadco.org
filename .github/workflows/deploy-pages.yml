@@ -1,19 +1,22 @@
-name: Cloudflare Pages — manual release
+name: Cloudflare Pages — reviewed manual release
 
 on:
   workflow_dispatch:
     inputs:
       operation:
-        description: Verify the two-change gate, or deploy after it passes
+        description: Verify only, or deploy the reviewed plan
         required: true
         default: verify-only
         type: choice
-        options:
-          - verify-only
-          - deploy
+        options: [verify-only, deploy]
+      reviewed_plan_sha256:
+        description: Exact review digest from a successful verify-only run (required for deploy)
+        required: false
+        type: string
 
 permissions:
   contents: read
+  deployments: write
 
 concurrency:
   group: advocatedadco-pages-production
@@ -23,69 +26,109 @@ jobs:
   release:
     if: github.ref == 'refs/heads/main' && github.repository == 'AdvocateDadCO/advocatedadco.org'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
-      - name: Set release paths
+      - name: Set paths outside the upload
         run: |
           echo "RELEASE_SITE=$RUNNER_TEMP/advocatedadco-site" >> "$GITHUB_ENV"
           echo "RELEASE_TOOLS=$RUNNER_TEMP/advocatedadco-tools" >> "$GITHUB_ENV"
           echo "RELEASE_EVIDENCE=$RUNNER_TEMP/advocatedadco-evidence" >> "$GITHUB_ENV"
-      - name: Check out the requested main commit
-        uses: actions/checkout@v4
+      - name: Check out main with its recorded history
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
+          fetch-depth: 0
           persist-credentials: false
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '22'
-      - name: Stage only the reviewed site files
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - name: Install pinned verification tools outside the upload
+        run: |
+          npm install --prefix "$RELEASE_TOOLS" --no-save --package-lock=false wrangler@3.114.17 blake3-wasm@2.1.5 playwright@1.62.1 pagefind@1.5.2
+          python -m pip install pypdf==6.10.0
+      - name: Verify the release guard behavior
+        run: |
+          node .github/deploy/release-tests.cjs
+          node .github/deploy/update-public-files-tests.cjs
+          python .github/deploy/site-checks-tests.py
+      - name: Stage the approved public files
         run: node .github/deploy/pages-release.cjs prepare
-      - name: Install the known Pages uploader outside the site
-        run: npm install --prefix "$RELEASE_TOOLS" --no-save --package-lock=false wrangler@3.114.17 blake3-wasm@2.1.5
-      - name: Enforce the two-change production gate
+      - name: Check production provenance and list the exact change plan
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: node .github/deploy/pages-release.cjs preflight
-      - name: Deploy an isolated preview
+      - name: Check public content, internal links, media, and search coverage
+        run: python .github/deploy/site-checks.py --site "$RELEASE_SITE" --config .github/deploy/release-policy.json --report "$RELEASE_EVIDENCE/site-checks.json"
+      - name: Verify that committed search data matches the staged content
+        run: node .github/deploy/search-checks.cjs
+      - name: Require the reviewed plan before any upload
+        if: inputs.operation == 'deploy'
+        env:
+          REVIEWED_PLAN_SHA256: ${{ inputs.reviewed_plan_sha256 }}
+        run: node .github/deploy/pages-release.cjs require-review
+      - name: Install the preview test browser
+        if: inputs.operation == 'deploy'
+        run: '"$RELEASE_TOOLS/node_modules/.bin/playwright" install --with-deps chromium'
+      - name: Deploy the reviewed files to an isolated preview
         if: inputs.operation == 'deploy'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           WRANGLER_SEND_METRICS: 'false'
         run: |
-          "$RELEASE_TOOLS/node_modules/.bin/wrangler" pages deploy "$RELEASE_SITE" --project-name advocatedadco --branch "step3-check-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" --commit-hash "$GITHUB_SHA" --commit-dirty=false --commit-message "Verify the reviewed Step 3 release"
-      - name: Verify the preview manifest and policy page
+          "$RELEASE_TOOLS/node_modules/.bin/wrangler" pages deploy "$RELEASE_SITE" --project-name advocatedadco --branch "release-check-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" --commit-hash "$GITHUB_SHA" --commit-dirty=false --commit-message "AdvocateDadCO GitHub Actions ${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}"
+      - name: Verify the preview manifest
         if: inputs.operation == 'deploy'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: node .github/deploy/pages-release.cjs verify-preview
-      - name: Recheck production immediately before publication
+      - name: Test preview key pages and keyboard search
+        if: inputs.operation == 'deploy'
+        run: node .github/deploy/browser-checks.cjs preview
+      - name: Recheck main, production, preview tests, and staging
         if: inputs.operation == 'deploy'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          REVIEWED_PLAN_SHA256: ${{ inputs.reviewed_plan_sha256 }}
         run: node .github/deploy/pages-release.cjs before-production
-      - name: Deploy the verified files to production
+      - name: Publish the exact verified upload
         if: inputs.operation == 'deploy'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           WRANGLER_SEND_METRICS: 'false'
         run: |
-          "$RELEASE_TOOLS/node_modules/.bin/wrangler" pages deploy "$RELEASE_SITE" --project-name advocatedadco --branch main --commit-hash "$GITHUB_SHA" --commit-dirty=false --commit-message "Step 3: policy meta-description and retired stylesheet"
+          "$RELEASE_TOOLS/node_modules/.bin/wrangler" pages deploy "$RELEASE_SITE" --project-name advocatedadco --branch main --commit-hash "$GITHUB_SHA" --commit-dirty=false --commit-message "AdvocateDadCO GitHub Actions ${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}"
       - name: Verify production and record the rollback
         if: inputs.operation == 'deploy'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: node .github/deploy/pages-release.cjs verify-production
-      - name: Preserve release evidence
+      - name: Test production key pages and keyboard search
+        if: inputs.operation == 'deploy'
+        run: node .github/deploy/browser-checks.cjs production
+      - name: Record verified production in GitHub deployment history
+        if: inputs.operation == 'deploy'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .github/deploy/pages-release.cjs record-production
+      - name: Preserve public release evidence and rollback
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: pages-release-evidence-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ env.RELEASE_EVIDENCE }}
           if-no-files-found: ignore
-          retention-days: 30
+          retention-days: 90
