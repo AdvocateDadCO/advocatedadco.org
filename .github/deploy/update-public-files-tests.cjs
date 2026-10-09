@@ -1,0 +1,32 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { spawnSync, execFileSync } = require('node:child_process');
+const root = fs.mkdtempSync(path.join(os.tmpdir(), 'public-fingerprint-test-'));
+try {
+  const control = path.join(root, '.github', 'deploy');
+  fs.mkdirSync(control, { recursive: true });
+  for (const name of ['update-public-files.cjs', 'pages-release.cjs']) fs.copyFileSync(path.join(__dirname, name), path.join(control, name));
+  const policy = path.join(control, 'release-policy.json');
+  fs.writeFileSync(policy, JSON.stringify({ approved_public_files: {} }));
+  execFileSync('git', ['init', '--quiet'], { cwd: root });
+  fs.writeFileSync(path.join(root, 'index.html'), 'Public first version');
+  fs.writeFileSync(path.join(root, 'untracked.txt'), 'Synthetic untracked fixture');
+  execFileSync('git', ['add', 'index.html'], { cwd: root });
+  const run = (...args) => spawnSync(process.execPath, [path.join(control, 'update-public-files.cjs'), ...args], { cwd: root, encoding: 'utf8' });
+  assert.equal(run().status, 1);
+  assert.deepEqual(JSON.parse(fs.readFileSync(policy)).approved_public_files, {});
+  assert.equal(run('--approve-additions').status, 0);
+  assert.deepEqual(Object.keys(JSON.parse(fs.readFileSync(policy)).approved_public_files), ['index.html']);
+  assert.equal(run('--check').status, 0);
+  fs.writeFileSync(path.join(root, 'index.html'), 'Public second version');
+  execFileSync('git', ['add', 'index.html'], { cwd: root });
+  assert.equal(run('--check').status, 1);
+  assert.equal(run().status, 0);
+  assert.equal(run('--check').status, 0);
+  execFileSync('git', ['rm', '--quiet', '--cached', 'index.html'], { cwd: root });
+  assert.equal(run().status, 0);
+  assert.deepEqual(JSON.parse(fs.readFileSync(policy)).approved_public_files, {});
+  console.log('Fingerprint automation tests passed: additions require review, tracked edits/removals update, untracked files ignored.');
+} finally { fs.rmSync(root, { recursive: true, force: true }); }
