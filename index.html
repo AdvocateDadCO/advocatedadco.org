@@ -88,6 +88,16 @@
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="recovered-updates.css">
   <link rel="stylesheet" href="rob-story.css">
+  <style id="white-cane-day-styles">
+    #white-cane-day[hidden] { display: none !important; }
+    #white-cane-day { background: #071b33; color: #fff; border-block: 5px solid #efb84c; padding: 1.5rem max(1.25rem, calc((100% - 1200px) / 2)); }
+    #white-cane-day h2 { color: #fff; font-size: clamp(1.5rem, 4vw, 2.25rem); line-height: 1.2; margin: 0 0 .65rem; }
+    #white-cane-day p { color: #fff; max-width: 72ch; margin: .65rem 0; line-height: 1.6; }
+    #white-cane-day .white-cane-day-date { color: #ffd982; font-weight: 700; }
+    #white-cane-day ul { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; list-style: none; padding: 0; margin: 1rem 0 0; }
+    #white-cane-day a { color: #fff; display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; font-weight: 700; }
+    #white-cane-day a:focus-visible { outline: 3px solid #ffd982; outline-offset: 5px; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="index.html#main">Skip to main content</a>
@@ -112,6 +122,32 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
     </div>
   </header>
+
+  <section id="white-cane-day" aria-labelledby="white-cane-day-title" data-pagefind-ignore hidden>
+    <p class="white-cane-day-date">October 15 · White Cane Day</p>
+    <h2 id="white-cane-day-title">Happy White Cane Day!</h2>
+    <p>Celebrating blind and low vision people, the freedom to explore, and the right to move through the world on your own terms. Access Is Not Extra.</p>
+    <p>Orientation and mobility (O&amp;M) instruction helps people build travel skills and confidence. Explore resources for yourself, your family, or your students.</p>
+    <ul aria-label="Orientation and mobility resources">
+      <li><a href="https://aphconnectcenter.org/visionaware/getting-around/">Explore O&amp;M resources from APH</a></li>
+      <li><a href="https://ed.cde.state.co.us/cdesped/rs-main/orientation-and-mobility-om-services">Colorado O&amp;M services and guidance</a></li>
+    </ul>
+  </section>
+  <script>
+    (() => {
+      const banner = document.getElementById('white-cane-day');
+      const starts = Date.parse('2026-10-15T00:00:00-06:00');
+      const ends = Date.parse('2026-11-01T00:00:00-06:00');
+      const update = () => {
+        const now = Date.now();
+        banner.hidden = now < starts || now >= ends;
+      };
+      update();
+      // Recheck open tabs as well as new visits; Colorado is on MDT throughout this window.
+      window.setInterval(update, 30000);
+      document.addEventListener('visibilitychange', update);
+    })();
+  </script>
 
   <main id="main" data-pagefind-body>
     <section class="hero" id="top" aria-labelledby="hero-title">
