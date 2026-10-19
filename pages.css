@@ -505,3 +505,29 @@
     border: 2px solid CanvasText;
   }
 }
+
+/* Our Work: White Cane Day community awareness. Preserve full photo compositions. */
+.white-cane-story { max-width: 76ch; }
+.white-cane-gallery { margin-top: 2.5rem; }
+.white-cane-gallery figure { margin: 0; }
+.white-cane-gallery img { display: block; width: 100%; height: auto; }
+.white-cane-gallery figcaption { padding: .85rem 1rem; color: var(--navy); background: var(--cream); font-size: 1rem; line-height: 1.6; }
+.white-cane-group-photo { border-bottom: 4px solid var(--gold); }
+.white-cane-photo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.white-cane-resources { margin-top: 2rem; }
+.white-cane-resources li { margin-bottom: .85rem; }
+#awareness { scroll-margin-top: 6rem; }
+@media (max-width: 640px) {
+  .white-cane-photo-pair { grid-template-columns: minmax(0, 1fr); }
+}
+
+.white-cane-origin { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.white-cane-origin-photo { margin: 0; }
+.white-cane-origin-photo img { display: block; width: 100%; height: auto; }
+.white-cane-origin-photo figcaption { padding: .85rem 1rem; background: var(--cream); color: var(--navy); font-size: 1rem; line-height: 1.6; }
+@media (max-width: 850px) {
+  .white-cane-origin { grid-template-columns: minmax(0, 1fr); }
+}
+
+.white-cane-history { max-width: 80ch; margin: 2rem 0; padding: 1.25rem 1.5rem; border-left: 5px solid var(--gold); background: var(--cream); }
+.white-cane-history h3 { margin-top: 0; }
