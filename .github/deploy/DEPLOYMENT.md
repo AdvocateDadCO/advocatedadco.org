@@ -23,6 +23,26 @@ This workflow uses the existing `advocatedadco` Direct Upload project. It does n
 
 The first successful manual deploy under this workflow is required before considering deploy-on-merge. Enabling that trigger is a separate reviewed change; this PR does not enable it.
 
+## Rebuilding search after a content edit
+
+`build-search.cjs` builds the search index through Pagefind's Node API. It adds the approved, indexable pages in sorted order, so the same HTML gives byte-identical search files on any disk or runner. The Pagefind command-line tool numbers pages in directory order, so its output differs between machines. Do not use it for the committed index.
+
+After any content edit, rebuild search, commit the `pagefind/` output, and update the fingerprints in `release-policy.json`. `search-checks.cjs` rebuilds the index in the workflow and requires an exact match with the committed files, so a stale or hand-edited index stops the release.
+
+```sh
+# Pagefind 1.5.2, installed outside the repo
+npm install --prefix "$TOOLS" --no-save --package-lock=false pagefind@1.5.2
+# Commit the content edit first; prepare stages the files of the current commit
+RELEASE_SITE="$SITE" RELEASE_EVIDENCE="$EVIDENCE" node .github/deploy/pages-release.cjs prepare
+node .github/deploy/build-search.cjs "$SITE" "$OUTPUT" "$TOOLS" .github/deploy/release-policy.json
+# Replace the changed generated files under pagefind/ with the matching files from $OUTPUT, then stage them
+git add pagefind
+node .github/deploy/update-public-files.cjs   # add --approve-additions for the new generated index files
+git add .github/deploy/release-policy.json
+```
+
+`SITE`, `OUTPUT`, `TOOLS`, and `EVIDENCE` are scratch folders outside the repository. `SITE` must not exist yet.
+
 ## Current site findings
 
 The proposed checks intentionally block the current public tree:
