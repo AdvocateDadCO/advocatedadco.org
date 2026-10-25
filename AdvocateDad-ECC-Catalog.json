@@ -1,5 +1,119 @@
 [
   {
+    "title": "Project INSPIRE NextGen",
+    "url": "https://www.pathstoliteracy.org/resource/project-inspire/",
+    "description": "Start here for braille STEM learning, Nemeth mathematics, professional development, and student programs from Project INSPIRE.",
+    "type": "Learning hub",
+    "audience": "Families, educators, braille transcribers, and students",
+    "notes": "The provider links to self-paced courses and student programs. Check individual program dates and participation requirements.",
+    "provider": "Paths to Literacy",
+    "categories": [
+      "Compensatory access"
+    ],
+    "collections": [
+      "Project INSPIRE"
+    ],
+    "review": "Provider page checked",
+    "in_playlist": "Not applicable",
+    "featured": true,
+    "checked": "2026-10-25"
+  },
+  {
+    "title": "Nemeth in a Box for Middle School Students",
+    "url": "https://www.pathstoliteracy.org/nemeth-box-middle-school-students/",
+    "description": "Seven lessons combine Nemeth Code practice with middle-school mathematics, including fractions, decimals, coordinate pairs, exponents, and review games.",
+    "type": "Guide",
+    "audience": "Middle-school braille readers, families, and educators",
+    "notes": "Includes lesson links and supporting materials. Materials use Nemeth Code within UEB contexts; check current code guidance when using older lessons.",
+    "provider": "Paths to Literacy",
+    "categories": [
+      "Compensatory access"
+    ],
+    "collections": [
+      "Project INSPIRE"
+    ],
+    "review": "Provider page checked",
+    "in_playlist": "Not applicable",
+    "featured": true,
+    "checked": "2026-10-25"
+  },
+  {
+    "title": "Graphing in a Box for 5th–8th Grade Students",
+    "url": "https://www.pathstoliteracy.org/resource/graphing-in-a-box-for-5th-8th-grade-students/",
+    "description": "Project INSPIRE NextGen program for braille readers to practice number lines, plots, coordinate planes, and tactile graphing.",
+    "type": "Learning hub",
+    "audience": "Braille readers in grades 5–8 and their families and educators",
+    "notes": "This is a scheduled program announcement, not an on-demand lesson collection. The fall 2026 series began October 17; ask the provider about availability and future sessions.",
+    "provider": "Paths to Literacy",
+    "categories": [
+      "Compensatory access"
+    ],
+    "collections": [
+      "Project INSPIRE"
+    ],
+    "review": "Provider page checked",
+    "in_playlist": "Not applicable",
+    "featured": true,
+    "checked": "2026-10-25"
+  },
+  {
+    "title": "Project INSPIRE: Professional Development",
+    "url": "https://www.pathstoliteracy.org/resource/project-inspire-professional-development/",
+    "description": "Seven courses on braille mathematics, Nemeth Code, UEB Math/Science, tactile graphics, and teaching strategies across pre-K–12.",
+    "type": "Learning hub",
+    "audience": "Teachers, paraprofessionals, braille transcribers, and other education professionals",
+    "notes": "The provider notes that course materials predate the 2022 Nemeth revisions and links to updated guidance. Review those changes before using older examples.",
+    "provider": "Paths to Literacy",
+    "categories": [
+      "Compensatory access"
+    ],
+    "collections": [
+      "Project INSPIRE"
+    ],
+    "review": "Provider page checked",
+    "in_playlist": "Not applicable",
+    "featured": true,
+    "checked": "2026-10-25"
+  },
+  {
+    "title": "Project INSPIRE: Student Programs",
+    "url": "https://www.pathstoliteracy.org/resource/project-inspire-student-programs/",
+    "description": "Explore Project INSPIRE student activities and materials supporting braille STEM learning and mathematics.",
+    "type": "Learning hub",
+    "audience": "Students, families, and educators",
+    "notes": "Check the provider’s descriptions for age ranges, materials, program dates, and whether activities are available for independent use.",
+    "provider": "Paths to Literacy",
+    "categories": [
+      "Compensatory access"
+    ],
+    "collections": [
+      "Project INSPIRE"
+    ],
+    "review": "Provider page checked",
+    "in_playlist": "Not applicable",
+    "featured": true,
+    "checked": "2026-10-25"
+  },
+  {
+    "title": "Project INSPIRE: STEM Resources",
+    "url": "https://www.pathstoliteracy.org/resource/project-inspire-resources/",
+    "description": "Find braille mathematics learning resources, reference lists, and recorded webinars organized to support STEM instruction.",
+    "type": "Learning hub",
+    "audience": "Families, educators, and braille transcribers",
+    "notes": "Use the original provider’s instructions and check dates and current braille code guidance for individual materials.",
+    "provider": "Paths to Literacy",
+    "categories": [
+      "Compensatory access"
+    ],
+    "collections": [
+      "Project INSPIRE"
+    ],
+    "review": "Provider page checked",
+    "in_playlist": "Not applicable",
+    "featured": true,
+    "checked": "2026-10-25"
+  },
+  {
     "title": "APH Access Academy — full collection",
     "provider": "APH",
     "url": "https://www.youtube.com/playlist?list=PLUj6DcM1nN3ETBrf17n6IKIxSihSU-gx0",
