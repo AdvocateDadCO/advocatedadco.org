@@ -304,7 +304,7 @@ footer .copyright {
   }
 
   .site-header nav {
-    display: none;
+    display: flex;
     order: 3;
     flex: 1 0 100%;
     align-items: stretch;
@@ -317,7 +317,11 @@ footer .copyright {
     border-top: 1px solid #284664;
   }
 
-  .site-header nav.nav-open {
+  .navigation-ready .site-header nav {
+    display: none;
+  }
+
+  .navigation-ready .site-header nav.nav-open {
     display: flex;
   }
 
@@ -502,3 +506,11 @@ footer .copyright {
     grid-template-columns: 1fr;
   }
 }
+
+/* Keep the menu trigger before its links in keyboard order. */
+@media (min-width: 1101px) {
+  .site-header { flex-wrap: wrap; row-gap: 0.35rem; }
+  .site-header nav { order: 3; flex: 1 0 100%; justify-content: flex-start; flex-wrap: wrap; }
+  .site-header .header-tools { order: 2; margin-left: auto; }
+}
+html:not(.navigation-ready) .menu-toggle { display: none; }
