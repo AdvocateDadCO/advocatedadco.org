@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add("navigation-ready");</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#071b33" name="theme-color"/>
@@ -23,7 +24,7 @@
 <link href="accessibility.css" rel="stylesheet"/>
 <link href="contact.css" rel="stylesheet"/>
 <link href="pages.css" rel="stylesheet"/>
-<link href="site-upgrades.css?v=20261027-navigation" rel="stylesheet"/>
+<link href="site-upgrades.css?v=20261029-cls" rel="stylesheet"/>
 <link href="policy-action.css" rel="stylesheet"/>
   <link rel="stylesheet" href="search.css">
 </head>
@@ -35,7 +36,11 @@
       <span class="brand-name">AdvocateDadCO</span>
     </a>
     <div class="header-tools">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
+            <button type="button" class="search-open-btn" data-search-open aria-haspopup="dialog" aria-label="Open site search">
+        <svg class="search-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="search-open-label">Search</span>
+      </button>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
     </div>
     <nav aria-label="Primary navigation" id="primary-nav">
       <a href="index.html" class="nav-home">Home</a>
@@ -141,7 +146,7 @@
 </section>
 </main>
 <footer><div class="brand footer-brand"><img alt="" class="brand-logo" height="52" src="images/advocatedadco-logo.webp" width="52"/><span><span class="brand-name">AdvocateDadCO</span></span></div><p>For collaboration, speaking, or media inquiries:<br/><a class="footer-email" href="mailto:info@AdvocateDadCO.org">info@AdvocateDadCO.org</a></p><p class="footer-links"><a href="https://www.linkedin.com/in/advocatedadrob-harrisco/" rel="me">LinkedIn</a><br><a href="https://advocatedad.substack.com/subscribe">Newsletter</a><br><a href="policy-action.html">Policy &amp; Action</a><br/><a href="contact.html">Contact</a><br/><a href="/accessibility">Accessibility</a><br/><a href="policy-action.html#main">Back to top <span aria-hidden="true">↑</span></a></p><p class="copyright">© 2026 AdvocateDadCO. All rights reserved.</p></footer>
-<script src="navigation.js?v=20261027-navigation"></script>
+<script src="navigation.js?v=20261029-cls"></script>
   <script src="search.js" type="module"></script>
 </body>
 </html>

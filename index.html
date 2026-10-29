@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("navigation-ready");</script>
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#071b33">
   <meta name="description" content="Western Colorado disability advocacy from Rob and Isabelle Harris: blindness, IEPs, Braille, rural access, and the public record from their Fall 2026 Washington, D.C. trip.">
@@ -99,13 +100,15 @@
   <title>Lived Experience, Lasting Change | AdvocateDadCO — Rob &amp; Isabelle Harris</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/librefranklin/v20/jizOREVItHgc8qDIbSTKq4XkRg8T88bjFuXOnduhrsKkANDJTeFX1w.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hero-v2.css%3Fv=20260912-matched-tag.css">
   <link rel="stylesheet" href="photos.css">
   <link rel="stylesheet" href="accessibility.css%3Fv=20260912-hero-cascade.css">
   <link rel="stylesheet" href="contact.css">
-  <link rel="stylesheet" href="site-upgrades.css?v=20261027-navigation">
+  <link rel="stylesheet" href="site-upgrades.css?v=20261029-cls">
   <link rel="stylesheet" href="newsletter.css?v=b3877f7">
 <style id="technology-photo-styles">
 .technology-photo-section {
@@ -140,7 +143,11 @@
       <span class="brand-name">AdvocateDadCO</span>
     </a>
     <div class="header-tools">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
+            <button type="button" class="search-open-btn" data-search-open aria-haspopup="dialog" aria-label="Open site search">
+        <svg class="search-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="search-open-label">Search</span>
+      </button>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
     </div>
     <nav aria-label="Primary navigation" id="primary-nav">
       <a href="index.html" aria-current="page" class="nav-home">Home</a>
@@ -185,7 +192,7 @@
       <figure class="hero-photo" style="height:auto;">
         <picture>
           <source srcset="images/rob-isabelle-capitol-900.webp 900w, images/rob-isabelle-capitol-1600.webp 1600w" sizes="(max-width: 850px) calc(100vw - 2.5rem), 1200px" type="image/webp">
-          <img src="images/rob-isabelle-capitol.jpg" alt="Isabelle and Rob Harris stand together on the lawn in front of the U.S. Capitol; Isabelle holds her white cane." width="2048" height="1536" fetchpriority="high" style="height:auto;">
+          <img src="images/rob-isabelle-capitol.jpg" alt="Isabelle and Rob Harris stand together on the lawn in front of the U.S. Capitol; Isabelle holds her white cane." width="1400" height="1050" fetchpriority="high" style="height:auto;">
         </picture>
         <figcaption>Rob and Isabelle at the U.S. Capitol.</figcaption>
       </figure>
@@ -219,7 +226,7 @@
       <figure class="mission-photo">
         <picture>
           <source srcset="images/rob-and-isabelle-vail-900.webp 900w, images/rob-and-isabelle-vail-1600.webp 1600w" sizes="(max-width: 850px) calc(100vw - 2.5rem), 700px" type="image/webp">
-          <img src="images/rob-and-isabelle-vail.jpeg" alt="Rob and Isabelle Harris smile together overlooking the mountains in Vail, Colorado." width="2048" height="1536" loading="lazy">
+          <img src="images/rob-and-isabelle-vail.jpeg" alt="Rob and Isabelle Harris smile together overlooking the mountains in Vail, Colorado." width="1400" height="1050" loading="lazy">
         </picture>
         <figcaption>Rob and Isabelle—learning, leading, and building independence together.</figcaption>
       </figure>
@@ -303,7 +310,7 @@
         <figure class="braille-photo">
           <picture>
             <source srcset="images/white-cane-day-community-1200.webp" type="image/webp">
-            <img src="images/white-cane-day-community.jpg" alt="White Cane Day participants gather with white canes and guide dogs; several wear Stop for White Canes shirts." width="2048" height="1360" loading="lazy">
+            <img src="images/white-cane-day-community.jpg" alt="White Cane Day participants gather with white canes and guide dogs; several wear Stop for White Canes shirts." width="1400" height="933" loading="lazy">
           </picture>
           <figcaption>White Cane Day: community, visibility, and access.</figcaption>
         </figure>
@@ -460,7 +467,7 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="navigation.js?v=20261027-navigation"></script>
+  <script src="navigation.js?v=20261029-cls"></script>
   <script src="search.js" type="module"></script>
 </body>
 </html>
