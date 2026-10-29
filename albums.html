@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("navigation-ready");</script>
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#071b33">
   <meta name="description" content="Explore AdvocateDadCO photo and video albums, starting with the accessible Washington, D.C. youth advocacy slideshow and photo album.">
@@ -22,7 +23,7 @@
   <link rel="stylesheet" href="accessibility.css">
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="pages.css">
-  <link rel="stylesheet" href="site-upgrades.css?v=20261027-navigation">
+  <link rel="stylesheet" href="site-upgrades.css?v=20261029-cls">
   <link rel="stylesheet" href="feature-article.css">
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="dc-highlights.css">
@@ -35,7 +36,11 @@
       <span class="brand-name">AdvocateDadCO</span>
     </a>
     <div class="header-tools">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
+            <button type="button" class="search-open-btn" data-search-open aria-haspopup="dialog" aria-label="Open site search">
+        <svg class="search-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="search-open-label">Search</span>
+      </button>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
     </div>
     <nav aria-label="Primary navigation" id="primary-nav">
       <a href="index.html" class="nav-home">Home</a>
@@ -73,7 +78,7 @@
     <p class="copyright">© 2026 AdvocateDadCO. All rights reserved.</p>
   </footer>
   
-  <script src="navigation.js?v=20261027-navigation"></script>
+  <script src="navigation.js?v=20261029-cls"></script>
   <script src="search.js" type="module"></script>
 </body>
 </html>

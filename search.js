@@ -166,7 +166,9 @@ function buildDialog() {
 
 function injectHeaderButton() {
   const header = document.querySelector('.site-header');
-  if (!header || header.querySelector('[data-search-open]')) return null;
+  if (!header) return null;
+  const existing = header.querySelector('[data-search-open]');
+  if (existing) return existing;
 
   const btn = document.createElement('button');
   btn.type = 'button';

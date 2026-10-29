@@ -325,6 +325,23 @@ footer .copyright {
     display: flex;
   }
 
+  /* Modern browsers: collapse mobile nav from first paint when JS exists,
+     even if the head bootstrap script is missing on a page. */
+  @media (scripting: enabled) {
+    .site-header nav {
+      display: none;
+    }
+    .site-header nav.nav-open {
+      display: flex;
+    }
+    .header-tools .menu-toggle,
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+  }
+
   .site-header nav a,
   .site-header nav a:not(.nav-cta) {
     display: flex;
@@ -514,3 +531,26 @@ footer .copyright {
   .site-header .header-tools { order: 2; margin-left: auto; }
 }
 html:not(.navigation-ready) .menu-toggle { display: none; }
+
+/* Mobile CLS: navigation-ready is set in <head> before paint so the
+   collapsed header height matches first paint (avoids main shifting when
+   navigation.js would otherwise hide the open mobile nav after load). */
+
+/* Homepage LCP/CLS: keep hero photo box stable before image bytes arrive */
+.hero-photo,
+.hero-photo picture {
+  display: block;
+  width: 100%;
+}
+.hero-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  vertical-align: middle;
+}
+
+/* Match fallback metrics more closely when Libre Franklin swaps in */
+.hero h1 {
+  font-family: "Libre Franklin", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-stretch: condensed;
+}
