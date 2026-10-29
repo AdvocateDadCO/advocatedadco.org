@@ -4,3 +4,15 @@
 
 /* Compact versions of the existing article artwork, without cropping. */
 .blog-card{grid-template-columns:220px minmax(0,1fr);align-items:start}.blog-card-image{max-width:220px}.blog-card-image img{object-fit:contain;max-height:220px}.archive-thumbnail{display:block;max-width:240px;margin:1rem 0}.archive-thumbnail img{display:block;width:100%;height:auto;max-height:160px;object-fit:contain;object-position:left center}@media(max-width:700px){.blog-card{grid-template-columns:1fr}.blog-card-image{max-width:180px}}
+
+/* Article artwork stays complete; opening the article provides readable text and the full image. */
+.blog-page .archive-thumbnail{display:flex;align-items:center;justify-content:flex-start;width:100%;max-width:100%;height:240px;margin:1rem 0 1.25rem}
+.blog-page .archive-thumbnail img{display:block;width:auto;max-width:100%;height:auto;max-height:240px;object-fit:contain}
+.blog-page .blog-card{grid-template-columns:220px minmax(0,1fr)}
+.blog-page .blog-card-image{display:block;width:220px;max-width:100%}
+.blog-page .blog-card-image img{max-height:220px;object-fit:contain}
+.graphic-text{margin:0 0 2rem;padding:1rem;border:1px solid var(--line);background:var(--white);line-height:1.65}
+.graphic-text summary{cursor:pointer;font-weight:700}
+.graphic-text p{margin:1rem 0 0}
+.blog-graphic{scroll-margin-top:2rem}
+@media(max-width:700px){.blog-page .blog-card{grid-template-columns:1fr}.blog-page .archive-thumbnail{height:220px}.blog-page .archive-thumbnail img{max-height:220px}}
