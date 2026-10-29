@@ -26,3 +26,6 @@ yarn-error.log*
 *.zip
 *.log
 .cache/
+
+__pycache__/
+*.py[cod]
