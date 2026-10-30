@@ -279,6 +279,15 @@
 .footer-links a {
   color: var(--gold);
   font-weight: 700;
+  /* Tap targets: >=24x24 CSS px (aim ~44px tall) without changing link look */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 24px;
+  padding-block: 0.55rem;
+  box-sizing: border-box;
+  line-height: 1.25;
+  text-underline-offset: 0.3rem;
 }
 
 footer .copyright {
