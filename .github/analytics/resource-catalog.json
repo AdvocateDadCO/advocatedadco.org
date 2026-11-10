@@ -1,0 +1,492 @@
+{
+  "catalog": {
+    "re1fc602aaee5": {
+      "name": "Find help with blindness and low vision",
+      "url": "https://advocatedadco.org/find-help.html",
+      "kind": "guide"
+    },
+    "r31bf12f92638": {
+      "name": "03Find Colorado answers100 practical questions",
+      "url": "https://advocatedadco.org/colorado.html",
+      "kind": "guide"
+    },
+    "r1c4c7048c801": {
+      "name": "04How can I help?Everyday assistance and BLV access for professionals",
+      "url": "https://advocatedadco.org/how-can-i-help.html",
+      "kind": "guide"
+    },
+    "rc409ed8eee2d": {
+      "name": "Explore professional access strategies and resources",
+      "url": "https://advocatedadco.org/blv-professional-access.html",
+      "kind": "guide"
+    },
+    "rcbf07e55bb0a": {
+      "name": "Explore APH Hive courses",
+      "url": "https://aphhive.org/",
+      "kind": "outbound"
+    },
+    "rc2fe56dd40b4": {
+      "name": "browse APH Access Academy and webinar archives",
+      "url": "https://www.aph.org/webinars/",
+      "kind": "outbound"
+    },
+    "r3f5c24666c71": {
+      "name": "Watch the Virtual ExCEL Academy archive on YouTube",
+      "url": "https://www.youtube.com/playlist?list=PLUj6DcM1nN3EGnleJhGT296nMNJj9IwmB",
+      "kind": "outbound"
+    },
+    "r5ccf18106fc5": {
+      "name": "Read APH’s background on ExCEL and its learning resources",
+      "url": "https://www.aph.org/blog/athomewithaph-resources/",
+      "kind": "outbound"
+    },
+    "r3f7446844ad2": {
+      "name": "Explore the NRTC resource hub",
+      "url": "https://www.blind.msstate.edu/",
+      "kind": "outbound"
+    },
+    "r77f3b737f935": {
+      "name": "Find NRTC training and free online courses",
+      "url": "https://www.blind.msstate.edu/training/training-activities",
+      "kind": "outbound"
+    },
+    "r2735ca02512f": {
+      "name": "Learn about 4to24",
+      "url": "https://www.ntac.blind.msstate.edu/consumers/4-24-app",
+      "kind": "outbound"
+    },
+    "r8d00cbcf2ec7": {
+      "name": "Open the 4to24 web app",
+      "url": "https://4to24.org/",
+      "kind": "outbound"
+    },
+    "r3a07ded2a889": {
+      "name": "Follow the current web-app installation guidance",
+      "url": "https://4to24.org/info/webapp",
+      "kind": "outbound"
+    },
+    "rf1b43346015c": {
+      "name": "review the separate professional-portal access process",
+      "url": "https://www.ntac.blind.msstate.edu/service-providers/resources/4to24-app-portal-for-professionals",
+      "kind": "outbound"
+    },
+    "r08f9b1171fbd": {
+      "name": "Find Tech in 20 sessions, recordings, and math resources",
+      "url": "https://sites.google.com/wssb.wa.gov/cattresources/home/tech-in-20",
+      "kind": "outbound"
+    },
+    "redc529679098": {
+      "name": "Learn about Project INSITE and SKI-HI resources",
+      "url": "https://idrpp.usu.edu/projects/ski-hi/",
+      "kind": "outbound"
+    },
+    "re20075b63426": {
+      "name": "Project INSPIRE braille STEM collection already featured here",
+      "url": "https://advocatedadco.org/project-inspire.html",
+      "kind": "guide"
+    },
+    "ref1aa34d9556": {
+      "name": "Explore Prevent Blindness",
+      "url": "https://preventblindness.org/",
+      "kind": "outbound"
+    },
+    "r527ed769c10f": {
+      "name": "Browse Living Well With Low Vision resources",
+      "url": "https://lowvision.preventblindness.org/resources/",
+      "kind": "outbound"
+    },
+    "r2419ae47f402": {
+      "name": "Learn about the ASPECT patient engagement and advocacy program",
+      "url": "https://preventblindness.org/aspect-patient-engagement-program/",
+      "kind": "outbound"
+    },
+    "r9174bc731fba": {
+      "name": "See3D",
+      "url": "https://see3d.org/",
+      "kind": "outbound"
+    },
+    "ra9dc420cc1ae": {
+      "name": "You Can Do Astronomy",
+      "url": "https://www.youcandoastronomy.com/",
+      "kind": "outbound"
+    },
+    "r2bc8a9add74c": {
+      "name": "Chandra: From Earth to the Universe tactile and Braille posters",
+      "url": "https://chandra.si.edu/edu/fettutactile.html",
+      "kind": "outbound"
+    },
+    "rab42050ced49": {
+      "name": "Ohio State’s STEM Career Exploration Lab project",
+      "url": "https://u.osu.edu/stemcareerexplorationlabvi/",
+      "kind": "outbound"
+    },
+    "r43f71d920a7b": {
+      "name": "AstroAccess",
+      "url": "https://astroaccess.org/about-us/",
+      "kind": "outbound"
+    },
+    "rb19a4072ea72": {
+      "name": "Mission INSPIRE: hands-on rocket activity",
+      "url": "https://www.pathstoliteracy.org/mission-inspire/",
+      "kind": "outbound"
+    },
+    "rb69e917a6191": {
+      "name": "International Association for Geoscience Diversity resources",
+      "url": "https://theiagd.org/resources/",
+      "kind": "outbound"
+    },
+    "r266ff38bfea7": {
+      "name": "Topographic model tutorial on Instructables",
+      "url": "https://www.instructables.com/How-to-Make-a-Topographic-Model/",
+      "kind": "outbound"
+    },
+    "rd484cd80b26a": {
+      "name": "Perkins: teaching chemistry",
+      "url": "https://www.perkins.org/resource/teaching-chemistry-to-students-with-visual-impairments/",
+      "kind": "outbound"
+    },
+    "re8261dd3cdb4": {
+      "name": "Perkins: acid-base titration using nonvisual tools",
+      "url": "https://www.perkins.org/resource/acid-base-titration-using-nonvisual-tools/",
+      "kind": "outbound"
+    },
+    "r3743c792873b": {
+      "name": "University of Washington DO-IT: making science labs accessible",
+      "url": "https://doit.uw.edu/brief/making-science-labs-accessible-to-students-with-disabilities/",
+      "kind": "outbound"
+    },
+    "r3a04ce34d62c": {
+      "name": "APH Press: accessible science teaching book edited by Tiffany Wild",
+      "url": "https://www.aph.org/product/accessible-science-for-students-with-visual-impairments/",
+      "kind": "outbound"
+    },
+    "r2b5f2ac2610b": {
+      "name": "Get the INOVA toolkit and one-page flyers from Johns Hopkins",
+      "url": "https://nursing.jhu.edu/dhrc/resources-dhrc/the-inova-toolkit-to-design-dhrc/",
+      "kind": "outbound"
+    },
+    "rcd8d35f472c9": {
+      "name": "Read the Partners for Sight introduction to the toolkit",
+      "url": "https://partnersforsight.org/how-to-make-scientific-meetings-and-conferences-more-accessible-a-toolkit/",
+      "kind": "outbound"
+    },
+    "rc2e22d1661bd": {
+      "name": "Read the checklist online",
+      "url": "https://advocatedadco.org/blind-low-vision-iep-checklist",
+      "kind": "guide"
+    },
+    "r3b76523a4a6f": {
+      "name": "Download the IEP checklist (PDF, 5 pages)",
+      "url": "https://advocatedadco.org/downloads/blind-low-vision-iep-checklist.pdf",
+      "kind": "download"
+    },
+    "r1044f0979724": {
+      "name": "Read the evaluations guide online",
+      "url": "https://advocatedadco.org/essential-evaluations-blind-low-vision",
+      "kind": "guide"
+    },
+    "rf147f6a7facb": {
+      "name": "Download the evaluations guide (PDF, 5 pages)",
+      "url": "https://advocatedadco.org/downloads/essential-evaluations-blind-low-vision.pdf",
+      "kind": "download"
+    },
+    "r86a38c4db155": {
+      "name": "Read the transition guide online",
+      "url": "https://advocatedadco.org/ecc-transition-readiness-families",
+      "kind": "guide"
+    },
+    "r0cac80905242": {
+      "name": "Download the transition guide (PDF, 5 pages)",
+      "url": "https://advocatedadco.org/downloads/ecc-transition-readiness-families.pdf",
+      "kind": "download"
+    },
+    "rc2e042f688b5": {
+      "name": "Read the accessible guide",
+      "url": "https://advocatedadco.org/blind-low-vision-complex-needs",
+      "kind": "guide"
+    },
+    "r047975ee033f": {
+      "name": "Download the printable chart (PDF, 2 pages)",
+      "url": "https://advocatedadco.org/downloads/blind-low-vision-complex-needs-chart.pdf",
+      "kind": "download"
+    },
+    "re47ce8016251": {
+      "name": "Download the chart image (PNG)",
+      "url": "https://advocatedadco.org/images/blind-low-vision-complex-needs-chart.png",
+      "kind": "download"
+    },
+    "r3877a6cffa24": {
+      "name": "Project INSPIRE NextGen",
+      "url": "https://www.pathstoliteracy.org/resource/project-inspire/",
+      "kind": "outbound"
+    },
+    "r38bdc6ee78d2": {
+      "name": "Nemeth in a Box",
+      "url": "https://www.pathstoliteracy.org/nemeth-box-middle-school-students/",
+      "kind": "outbound"
+    },
+    "r27afcc79c5e1": {
+      "name": "Graphing in a Box",
+      "url": "https://www.pathstoliteracy.org/resource/graphing-in-a-box-for-5th-8th-grade-students/",
+      "kind": "outbound"
+    },
+    "rc2eef502819d": {
+      "name": "Seven free PD courses",
+      "url": "https://www.pathstoliteracy.org/resource/project-inspire-professional-development/",
+      "kind": "outbound"
+    },
+    "r64a1e7cf2541": {
+      "name": "Student Programs",
+      "url": "https://www.pathstoliteracy.org/resource/project-inspire-student-programs/",
+      "kind": "outbound"
+    },
+    "r5f458dd6ed5a": {
+      "name": "STEM Resources",
+      "url": "https://www.pathstoliteracy.org/resource/project-inspire-resources/",
+      "kind": "outbound"
+    },
+    "re85834a10bd2": {
+      "name": "Explore NLS Music Service and Materials",
+      "url": "https://www.loc.gov/nls/services-and-resources/music-service-and-materials/",
+      "kind": "outbound"
+    },
+    "rd2c177258b93": {
+      "name": "Request Braille on Demand books",
+      "url": "https://www.loc.gov/nls/services-and-resources/braille-on-demand/",
+      "kind": "outbound"
+    },
+    "rec4b931e5f37": {
+      "name": "Learn about NLS and enrollment",
+      "url": "https://www.loc.gov/nls/",
+      "kind": "outbound"
+    },
+    "r750e3396ca46": {
+      "name": "Read the ONH resource hub — no email required",
+      "url": "https://advocatedadco.org/onh.html",
+      "kind": "guide"
+    },
+    "rced2bd4abddc": {
+      "name": "Explore PESA’s resources and family support",
+      "url": "https://epilepsysurgeryalliance.org/",
+      "kind": "outbound"
+    },
+    "r1bd3de9bbc27": {
+      "name": "Read PESA’s introduction and access The (Almost) Everything List",
+      "url": "https://epilepsysurgeryalliance.org/2024/10/09/the-almost-everything-list-your-essential-guide/",
+      "kind": "outbound"
+    },
+    "rfe95c8ef7f92": {
+      "name": "Read the National Federation of the Blind’s courtesy guidance",
+      "url": "https://seniors.nfb.org/courtesy-rules",
+      "kind": "outbound"
+    },
+    "rfb0cc3bca804": {
+      "name": "Guide Dogs for the Blind’s etiquette guidance",
+      "url": "https://www.guidedogs.com/resources/blindness-etiquette",
+      "kind": "outbound"
+    },
+    "ra41d6450c810": {
+      "name": "RNIB’s guiding advice, videos, and transcripts",
+      "url": "https://www.rnib.org.uk/living-with-sight-loss/supporting-others/guiding-a-blind-or-partially-sighted-person/",
+      "kind": "outbound"
+    },
+    "r340e6b3c425e": {
+      "name": "CNIB’s guiding manual and videos",
+      "url": "https://www.cnib.ca/en/guiding-someone",
+      "kind": "outbound"
+    },
+    "r1b3031e61c09": {
+      "name": "start with Perkins’ classroom guidance",
+      "url": "https://www.perkins.org/resource/classroom-teachers/",
+      "kind": "outbound"
+    },
+    "rb8c847d8d66f": {
+      "name": "The American Council of the Blind’s Audio Description Project explains how it works",
+      "url": "https://new.adp.acb.org/ad-faqs",
+      "kind": "outbound"
+    },
+    "rc460fa3b6aec": {
+      "name": "Read ACB’s audio-description access guide (PDF)",
+      "url": "https://adp.acb.org/docs/Audio%20Description%20Where%20and%20How.pdf",
+      "kind": "outbound"
+    },
+    "rda6e27076b82": {
+      "name": "Browse all resources",
+      "url": "https://advocatedadco.org/resources.html",
+      "kind": "guide"
+    },
+    "r77cb1176ef37": {
+      "name": "TSBVI training for paraeducators and educational teams",
+      "url": "https://www.tsbvi.edu/statewide-resources/professional-development/request-training/workshops-and-training-for-visual-impairments",
+      "kind": "outbound"
+    },
+    "rf923f7de8a80": {
+      "name": "read Perkins’ guide for teaching assistants and paraprofessionals",
+      "url": "https://www.perkins.org/resource/cvi-for-teaching-assistants-and-paraprofessionals/",
+      "kind": "outbound"
+    },
+    "r8f549491c12f": {
+      "name": "Perkins’ accessible materials and classroom strategies collection",
+      "url": "https://www.perkins.org/resource/creating-accessible-materials-and-classroom-strategies-summary-page/",
+      "kind": "outbound"
+    },
+    "r43e4f11f5ddb": {
+      "name": "see Perkins’ introduction to CVI assessments and team roles",
+      "url": "https://www.perkins.org/getting-started-with-cvi-assessments/",
+      "kind": "outbound"
+    },
+    "r99b299d951ab": {
+      "name": "Council for Exceptional Children: blindness and visual impairment preparation standards",
+      "url": "https://dvidb.exceptionalchildren.org/standards/initial-specialty-set-blind-and-visual-impairments",
+      "kind": "outbound"
+    },
+    "rac071ac63f0f": {
+      "name": "TSBVI: paraeducator handbook (second edition)",
+      "url": "https://www.tsbvi.edu/product/a-paraeducators-handbook-for-working-with-students-with-visual-impairments-2nd-edition-electronic-file",
+      "kind": "outbound"
+    },
+    "r12384aa7429e": {
+      "name": "AdvocateDad: Essential Evaluations",
+      "url": "https://advocatedadco.org/essential-evaluations-blind-low-vision.html",
+      "kind": "guide"
+    },
+    "rdebb1016bcb5": {
+      "name": "AdvocateDad: Expanded Core Curriculum and transition readiness",
+      "url": "https://advocatedadco.org/ecc-transition-readiness-families.html",
+      "kind": "guide"
+    },
+    "r9f79fe9a52da": {
+      "name": "AdvocateDad: blindness, low vision, and complex needs",
+      "url": "https://advocatedadco.org/blind-low-vision-complex-needs.html",
+      "kind": "guide"
+    },
+    "r04ace080375d": {
+      "name": "",
+      "url": "https://advocatedadco.org/images/blog-project-inspire-graphic.webp",
+      "kind": "guide"
+    },
+    "r80b04af29e59": {
+      "name": "family story",
+      "url": "https://advocatedadco.org/story.html",
+      "kind": "guide"
+    },
+    "r2bb51b052e5e": {
+      "name": "USC Upstate on Lavelle Fund support for Project INSPIRE NextGen ↗",
+      "url": "https://uscupstate.edu/project-inpsire-nextgen-receives-funding-from-lavelle-fund-for-the-blind/",
+      "kind": "outbound"
+    },
+    "r520cdc681836": {
+      "name": "D.C. mission",
+      "url": "https://advocatedadco.org/dc-mission.html",
+      "kind": "guide"
+    },
+    "r9d8ea6e5572b": {
+      "name": "From a Conversation in Colorado to Washington",
+      "url": "https://advocatedadco.org/full-circle.html",
+      "kind": "guide"
+    },
+    "r2627cd643626": {
+      "name": "Explore Our Advocacy Priorities",
+      "url": "https://advocatedadco.org/work.html",
+      "kind": "guide"
+    }
+  },
+  "allowed": {
+    "resources": [
+      "re1fc602aaee5",
+      "r31bf12f92638",
+      "r1c4c7048c801",
+      "rc409ed8eee2d",
+      "rcbf07e55bb0a",
+      "rc2fe56dd40b4",
+      "r3f5c24666c71",
+      "r5ccf18106fc5",
+      "r3f7446844ad2",
+      "r77f3b737f935",
+      "r2735ca02512f",
+      "r8d00cbcf2ec7",
+      "r3a07ded2a889",
+      "rf1b43346015c",
+      "r08f9b1171fbd",
+      "redc529679098",
+      "re20075b63426",
+      "ref1aa34d9556",
+      "r527ed769c10f",
+      "r2419ae47f402",
+      "r9174bc731fba",
+      "ra9dc420cc1ae",
+      "r2bc8a9add74c",
+      "rab42050ced49",
+      "r43f71d920a7b",
+      "rb19a4072ea72",
+      "rb69e917a6191",
+      "r266ff38bfea7",
+      "rd484cd80b26a",
+      "re8261dd3cdb4",
+      "r3743c792873b",
+      "r3a04ce34d62c",
+      "r2b5f2ac2610b",
+      "rcd8d35f472c9",
+      "rc2e22d1661bd",
+      "r3b76523a4a6f",
+      "r1044f0979724",
+      "rf147f6a7facb",
+      "r86a38c4db155",
+      "r0cac80905242",
+      "rc2e042f688b5",
+      "r047975ee033f",
+      "re47ce8016251",
+      "r3877a6cffa24",
+      "r38bdc6ee78d2",
+      "r27afcc79c5e1",
+      "rc2eef502819d",
+      "r64a1e7cf2541",
+      "r5f458dd6ed5a",
+      "re85834a10bd2",
+      "rd2c177258b93",
+      "rec4b931e5f37",
+      "r750e3396ca46",
+      "rced2bd4abddc",
+      "r1bd3de9bbc27"
+    ],
+    "how-can-i-help": [
+      "rc409ed8eee2d",
+      "rfe95c8ef7f92",
+      "rfb0cc3bca804",
+      "ra41d6450c810",
+      "r340e6b3c425e",
+      "r1b3031e61c09",
+      "rb8c847d8d66f",
+      "rc460fa3b6aec",
+      "rda6e27076b82"
+    ],
+    "blv-professional-access": [
+      "r1c4c7048c801",
+      "r77cb1176ef37",
+      "rf923f7de8a80",
+      "r8f549491c12f",
+      "r43e4f11f5ddb",
+      "r99b299d951ab",
+      "rac071ac63f0f",
+      "r1b3031e61c09",
+      "r12384aa7429e",
+      "rdebb1016bcb5",
+      "r9f79fe9a52da",
+      "rda6e27076b82"
+    ],
+    "project-inspire": [
+      "r04ace080375d",
+      "r80b04af29e59",
+      "r3877a6cffa24",
+      "r2bb51b052e5e",
+      "r520cdc681836",
+      "r9d8ea6e5572b",
+      "r38bdc6ee78d2",
+      "r27afcc79c5e1",
+      "rc2eef502819d",
+      "r64a1e7cf2541",
+      "r5f458dd6ed5a",
+      "r2627cd643626"
+    ]
+  }
+}
