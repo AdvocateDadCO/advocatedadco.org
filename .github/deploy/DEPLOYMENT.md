@@ -61,6 +61,14 @@ If a deployment succeeds but verification or GitHub receipt recording fails, pro
 
 Pages control files such as `_worker.js`, `_headers`, `_redirects`, and `_routes.json` need a separately reviewed implementation; this static-file workflow stops if they appear.
 
+### URL aliases this upload cannot 301
+
+Cloudflare Pages clean URLs serve `onh.html` at both `/onh` and `/onh.html` with status 200. The ONH page sets `rel="canonical"` to `https://advocatedadco.org/onh`. That tells search engines which URL to prefer. It is not a redirect, so both URLs can stay indexed until a 301 exists.
+
+`/about` and `/about-us` use the same interim pattern as `inspire.html`: a `noindex` HTML page with a canonical link, a meta refresh, and `location.replace` to `/story`. Browsers land on `/story`. A crawler that ignores the refresh can still record the alias URL.
+
+A true 301, for example `/about /story 301`, `/about-us /story 301`, and `/onh.html /onh 301`, needs a Pages control file such as `_redirects`. Do not add that file in a content change. It needs its own reviewed implementation.
+
 ## Checks for maintainers
 
 ```sh

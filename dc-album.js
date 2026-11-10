@@ -23,6 +23,10 @@ function show(n){
  get('full-link').textContent=`Open full-size photo ${index+1} (${p.originalWidth.toLocaleString()} × ${p.originalHeight.toLocaleString()}; ${(p.fullBytes/1e6).toFixed(1)} MB)`;
  status.textContent=`Loading photo ${index+1} of ${photos.length}: ${p.caption}.`;
  img.hidden=true;img.alt=p.alt;img.removeAttribute('src');
+ const base='/'+p.full.replace(/\.jpe?g$/i,'');
+ get('full-avif').srcset=base+'.avif';
+ get('full-webp').srcset=base+'.webp';
+ img.width=p.originalWidth;img.height=p.originalHeight;
  img.onload=()=>{if(current!==sequence)return;ready=true;img.hidden=false;size();status.textContent=`Photo ${index+1} of ${photos.length}: ${p.caption}. Loaded.`;};
  img.onerror=()=>{if(current===sequence)status.textContent='The photo could not load. Try the full-size image link below.';};
  size();area.scrollTop=0;area.scrollLeft=0;img.src='/'+p.full;
@@ -36,7 +40,7 @@ for(const link of links)link.addEventListener('click',async event=>{
  }catch{document.body.classList.remove('viewer-open');location.href=link.href;}
 });
 get('close').addEventListener('click',()=>dialog.close());
-dialog.addEventListener('close',()=>{sequence++;img.removeAttribute('src');document.body.classList.remove('viewer-open');opener?.focus();});
+dialog.addEventListener('close',()=>{sequence++;img.removeAttribute('src');get('full-avif').removeAttribute('srcset');get('full-webp').removeAttribute('srcset');document.body.classList.remove('viewer-open');opener?.focus();});
 get('previous').addEventListener('click',()=>show(index-1));get('next').addEventListener('click',()=>show(index+1));
 function changeZoom(value){zoom=Math.max(1,Math.min(8,value));size();if(zoom===1){area.scrollTop=0;area.scrollLeft=0;}}
 get('zoom-in').addEventListener('click',()=>changeZoom(zoom*2));get('zoom-out').addEventListener('click',()=>changeZoom(zoom/2));get('fit').addEventListener('click',()=>changeZoom(1));
