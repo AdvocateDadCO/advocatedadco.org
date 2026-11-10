@@ -1,0 +1,49 @@
+name: Resource clicks — reviewed counter deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      reviewed_commit:
+        description: Full reviewed main commit SHA
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: advocatedad-resource-clicks-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.repository == 'AdvocateDadCO/advocatedadco.org'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+      - name: Require the reviewed current main commit
+        env:
+          REVIEWED_COMMIT: ${{ inputs.reviewed_commit }}
+        run: |
+          test "$REVIEWED_COMMIT" = "$GITHUB_SHA"
+          test "$GITHUB_SHA" = "$(git rev-parse origin/main)"
+      - name: Test the click counter and browser behavior
+        run: node .github/analytics/click-tests.mjs
+      - name: Install official Cloudflare deploy tool outside the source
+        run: npm install --prefix "$RUNNER_TEMP/click-tools" --no-save --package-lock=false wrangler@4.159.0
+      - name: Deploy the tested counter with aggregate-only storage
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: node "$RUNNER_TEMP/click-tools/node_modules/wrangler/bin/wrangler.js" deploy --config .github/analytics/wrangler.jsonc
+      - name: Verify storage binding is ready
+        run: |
+          node --input-type=module -e "const r=await fetch('https://advocatedad-resource-clicks.trebor681.workers.dev/health'); const b=await r.json(); if(!r.ok||b.ready!==true) throw Error('Counter is not ready'); console.log('Counter ready; no click was recorded by this health check.');"
