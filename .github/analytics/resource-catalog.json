@@ -394,6 +394,11 @@
       "name": "Read From Access to Agency and the four planning questions",
       "url": "https://advocatedadco.org/from-access-to-agency.html",
       "kind": "guide"
+    },
+    "r4d8f96867c43": {
+      "name": "Start here: choose your resource",
+      "url": "https://advocatedadco.org/start-here",
+      "kind": "guide"
     }
   },
   "allowed": {
@@ -452,7 +457,8 @@
       "rec4b931e5f37",
       "r750e3396ca46",
       "rced2bd4abddc",
-      "r1bd3de9bbc27"
+      "r1bd3de9bbc27",
+      "r4d8f96867c43"
     ],
     "how-can-i-help": [
       "rc409ed8eee2d",
@@ -498,7 +504,8 @@
       "r86a38c4db155",
       "rda6e27076b82",
       "rc2e22d1661bd",
-      "r31bf12f92638"
+      "r31bf12f92638",
+      "r4d8f96867c43"
     ],
     "from-access-to-agency": [
       "r86a38c4db155",
@@ -508,6 +515,20 @@
     "ecc-transition-readiness-families": [
       "r0cac80905242",
       "re43a1bd9b9bd"
+    ],
+    "start-here": [
+      "r80b04af29e59",
+      "r520cdc681836",
+      "r2627cd643626",
+      "rc2e22d1661bd",
+      "r1044f0979724",
+      "r750e3396ca46",
+      "r31bf12f92638",
+      "r86a38c4db155",
+      "rc2e042f688b5",
+      "r1c4c7048c801",
+      "rc409ed8eee2d",
+      "rda6e27076b82"
     ]
   }
 }
