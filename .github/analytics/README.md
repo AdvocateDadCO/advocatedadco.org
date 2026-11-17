@@ -40,3 +40,5 @@ The homepage article and ECC-guide links, its primary resource-library link, the
 The article has a guide link beside the planning questions; the homepage feature links directly to the ECC guide. Newsletter signup remains optional. New pages link to the public measurement explanation. Use source-page and resource-type breakdowns to distinguish article/guide selections from print-download selections. Website pageview denominators are separate and cannot support an individual conversion rate.
 
 Roll out the backwards-compatible Worker catalog before publishing the new page markers. Preserve all existing allowed pairs, the CLICKS dataset binding, and disabled request logging. Run the extended tests, verify the editor source against the tested file, and confirm marked test events after publication.
+
+The November16 homepage entry points also mark direct IEP-checklist and Colorado-Q&A selections using their existing catalog IDs. No new destination or event field was added; homepage totals still aggregate repeat placements of the same destination.
