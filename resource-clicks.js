@@ -3,8 +3,9 @@
   'use strict';
   if (!['advocatedadco.org', 'www.advocatedadco.org'].includes(location.hostname)) return;
   if (navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
-  const page = location.pathname.replace(/^\//, '').replace(/\.html$/, '').replace(/\/$/, '');
-  if (!['resources', 'how-can-i-help', 'blv-professional-access', 'project-inspire'].includes(page)) return;
+  const route = location.pathname.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '');
+  const page = !route || route === 'index' ? 'home' : route;
+  if (!['resources', 'how-can-i-help', 'blv-professional-access', 'project-inspire', 'home', 'from-access-to-agency', 'ecc-transition-readiness-families'].includes(page)) return;
   const endpoint = 'https://advocatedad-resource-clicks.trebor681.workers.dev/event';
   let lastId = '', lastAt = 0;
   function record(event) {

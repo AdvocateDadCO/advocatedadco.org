@@ -18,10 +18,10 @@ assert.equal((await worker.fetch(request({resource,page:'resources'}),{})).statu
 assert.equal((await worker.fetch(request({resource,page:'resources'},{'Content-Length':'999'}),env)).status,413);
 assert.equal((await worker.fetch(new Request('https://counter.example/event',{method:'OPTIONS',headers:{Origin:'https://advocatedadco.org'}}),env)).status,204);
 const source=fs.readFileSync(new URL('../../resource-clicks.js',import.meta.url),'utf8');
-function client({gpc=false,dnt='0',host='advocatedadco.org',search=''}={}){
+function client({gpc=false,dnt='0',host='advocatedadco.org',search='',pathname='/resources',id=resource}={}){
  const handlers={},requests=[];let now=1000;
- class Element{closest(){return{dataset:{resourceId:resource}};}}
- const context={Element,location:{hostname:host,pathname:'/resources',search},navigator:{globalPrivacyControl:gpc,doNotTrack:dnt},window:{},performance:{now:()=>now},URLSearchParams,document:{addEventListener:(name,fn)=>handlers[name]=fn},fetch:(...args)=>{requests.push(args);return Promise.resolve();}};
+ class Element{closest(){return{dataset:{resourceId:id}};}}
+ const context={Element,location:{hostname:host,pathname,search},navigator:{globalPrivacyControl:gpc,doNotTrack:dnt},window:{},performance:{now:()=>now},URLSearchParams,document:{addEventListener:(name,fn)=>handlers[name]=fn},fetch:(...args)=>{requests.push(args);return Promise.resolve();}};
  vm.runInNewContext(source,context);
  return{handlers,requests,click:(type='click',button=0,trusted=true)=>{now+=1000;handlers[type]?.({type,isTrusted:trusted,button,target:new Element()});}};
 }
@@ -34,4 +34,34 @@ assert.equal(c.requests[0][1].referrerPolicy,'no-referrer');
 assert.equal(c.requests[0][1].credentials,'omit');
 assert.equal(c.requests[0][1].keepalive,true);
 assert.ok(!JSON.stringify(c.requests).includes('private_value'));
+// Root and clean/HTML aliases must produce the same reviewed source-page ID.
+for(const [page,paths] of Object.entries({home:['/','/index','/index.html','/index/'],'from-access-to-agency':['/from-access-to-agency','/from-access-to-agency.html'],'ecc-transition-readiness-families':['/ecc-transition-readiness-families','/ecc-transition-readiness-families.html']})){
+ const id=allowed[page][0];
+ for(const pathname of paths){
+  const browser=client({pathname,id,search:'?resource_tracking_test=1&private_value=never-send'});browser.click();
+  assert.equal(browser.requests.length,1);
+  const payload=JSON.parse(browser.requests[0][1].body);
+  assert.deepEqual(payload,{resource:id,page,test:true});
+  const before=writes.length;
+  assert.equal((await worker.fetch(request(payload),env)).status,204);
+  assert.equal(writes.length,before+1);
+  assert.equal(writes.at(-1).blobs[4],'test');
+ }
+ for(const privacy of [{gpc:true},{dnt:'1'}])assert.deepEqual(Object.keys(client({pathname:paths[0],id,...privacy}).handlers),[]);
+}
+const articleOnly=allowed.home.find(id=>!allowed.resources.includes(id));
+assert.equal((await worker.fetch(request({resource:articleOnly,page:'resources',test:true}),env)).status,400);
+assert.deepEqual(Object.keys(client({pathname:'/private'}).handlers),[]);
+// Actual HTML and the deployed Worker constants must agree with the reviewed catalog.
+const normalize=value=>{const u=new URL(value,'https://advocatedadco.org/');u.hash='';u.pathname=u.pathname.replace(/\.html$/,'');return u.href;};
+for(const [page,ids] of Object.entries(allowed)){
+ const file=page==='home'?'index.html':page+'.html';
+ const html=fs.readFileSync(new URL('../../'+file,import.meta.url),'utf8');
+ const marked=[...html.matchAll(/<a\b[^>]*data-resource-id="([^"]+)"[^>]*>/g)];
+ const seen=new Set();
+ for(const [tag,id] of marked){assert.ok(ids.includes(id),`${file}: unapproved ID`);assert.ok(catalog[id]);assert.equal(normalize(tag.match(/href="([^"]+)"/)[1]),normalize(catalog[id].url));seen.add(id);}
+ assert.deepEqual([...seen].sort(),[...ids].sort(),`${file}: catalog coverage mismatch`);
+}
+const workerSource=fs.readFileSync(new URL('./resource-click-worker.mjs',import.meta.url),'utf8');
+assert.deepEqual(JSON.parse(workerSource.match(/const \{catalog, allowed\} = (.*);/)[1]),{catalog,allowed});
 console.log('PASS: resource validation, data minimization, test separation, origin restrictions, privacy signals, keyboard/primary and middle-click handling, and nonblocking requests.');
