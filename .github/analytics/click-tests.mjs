@@ -35,7 +35,7 @@ assert.equal(c.requests[0][1].credentials,'omit');
 assert.equal(c.requests[0][1].keepalive,true);
 assert.ok(!JSON.stringify(c.requests).includes('private_value'));
 // Root and clean/HTML aliases must produce the same reviewed source-page ID.
-for(const [page,paths] of Object.entries({home:['/','/index','/index.html','/index/'],'from-access-to-agency':['/from-access-to-agency','/from-access-to-agency.html'],'ecc-transition-readiness-families':['/ecc-transition-readiness-families','/ecc-transition-readiness-families.html']})){
+for(const [page,paths] of Object.entries({'start-here':['/start-here','/start-here.html'],home:['/','/index','/index.html','/index/'],'from-access-to-agency':['/from-access-to-agency','/from-access-to-agency.html'],'ecc-transition-readiness-families':['/ecc-transition-readiness-families','/ecc-transition-readiness-families.html']})){
  const id=allowed[page][0];
  for(const pathname of paths){
   const browser=client({pathname,id,search:'?resource_tracking_test=1&private_value=never-send'});browser.click();

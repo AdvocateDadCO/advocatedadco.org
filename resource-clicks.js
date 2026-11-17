@@ -5,7 +5,7 @@
   if (navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
   const route = location.pathname.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '');
   const page = !route || route === 'index' ? 'home' : route;
-  if (!['resources', 'how-can-i-help', 'blv-professional-access', 'project-inspire', 'home', 'from-access-to-agency', 'ecc-transition-readiness-families'].includes(page)) return;
+  if (!['resources', 'how-can-i-help', 'blv-professional-access', 'project-inspire', 'home', 'from-access-to-agency', 'ecc-transition-readiness-families', 'start-here'].includes(page)) return;
   const endpoint = 'https://advocatedad-resource-clicks.trebor681.workers.dev/event';
   let lastId = '', lastAt = 0;
   function record(event) {
