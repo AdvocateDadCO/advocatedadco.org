@@ -1,6 +1,6 @@
 # Resource click measurement
 
-The separate `advocatedad-resource-clicks` Worker accepts only reviewed resource IDs paired with one of four public source pages: Resources, How Can I Help, the professional BLV guide, and Project INSPIRE. The website marks eligible links with stable IDs. Resource links remain ordinary links; measurement never delays or blocks navigation.
+The separate `advocatedad-resource-clicks` Worker accepts only reviewed resource IDs paired with one of seven public source pages: the homepage, From Access to Agency, the ECC transition guide, Resources, How Can I Help, the professional BLV guide, and Project INSPIRE. The website marks eligible links with stable IDs. Resource links remain ordinary links; measurement never delays or blocks navigation.
 
 `resource-catalog.json` maps IDs to the existing public link labels and destinations. The collector stores the known label, resource ID, source-page ID, resource type, test/live flag, and a count of one in the `advocatedad_resource_clicks` Analytics Engine dataset. Analytics Engine supplies the timestamp. No request URL, query string, referrer, user agent, IP address, cookies, user identifier, or form input is copied into that dataset. Cloudflare necessarily handles the network request as the hosting provider. Worker request logging is disabled in the configuration. This describes this counter, not Cloudflare's separate security/network processing.
 
@@ -31,4 +31,12 @@ For a named calendar period, replace the relative-time condition with UTC start-
 
 Run `node .github/analytics/click-tests.mjs`. `/health` reports storage-binding readiness without generating a click. For a real browser test, visit a supported page with `?resource_tracking_test=1`, activate a marked resource link, then query the same dataset with `blob5 = 'test'`. Test clicks are excluded from the live report. The query parameter is a public QA flag; no other query parameter is sent. The website does not expose a public report endpoint.
 
-When links change, update the catalog, allowed-page pairs, corresponding HTML attributes, and generated Worker constants together, then rerun tests. Current coverage is 78 distinct resource destinations on four pages, including internal guide selections and downloads. Keep the production endpoint in `resource-clicks.js` aligned with the configured Worker name.
+When links change, update the catalog, allowed-page pairs, corresponding HTML attributes, and generated Worker constants together, then rerun tests. Current coverage is 79 distinct resource destinations on seven pages, including internal guide selections and downloads. Keep the production endpoint in `resource-clicks.js` aligned with the configured Worker name.
+
+## November 16 campaign paths
+
+The homepage article and ECC-guide links, its primary resource-library link, the article's three family-guide destinations, and the ECC guide's print-download and return-to-article links are now marked. Root, /index, and /index.html normalize to source-page ID `home`. Clean and .html aliases share the same source ID. The counter still records only the approved resource ID, label, source page, type, test/live flag, and count. Multiple placements of the same destination on a page aggregate together; this is not a placement, session, unique-person, or matched-funnel report.
+
+The article has a guide link beside the planning questions; the homepage feature links directly to the ECC guide. Newsletter signup remains optional. New pages link to the public measurement explanation. Use source-page and resource-type breakdowns to distinguish article/guide selections from print-download selections. Website pageview denominators are separate and cannot support an individual conversion rate.
+
+Roll out the backwards-compatible Worker catalog before publishing the new page markers. Preserve all existing allowed pairs, the CLICKS dataset binding, and disabled request logging. Run the extended tests, verify the editor source against the tested file, and confirm marked test events after publication.

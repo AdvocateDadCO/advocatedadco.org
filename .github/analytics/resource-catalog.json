@@ -389,6 +389,11 @@
       "name": "Explore Our Advocacy Priorities",
       "url": "https://advocatedadco.org/work.html",
       "kind": "guide"
+    },
+    "re43a1bd9b9bd": {
+      "name": "Read From Access to Agency and the four planning questions",
+      "url": "https://advocatedadco.org/from-access-to-agency.html",
+      "kind": "guide"
     }
   },
   "allowed": {
@@ -487,6 +492,20 @@
       "r64a1e7cf2541",
       "r5f458dd6ed5a",
       "r2627cd643626"
+    ],
+    "home": [
+      "re43a1bd9b9bd",
+      "r86a38c4db155",
+      "rda6e27076b82"
+    ],
+    "from-access-to-agency": [
+      "r86a38c4db155",
+      "rc2e22d1661bd",
+      "r1044f0979724"
+    ],
+    "ecc-transition-readiness-families": [
+      "r0cac80905242",
+      "re43a1bd9b9bd"
     ]
   }
 }
