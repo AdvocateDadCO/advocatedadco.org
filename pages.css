@@ -18,6 +18,13 @@
   letter-spacing: -.06em;
 }
 
+@media (max-width: 540px) {
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 13vw, 3.2rem);
+    overflow-wrap: anywhere;
+  }
+}
+
 .page-hero p:last-child {
   max-width: 780px;
   margin-bottom: 0;

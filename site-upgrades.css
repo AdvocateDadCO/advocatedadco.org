@@ -100,11 +100,24 @@
   color: var(--gold);
 }
 
+/* Match the accessible red even when the legacy stylesheet is unavailable. */
+:root {
+  --action-red: #b52a1d;
+}
+
+.button.primary {
+  background-color: var(--action-red);
+}
+
+.section-number {
+  color: var(--action-red);
+}
+
 .site-header .nav-cta {
   margin-left: 0.35rem;
   padding: 0 0.95rem !important;
-  border: 2px solid var(--red);
-  background: var(--red);
+  border: 2px solid var(--action-red);
+  background: var(--action-red);
   color: var(--white) !important;
   font-weight: 700;
   text-decoration: none !important;
