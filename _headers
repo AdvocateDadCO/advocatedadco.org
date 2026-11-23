@@ -1,0 +1,17 @@
+# Long browser caching for image files only (30 days). Image filenames are not
+# fingerprinted, so this is not marked immutable. HTML keeps the Pages default.
+# The release guard rejects any other header or any rule covering non-image files.
+/images/*
+  Cache-Control: public, max-age=2592000
+
+/resources/press/*
+  Cache-Control: public, max-age=2592000
+
+/favicon.ico
+  Cache-Control: public, max-age=2592000
+
+/favicon.png
+  Cache-Control: public, max-age=2592000
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=2592000

@@ -32,10 +32,49 @@ function read(name) { return JSON.parse(fs.readFileSync(path.join(process.env.RE
 function summary(text) { if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, text + '\n'); }
 function blake() { return createRequire(path.join(process.env.RELEASE_TOOLS, 'package.json'))('blake3-wasm'); }
 function assetHash(name, bytes) { return blake().hash(bytes.toString('base64') + path.extname(name).slice(1)).toString('hex').slice(0, 32); }
+// _headers is the only allowed Pages control file, and only for long browser caching of image files.
+// Cloudflare reads it as configuration and leaves it out of the deployment's file manifest.
+const HEADERS = '_headers';
+const IMAGE_FILE = /\.(?:avif|gif|ico|jpe?g|png|webp)$/i;
+const IMAGE_CACHE = /^public, max-age=([1-9][0-9]{0,7})$/;
+function validateHeaders(text, names) {
+  const lines = text.split(/\r?\n/), rules = {};
+  let current = null;
+  for (const line of lines) {
+    if (!line.trim() || /^\s*#/.test(line)) continue;
+    if (!/^\s/.test(line)) {
+      const rule = line.trim();
+      check(/^\/[A-Za-z0-9._\/-]*(?:\/\*)?$/.test(rule) && !rule.includes('..') && !(rule in rules), 'Unsupported _headers rule path.');
+      const covered = rule.endsWith('/*') ? names.filter(name => ('/' + name).startsWith(rule.slice(0, -1))) : names.filter(name => '/' + name === rule);
+      check(covered.length > 0 && covered.every(name => IMAGE_FILE.test(name)), '_headers rules may only cover tracked image files.');
+      rules[current = rule] = null;
+      continue;
+    }
+    const found = line.match(/^\s+([A-Za-z-]+):\s*(.*?)\s*$/);
+    check(current && found && found[1].toLowerCase() === 'cache-control' && rules[current] === null, '_headers may only set one Cache-Control value per image rule.');
+    const age = found[2].match(IMAGE_CACHE);
+    check(age && Number(age[1]) <= 31536000, 'Unsupported image Cache-Control value.');
+    rules[current] = found[2];
+  }
+  check(Object.keys(rules).length > 0 && Object.values(rules).every(Boolean), '_headers rules must each set Cache-Control.');
+  return rules;
+}
+function controlFiles(ref) {
+  const list = entries(ref), result = {};
+  for (const item of list) {
+    if (item.name === HEADERS) {
+      check(item.mode === '100644' && item.type === 'blob', 'Only regular tracked static files may be deployed.');
+      validateHeaders(git('cat-file', 'blob', item.hash).toString('utf8'), list.map(entry => entry.name));
+      result['/' + item.name] = item.hash;
+    }
+  }
+  return result;
+}
 function sourceManifest(ref) {
-  return Object.fromEntries(entries(ref).map(item => {
+  controlFiles(ref);
+  return Object.fromEntries(entries(ref).filter(item => item.name !== HEADERS).map(item => {
     check(item.mode === '100644' && item.type === 'blob', 'Only regular tracked static files may be deployed.');
-    check(!['_worker.js', '_headers', '_redirects', '_routes.json'].includes(item.name), 'Pages control files require a separately reviewed implementation.');
+    check(!['_worker.js', '_redirects', '_routes.json'].includes(item.name), 'Pages control files require a separately reviewed implementation.');
     return ['/' + item.name, assetHash(item.name, git('cat-file', 'blob', item.hash))];
   }));
 }
@@ -46,6 +85,8 @@ function validateApproval(list, approved) {
 function prepare() {
   const list = entries('HEAD');
   validateApproval(list, policy().approved_public_files);
+  check(!list.some(item => ['_worker.js', '_redirects', '_routes.json'].includes(item.name)), 'Pages control files require a separately reviewed implementation.');
+  controlFiles('HEAD');
   check(!fs.existsSync(process.env.RELEASE_SITE), 'Staging directory already exists.');
   fs.mkdirSync(process.env.RELEASE_SITE, { recursive: true });
   for (const item of list) {
@@ -70,12 +111,12 @@ function stagedManifest() {
         const bytes = fs.readFileSync(target);
         const hash = crypto.createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex');
         check(expected.get(relative) === hash, 'Staged bytes differ from main.');
-        result['/' + relative] = assetHash(relative, bytes);
+        if (relative !== HEADERS) result['/' + relative] = assetHash(relative, bytes);
       }
     }
   }
   walk(process.env.RELEASE_SITE);
-  check(Object.keys(result).length === expected.size, 'Staging omitted a tracked public file.');
+  check(Object.keys(result).length === expected.size - (expected.has(HEADERS) ? 1 : 0), 'Staging omitted a tracked public file.');
   return result;
 }
 async function request(url, token, method = 'GET', body) {
@@ -137,9 +178,10 @@ async function preflight() {
   try { git('merge-base', '--is-ancestor', commit, 'HEAD'); ancestor = true; } catch { /* fail closed below */ }
   const previous = sourceManifest(commit);
   assertProvenance(live, previous, ancestor, await receiptFor(live));
-  const proposed = stagedManifest(), changes = differences(live.files, proposed);
+  const proposed = stagedManifest(), headers = controlFiles('HEAD');
+  const changes = [...differences(live.files, proposed), ...differences(controlFiles(commit), headers)];
   approvedRemovals(entries(commit), entries('HEAD'), changes);
-  const plan = { baseline: live.id, before_commit: commit, target_commit: sha(), site_files: Object.keys(proposed).length, changes };
+  const plan = { baseline: live.id, before_commit: commit, target_commit: sha(), site_files: Object.keys(proposed).length, control_files: headers, changes };
   const plan_sha256 = digest(plan);
   save('baseline.json', { id: live.id, url: live.url, commit, files: live.files });
   save('proposed-manifest.json', proposed);
@@ -164,6 +206,26 @@ async function beforeProduction() {
   check((await production()).id === read('baseline.json').id, 'Production changed after preview; stop for review.');
   check(differences(read('proposed-manifest.json'), stagedManifest()).length === 0, 'Staging changed after preview.');
 }
+// Each _headers rule must be served on one of its images; the home page must keep the default caching.
+async function servedHeaders(url) {
+  const list = entries('HEAD'), names = list.map(item => item.name), found = list.find(item => item.name === HEADERS);
+  const rules = found ? validateHeaders(git('cat-file', 'blob', found.hash).toString('utf8'), names) : {};
+  const fetchHeader = async route => {
+    const response = await fetch(url + encodeURI(route), { signal: AbortSignal.timeout(45000) });
+    check(response.ok, 'Served header check request failed (HTTP ' + response.status + ').');
+    await response.arrayBuffer();
+    return response.headers.get('cache-control');
+  };
+  const result = {};
+  for (const [rule, value] of Object.entries(rules)) {
+    const sample = rule.endsWith('/*') ? '/' + names.filter(name => ('/' + name).startsWith(rule.slice(0, -1))).sort()[0] : rule;
+    result[sample] = await fetchHeader(sample);
+    check(result[sample] === value, 'Served image Cache-Control does not match _headers.');
+  }
+  result['/'] = await fetchHeader('/');
+  check(!Object.values(rules).includes(result['/']), 'HTML caching must not change.');
+  return result;
+}
 async function verify(mode) {
   const branch = mode === 'preview' ? 'release-check-' + process.env.GITHUB_RUN_ID + '-' + process.env.GITHUB_RUN_ATTEMPT : 'main';
   const message = 'AdvocateDadCO GitHub Actions ' + process.env.GITHUB_RUN_ID + '/' + process.env.GITHUB_RUN_ATTEMPT;
@@ -173,7 +235,8 @@ async function verify(mode) {
   const deployment = await cf('/deployments/' + found.id), manifest = read('proposed-manifest.json');
   check(deployment.latest_stage.status === 'success' && deployment.environment === mode && differences(deployment.files || {}, manifest).length === 0, 'Deployment did not match the verified upload.');
   check((await production()).id === (mode === 'preview' ? read('baseline.json').id : deployment.id), 'Unexpected canonical deployment.');
-  const receipt = { mode, id: deployment.id, url: deployment.url, rollback: read('baseline.json').id, commit: sha(), site_files: Object.keys(manifest).length, manifest_sha256: manifestDigest(manifest), manifest_verified: true };
+  const served_headers = await servedHeaders(deployment.url);
+  const receipt = { mode, id: deployment.id, url: deployment.url, rollback: read('baseline.json').id, commit: sha(), site_files: Object.keys(manifest).length, manifest_sha256: manifestDigest(manifest), manifest_verified: true, served_headers };
   save(mode + '-receipt.json', receipt);
   summary('## Verified ' + mode + '\n\nDeployment: ' + receipt.id + '\n\nURL: ' + receipt.url + '\n\nRollback: ' + receipt.rollback);
 }
@@ -186,7 +249,7 @@ async function recordProduction() {
   save('github-production-record.json', { github_deployment: record.id, ...receipt });
   console.log('Verified production receipt recorded in GitHub.');
 }
-module.exports = { excluded, differences, manifestDigest, sourceManifest, assertProvenance, approvedRemovals, validateApproval };
+module.exports = { excluded, differences, manifestDigest, sourceManifest, assertProvenance, approvedRemovals, validateApproval, validateHeaders };
 if (require.main === module) {
   const commands = { prepare, preflight, 'require-review': requireReview, 'before-production': beforeProduction, 'verify-preview': () => verify('preview'), 'verify-production': () => verify('production'), 'record-production': recordProduction };
   Promise.resolve().then(() => { check(commands[process.argv[2]], 'Unknown release command.'); return commands[process.argv[2]](); })
