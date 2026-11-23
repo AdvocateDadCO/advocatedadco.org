@@ -59,7 +59,19 @@ The guard is layered, not a claim that automated scanning can recognize every pr
 
 If a deployment succeeds but verification or GitHub receipt recording fails, production may already have changed. Use the saved rollback ID in Cloudflare, inspect the evidence, and reconcile through a reviewed GitHub change. Do not loosen provenance checks or blindly redeploy. Restoring a pre-GitHub deployment requires explicit reconciliation because it has no matching GitHub provenance.
 
-Pages control files such as `_worker.js`, `_headers`, `_redirects`, and `_routes.json` need a separately reviewed implementation; this static-file workflow stops if they appear.
+Pages control files such as `_worker.js`, `_redirects`, and `_routes.json` need a separately reviewed implementation; this static-file workflow stops if they appear.
+
+### Image caching through `_headers`
+
+Rob approved long browser caching for images on Nov 23, 2026. The root `_headers` file is the one allowed control file, and only for that purpose. The release guard (`validateHeaders` in `pages-release.cjs`) stops the release unless every rule:
+
+- is a plain path (`/dir/*` or one exact file) with no host, placeholder, or other wildcard;
+- covers only tracked image files (`.avif`, `.gif`, `.ico`, `.jpg`, `.jpeg`, `.png`, `.webp`), with at least one match; and
+- sets exactly one header, `Cache-Control: public, max-age=N`, with N no more than one year.
+
+Any other header, a detach (`!`) line, or a rule that touches HTML, CSS, scripts, PDFs, or search data stops the release. Adding a non-image file under a cached folder such as `images/` also stops it until the rule is narrowed. Cloudflare reads `_headers` as configuration, not as a site file, so it is not in the deployment manifest; the review plan lists it as a separate `/_headers` change and records its blob hash under `control_files`. After the preview and production uploads, the workflow fetches one image for each rule and checks the served Cache-Control, and checks that the home page does not carry it.
+
+The current value is 30 days (`max-age=2592000`). It is not `immutable`, because image filenames are not fingerprinted: a replaced image under the same name can take up to 30 days to reach a returning visitor unless it gets a new filename. To undo, delete `_headers` (or change the value) in a reviewed PR, update fingerprints, and release normally; or roll back to the previous deployment in Cloudflare Pages.
 
 ### URL aliases this upload cannot 301
 
