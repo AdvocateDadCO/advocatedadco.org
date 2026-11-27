@@ -50,6 +50,25 @@
   <link rel="stylesheet" href="feature-article.css">
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="dc-highlights.css">
+<style id="dc-mission-brief-styles">
+.dc-mission-hero, .dc-mission-brief, .dc-mission-asks, .dc-mission-help { padding-block: clamp(1.75rem, 4vw, 3.25rem); }
+.dc-mission-hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.05; }
+.dc-mission-hero .dc-mission-lead { max-width: 63ch; font-size: 1.25rem; }
+.dc-mission-jumps, .dc-mission-links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: .8rem 0 0; padding: 0; list-style: none; }
+.dc-mission-jumps a, .dc-mission-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: .2em; }
+.dc-mission-jumps a { color: var(--cream); }
+.dc-mission-jumps a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.dc-mission-brief h2, .dc-mission-asks h2, .dc-mission-help h2 { margin: 0 0 1rem; font-size: clamp(1.8rem, 4vw, 3.1rem); line-height: 1.12; }
+.dc-mission-brief, .dc-mission-help { background: var(--cream); color: var(--navy); }
+.dc-mission-brief ul:not(.dc-mission-links), .dc-mission-help ol { max-width: 75ch; padding-left: 1.3rem; font-size: 1.125rem; }
+.dc-mission-brief li + li, .dc-mission-help li + li { margin-top: .55rem; }
+.dc-mission-ask-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; list-style: none; padding: 0; margin: 1.25rem 0 0; }
+.dc-mission-ask-grid li { padding: clamp(1rem, 2vw, 1.5rem); background: var(--cream); border: 1px solid var(--line); border-top: 4px solid var(--navy); }
+.dc-mission-ask-grid h3 { margin: 0 0 .45rem; font: 800 1.3rem/1.25 "Libre Franklin", sans-serif; }
+.dc-mission-ask-grid p { margin: .6rem 0 0; font-size: 1.125rem; }
+.dc-mission-brief .dc-mission-links li { margin-top: 0; }
+@media (max-width: 48rem) { .dc-mission-ask-grid { grid-template-columns: minmax(0,1fr); } }
+</style>
 </head>
 <body>
   <a class="skip-link" href="/dc-mission#main">Skip to main content</a>
@@ -79,34 +98,56 @@
     </nav>
   </header>
   <main id="main" data-pagefind-body>
-    <header class="page-hero">
+    <header class="page-hero dc-mission-hero">
       <div class="page-hero-inner">
         <p class="kicker">From Western Colorado to Washington</p>
         <h1>The D.C. mission</h1>
-        <p>Rob and Isabelle Harris brought Western Colorado’s lived experience with blindness, special education, transition, and rural access to a focused federal agenda.</p>
+        <p class="dc-mission-lead">Isabelle spoke in Washington as a blind young-adult self-advocate. Rob brought the perspective of a parent and caregiver from rural Western Colorado. Together, they brought two concrete requests about special education to federal policymakers.</p>
+        <nav aria-label="On this page">
+          <ul class="dc-mission-jumps">
+            <li><a href="#after-title">What we did</a></li>
+            <li><a href="#priorities-title">What we asked Congress to do</a></li>
+            <li><a href="#help-dc-title">How you can help</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <section class="page-section gold" aria-labelledby="after-title">
-      <span class="status-label">After Washington · Updated October 27, 2026</span>
-      <h2 id="after-title">What happened. What’s next.</h2>
-      <p class="page-copy">The trip brought lived experience into federal education advocacy and gave us practical resources to share back home. The public record below documents participation, access, and coverage. It does not establish that Congress has adopted our requests.</p>
-      <h3>What happened</h3>
+    <section class="page-section dc-mission-brief" aria-labelledby="after-title">
+      <h2 id="after-title">What we did in Washington</h2>
       <ul>
-        <li><strong>Isabelle’s self-advocacy.</strong> Our <a class="plain-link" href="/dc-album">20-photo Washington album</a> records the trip, including Isabelle at the microphone and braille and tactile access. The linked slideshow includes narrated photo descriptions and visible captions.</li>
-        <li><strong>Library of Congress and NLS access.</strong> Isabelle and Rob experienced a custom tour with tactile access and met with National Library Service leadership. Our <a class="plain-link" href="/resources#nls-library">NLS resource guide</a> connects that experience to reading, Braille on Demand, and music services families can explore.</li>
-        <li><strong>Local reporting.</strong> The Daily Sentinel’s October 8, 2026 coverage brought Isabelle’s advocacy and the need for specialized education and accessible technology to a Western Colorado audience. <a class="plain-link" href="/press#sentinel-20261008">Read the coverage summary and publisher link.</a></li>
+        <li><strong>Isabelle spoke for herself.</strong> The <a href="/dc-album">Washington photo album</a> shows her at the microphone and documents Braille and tactile access. The companion slideshow has narrated photo descriptions and visible captions.</li>
+        <li><strong>We brought rural access into the conversation.</strong> Rob connected federal education decisions to what families in places like Western Colorado experience when specialized instruction and services are hard to find.</li>
+        <li><strong>We brought resources home.</strong> At the Library of Congress, we took a tour with tactile access and met with National Library Service leadership. The <a href="/resources#nls-library">National Library Service guide</a> connects families to Braille books, audio, and music resources.</li>
       </ul>
-      <h3>What’s next</h3>
-      <p class="page-copy">The two Congressional asks remain the focus of this page. Legislative action, funding decisions, and implementation must be documented separately from meetings and media coverage. We will link to the public evidence when reporting a policy result.</p>
-      <h3>How to help now</h3>
-      <ol>
-        <li><strong>Use the resources.</strong> Share the <a class="plain-link" href="/resources#nls-library">NLS guide</a> and <a class="plain-link" href="/project-inspire">Project INSPIRE materials</a> with families and education teams. Connect a resource to a goal the learner chooses.</li>
-        <li><strong>Bring an implementation example.</strong> Describe the access needed, the barrier, and the practical change that would help. <a class="plain-link" href="/contact">Contact Rob</a> about collaboration; leave private student, medical, and case records out of initial messages.</li>
-        <li><strong>Carry the public asks forward.</strong> Use <a class="plain-link" href="#priorities-title">the two-ask briefing below</a> in conversations with elected officials and community partners. Ask how the proposed action would support specialized instruction and access in practice.</li>
+      <ul class="dc-mission-links">
+        <li><a href="/press#sentinel-20261008">Read The Daily Sentinel coverage</a></li>
+        <li><a href="/albums">Explore the advocacy albums</a></li>
+      </ul>
+    </section>
+
+    <section class="page-section white dc-mission-asks" aria-labelledby="priorities-title">
+      <h2 id="priorities-title">Two issues. Two asks.</h2>
+      <p class="page-copy">These are the requests we took to Washington. The trip record documents what we did. <a href="https://www.congress.gov/bill/119th-congress/senate-bill/5046">Congress.gov tracks action on S. 5046</a>.</p>
+      <ol class="dc-mission-ask-grid">
+        <li>
+          <h3>Protect all IDEA funding, including Part D</h3>
+          <p>Protect funding for every part of the Individuals with Disabilities Education Act (IDEA) in final fiscal year 2027 appropriations. <a href="https://sites.ed.gov/idea/statute-chapter-33/subchapter-iv">IDEA Part D</a> supports training for specialized educators, technical assistance, parent training and information, and accessible technology and materials.</p>
+        </li>
+        <li>
+          <h3>Support and advance S. 5046</h3>
+          <p>Keep the Office of Special Education and Rehabilitative Services (OSERS) and other covered education functions in the U.S. Department of Education. <a href="https://www.govinfo.gov/app/details/BILLS-119s5046rs">Read the reported Senate bill text on GovInfo</a>.</p>
+        </li>
       </ol>
-      <p><a class="button primary" href="/albums">Explore the advocacy albums</a></p>
-      <p><a class="plain-link" href="https://advocatedadco.substack.com/subscribe">Receive advocacy updates</a></p>
+    </section>
+
+    <section class="page-section dc-mission-help" aria-labelledby="help-dc-title">
+      <h2 id="help-dc-title">How you can help</h2>
+      <ol>
+        <li><strong>Contact your members of Congress.</strong> <a href="https://www.house.gov/representatives/find-your-representative">Find your U.S. representative</a> and <a href="https://www.senate.gov/senators/senators-contact.htm">find your U.S. senators</a>. Share the two asks and describe one way the issue affects access in your community.</li>
+        <li><strong>Share the briefing or a resource.</strong> Use the <a href="#briefing-title">one-page advocacy briefing</a> with a local group, or share the <a href="/resources#nls-library">National Library Service guide</a> and <a href="/project-inspire">Project INSPIRE materials</a> with families and education teams.</li>
+        <li><strong>Bring a practical example.</strong> <a href="/contact">Contact Rob</a> with the barrier, the access someone needed, and what would help. Leave private student, medical, and case records out of the first message.</li>
+      </ol>
     </section>
 
     <section class="dc-highlights" aria-labelledby="dc-highlights-title" aria-roledescription="carousel">
@@ -271,16 +312,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="page-section white" aria-labelledby="priorities-title">
-      <p class="kicker">The Congressional agenda</p>
-      <h2 id="priorities-title">Two issues. Two asks.</h2>
-      <p class="page-copy">The broader work provides evidence. These are the two federal actions Rob and Isabelle are asking Congress to take.</p>
-      <ol class="priority-list">
-        <li><span class="item-number" aria-hidden="true">01</span><h3>Protect the entire Individuals with Disabilities Education Act—including Part D</h3><p>Protect funding for every part of the <a class="plain-link" href="https://sites.ed.gov/idea/">Individuals with Disabilities Education Act (IDEA)</a> in final fiscal year 2027 appropriations. Preserve Part D national activities that sustain personnel preparation, technical assistance, parent training and family information, accessible technology and materials, and specialized expertise. Part B helps schools provide services; Part D helps build the people, knowledge, and capacity needed to provide them well.</p></li>
-        <li><span class="item-number" aria-hidden="true">02</span><h3>Support and advance Senate bill 5046</h3><p>Keep the <a class="plain-link" href="https://www.ed.gov/about/ed-offices/osers">Office of Special Education and Rehabilitative Services (OSERS)</a> and other core education functions within the <a class="plain-link" href="https://www.ed.gov/">U.S. Department of Education</a>. Monitoring of the federal special education law, technical assistance, coordination, and specialized expertise should remain connected to the broader education system—not fragmented or moved into a medical-services frame.</p><p><a class="plain-link" href="https://www.congress.gov/bill/119th-congress/senate-bill/5046">Read Senate bill 5046 (S.5046) on Congress.gov</a></p></li>
-      </ol>
     </section>
 
     <section class="page-section navy" aria-labelledby="isabelle-dc-title">
