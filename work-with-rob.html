@@ -3,9 +3,9 @@
 <head>
   <script>document.documentElement.classList.add("navigation-ready");</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071b33">
-  <meta name="description" content="Book From Access to Agency, a 60-minute workshop with Rob Harris on assistive technology and independence for blind and low vision students.">
+  <meta name="description" content="Ask about From Access to Agency, Rob Harris’s 60-minute workshop on assistive technology, or book a free 20-minute call to discuss a project.">
   <link rel="canonical" href="https://advocatedadco.org/work-with-rob">
-  <meta property="og:type" content="website"><meta property="og:title" content="Work With Rob | AdvocateDadCO"><meta property="og:description" content="Book From Access to Agency, a 60-minute workshop with Rob Harris on assistive technology and independence for blind and low vision students."><meta property="og:url" content="https://advocatedadco.org/work-with-rob"><meta property="og:image" content="https://advocatedadco.org/images/advocatedad-brand-social-20261109.png">
+  <meta property="og:type" content="website"><meta property="og:title" content="Work With Rob | AdvocateDadCO"><meta property="og:description" content="Ask about From Access to Agency, Rob Harris’s 60-minute workshop on assistive technology, or book a free 20-minute call to discuss a project."><meta property="og:url" content="https://advocatedadco.org/work-with-rob"><meta property="og:image" content="https://advocatedadco.org/images/advocatedad-brand-social-20261109.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="628"><meta property="og:image:type" content="image/png"><meta property="og:image:alt" content="Navy, cream, and gold AdvocateDadCO graphic with Colorado mountains and a winding path. Text reads: Lived experience. Lasting change. Access. Accountability. Participation. AdvocateDadCO.org.">
 <meta name="twitter:image" content="https://advocatedadco.org/images/advocatedad-brand-social-20261109.png"><meta name="twitter:image:alt" content="Navy, cream, and gold AdvocateDadCO graphic with Colorado mountains and a winding path. Text reads: Lived experience. Lasting change. Access. Accountability. Participation. AdvocateDadCO.org."><meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -14,6 +14,85 @@
   <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="accessibility.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="site-upgrades.css?v=20261030-touch-img">
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="recovered-updates.css">
+<style id="hire-rob-styles">
+.hire-hero,
+.hire-offers,
+.hire-details {
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+}
+.hire-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.05;
+}
+.hire-hero .hire-lead { max-width: 61ch; font-size: 1.25rem; }
+.hire-offers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1rem;
+  background: var(--cream);
+}
+.hire-offer {
+  padding: clamp(1.1rem, 2.7vw, 2rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+  background: var(--white);
+  color: var(--navy);
+}
+.hire-offer h2,
+.hire-details h2 {
+  margin: 0 0 .85rem;
+  font-size: clamp(1.75rem, 3vw, 2.8rem);
+  line-height: 1.15;
+}
+.hire-offer h3 {
+  margin: 0 0 .45rem;
+  font: 800 1.2rem/1.3 "Libre Franklin", sans-serif;
+}
+.hire-offer p,
+.hire-details .page-copy { font-size: 1.125rem; line-height: 1.6; }
+.hire-offer .kicker {
+  margin: 0 0 .4rem;
+  font-size: 1rem;
+}
+.hire-advisory {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+.hire-advisory p:last-child { margin-bottom: 0; }
+.hire-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem 1rem;
+  margin-top: 1.2rem;
+}
+.hire-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-underline-offset: .2em;
+}
+.hire-actions .button {
+  width: auto;
+  text-align: center;
+  white-space: normal;
+}
+.hire-actions a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.hire-hero .hire-actions a { color: var(--cream); }
+.hire-hero .hire-actions a:focus-visible { outline-color: var(--gold); }
+.hire-address { overflow-wrap: anywhere; }
+#booking-title,
+#intro-call-title,
+#takeaways-title { scroll-margin-top: 1rem; }
+@media (max-width: 48rem) {
+  .hire-offers { grid-template-columns: minmax(0, 1fr); }
+  .hire-offer .hire-actions { flex-direction: column; align-items: flex-start; }
+}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -43,20 +122,54 @@
     </nav>
   </header>
   <main id="main" data-pagefind-body>
-    <header class="page-hero">
+    <header class="page-hero hire-hero">
       <div class="page-hero-inner">
         <h1>Work With Rob</h1>
-        <p>Bring a practical workshop on assistive technology and student independence to your organization or conference.</p>
+        <p class="hire-lead">Bring a paid workshop to your organization, or book a free call to talk through a project that needs the right people in the room.</p>
+        <nav class="hire-actions" aria-label="Work with Rob options">
+          <a href="#booking-title">Workshop inquiry</a>
+          <a href="#intro-call-title">Free intro call</a>
+        </nav>
       </div>
     </header>
-    <section class="page-section white" aria-labelledby="workshop-title">
-      <p class="kicker">60-minute paid workshop</p>
-      <h2 id="workshop-title">From Access to Agency</h2>
-      <p class="page-copy">A student gets a device. Can they use it to read a work schedule, find out about a community event, or ask for an accommodation when the teacher isn’t there?</p>
-      <p class="page-copy">This workshop is for blindness organizations, parent centers, and educator conferences. It gives families, educators, and transition teams a way to tell whether assistive technology is helping a blind or low vision student do more independently, with the support the student chooses.</p>
-      <p class="page-copy"><a class="plain-link" href="/from-access-to-agency">Read the article behind the workshop</a></p>
+    <div class="page-section hire-offers">
+      <section class="hire-offer" aria-labelledby="workshop-title">
+        <p class="kicker">60-minute paid workshop</p>
+        <h2 id="workshop-title">From Access to Agency</h2>
+        <p>For blindness organizations, parent centers, and educator conferences. Learn how to tell whether assistive technology is helping a blind or low vision student do more independently, with the support the student chooses.</p>
+        <p>We’ll work through a realistic example and use four questions your team can bring to its next IEP or transition meeting.</p>
+        <div class="hire-actions">
+          <a class="button primary" href="#booking-title">How to inquire about the workshop</a>
+          <a href="#takeaways-title">See the workshop takeaways</a>
+        </div>
+      </section>
+      <section class="hire-offer" aria-labelledby="intro-call-title">
+        <p class="kicker">Free 20-minute intro call</p>
+        <h2 id="intro-call-title">Talk through a project</h2>
+        <p>Use the call to see whether the workshop fits your audience or to talk through a partnership or a small advisory project. Pick an available time in Google Calendar and join by Google Meet.</p>
+        <div class="hire-actions">
+          <a class="button primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Ab2HlzfS0xOjkrY8MevZU3DptJ0hcePUCY7ln_ykQ7jQATE_xj-q_dI-no0kmhrhZo1sgEWxB">Book a free 20-minute call</a>
+        </div>
+        <div class="hire-advisory">
+          <h3>Small advisory projects</h3>
+          <p>Bring one family-facing guide, program, or engagement plan. We can discuss a working session and a short memo on where families get stuck, what to change, and who needs to be involved. For blindness-specific projects, scope a budget to pay blind contributors for their expertise.</p>
+        </div>
+      </section>
+    </div>
+    <section class="page-section white hire-details" aria-labelledby="booking-title">
+      <h2 id="booking-title">Ask about booking the workshop</h2>
+      <p class="page-copy">Email Rob for a quote and availability. Include what you know so far.</p>
+      <ul class="page-copy">
+        <li>Your organization, event, and intended audience</li>
+        <li>Proposed dates and format</li>
+        <li>Accessibility needs and budget range, if known</li>
+      </ul>
+      <div class="hire-actions">
+        <a class="button primary" href="mailto:info@AdvocateDadCO.org?subject=From%20Access%20to%20Agency%20workshop%20inquiry&amp;body=Hi%20Rob%2C%0D%0A%0D%0AI'm%20interested%20in%20bringing%20From%20Access%20to%20Agency%20to%20our%20organization.%20Could%20you%20share%20your%20availability%20and%20a%20quote%3F%0D%0A%0D%0AOrganization%3A%0D%0AEvent%20and%20audience%3A%0D%0AProposed%20dates%20and%20format%3A%0D%0AAccessibility%20needs%20(if%20known)%3A%0D%0ABudget%20range%20(if%20known)%3A%0D%0A">Email Rob for a quote</a>
+      </div>
+      <p class="page-copy hire-address">Workshop inquiries go to <a href="mailto:info@AdvocateDadCO.org">info@AdvocateDadCO.org</a>.</p>
     </section>
-    <section class="page-section white" aria-labelledby="takeaways-title">
+    <section class="page-section white hire-details" aria-labelledby="takeaways-title">
       <h2 id="takeaways-title">What attendees take back to their teams</h2>
       <p class="page-copy">We’ll work through a sample scenario together. Attendees leave with four questions they can use in their next IEP or transition planning meeting.</p>
       <ol class="page-copy">
@@ -67,19 +180,7 @@
       </ol>
       <p class="page-copy">For example, a student could practice reading a work schedule with a screen reader, choose what help they need, and show how they’d catch a missing shift or ask for clarification.</p>
       <p class="page-copy">Rob Harris is a Western Colorado father, caregiver, and Colorado Department of Education Certified IEP Facilitator. <a class="plain-link" href="/press#bios-title">Read Rob’s bio</a>.</p>
-    </section>
-    <section class="contact" aria-labelledby="booking-title">
-      <div><h2 id="booking-title">Bring the workshop to your organization</h2></div>
-      <div class="contact-copy">
-        <p>Send your organization’s name, who will attend, your proposed dates and format, and any accessibility needs you already know about. Include your budget range if you have one. Ask for a quote and availability for your budget review.</p>
-        <a class="button contact-button" href="mailto:info@AdvocateDadCO.org?subject=From%20Access%20to%20Agency%20workshop%20inquiry&amp;body=Hi%20Rob%2C%0D%0A%0D%0AI'm%20interested%20in%20bringing%20From%20Access%20to%20Agency%20to%20our%20organization.%20Could%20you%20share%20your%20availability%20and%20a%20quote%3F%0D%0A%0D%0AOrganization%3A%0D%0AEvent%20and%20audience%3A%0D%0AProposed%20dates%20and%20format%3A%0D%0AAccessibility%20needs%20(if%20known)%3A%0D%0ABudget%20range%20(if%20known)%3A%0D%0A">Inquire about booking the workshop</a>
-        <p class="contact-address">Email address for booking inquiries: info@AdvocateDadCO.org</p>
-      </div>
-    </section>
-    <section class="page-section white" aria-labelledby="intro-call-title">
-      <h2 id="intro-call-title">Talk through a project</h2>
-      <p class="page-copy">Have a question about a workshop, a partnership, or a project that needs the right people in the room? Pick a time for a free conversation on Google Meet.</p>
-      <p class="page-copy"><a class="plain-link" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Ab2HlzfS0xOjkrY8MevZU3DptJ0hcePUCY7ln_ykQ7jQATE_xj-q_dI-no0kmhrhZo1sgEWxB">Book a free 20-minute intro call</a></p>
+      <p class="page-copy"><a class="plain-link" href="/from-access-to-agency">Read the article behind the workshop</a></p>
     </section>
   </main>
   <footer><div class="brand footer-brand"><img class="brand-logo" src="images/advocatedadco-logo.webp" srcset="images/advocatedadco-logo-88.webp 88w, images/advocatedadco-logo.webp 160w" sizes="52px" alt="" width="52" height="52" loading="lazy"><span><span class="brand-name">AdvocateDadCO</span></span></div><p>Western Colorado lived experience. National systems change.<br><a class="footer-email" href="mailto:info@AdvocateDadCO.org">info@AdvocateDadCO.org</a></p><p class="footer-links"><a href="https://www.linkedin.com/in/advocatedadrob-harrisco/" rel="me">Rob Harris on LinkedIn</a><br><a href="https://advocatedad.substack.com/subscribe">Newsletter</a><br><a href="/contact">Contact</a><br><a href="/accessibility">Accessibility</a><br><a href="#main">Back to top <span aria-hidden="true">↑</span></a></p><p class="copyright">© 2026 AdvocateDadCO. All rights reserved.</p></footer>
