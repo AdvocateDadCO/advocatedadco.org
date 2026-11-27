@@ -57,6 +57,22 @@
 .technology-photo-section figcaption { padding: 1rem; background: var(--navy); color: var(--cream); }
 
 </style>
+<style id="story-introduction-styles">
+.story-hero { padding-top: clamp(2rem, 5vw, 4rem); }
+.story-hero .story-kicker { color: var(--gold); }
+.story-hero h1 { font-size: clamp(2.55rem, 7vw, 5.8rem); line-height: 1.01; }
+.story-hero .story-deck { margin-top: 1rem; font-size: clamp(1.125rem, 2.2vw, 1.375rem); }
+.story-hero .story-purpose { max-width: 63ch; margin: .85rem 0 0; color: #d7e0e9; font-size: 1.125rem; line-height: 1.6; }
+.story-first-links { display: flex; flex-wrap: wrap; gap: 0 1rem; list-style: none; padding: 0; margin: 1rem 0 0; }
+.story-first-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--cream); font-size: 1.0625rem; font-weight: 700; text-underline-offset: .2em; }
+.story-first-links a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.story-hero-photo { margin-top: clamp(1.75rem, 4vw, 3rem); }
+@media (max-width: 540px) {
+  .story-hero-photo, .story-hero-photo picture, .story-hero-photo img { height: auto; }
+  .story-hero-photo::after { content: none; }
+  .story-hero-photo figcaption { position: static; }
+}
+</style>
 </head>
 <body class="story-page">
   <a class="skip-link" href="/story#main">Skip to main content</a>
@@ -93,7 +109,15 @@
         <div class="story-hero-copy">
           <p class="story-kicker">Our story</p>
           <h1>We learned to turn survival into change.</h1>
-          <p class="story-deck">Before there was #AdvocateDad, there was a father trying to make sure his daughter was seen, counted, taught, and given the chance to build a life of her own.</p>
+          <p class="story-deck">I’m Rob Harris, a dad and caregiver from Western Colorado. My daughter Isabelle is a blind young-adult self-advocate who reads Braille and travels with a white cane.</p>
+          <p class="story-purpose">When Isabelle’s school didn’t properly identify her blindness, it affected what she was taught and what support she received. We share what we learned so other families can find help sooner and the people making decisions hear from those who live with them.</p>
+          <nav aria-label="Where to go next">
+            <ul class="story-first-links">
+              <li><a href="/resources">Find practical family resources</a></li>
+              <li><a href="/work">See what we do</a></li>
+              <li><a href="/dc-mission">Follow our D.C. advocacy</a></li>
+            </ul>
+          </nav>
         </div>
         <figure class="story-hero-photo">
           <picture>
