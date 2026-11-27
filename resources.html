@@ -3,9 +3,9 @@
 <head>
   <script>document.documentElement.classList.add("navigation-ready");</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071b33">
-  <meta name="description" content="Free IEP checklists, evaluation guides, Braille and ECC resources for blind and low-vision families, students, and educators. No email required.">
+  <meta name="description" content="Find IEP checklists, Braille and accessible materials, transition guides, and Colorado Medicaid help for families. No email required.">
   <link rel="canonical" href="https://advocatedadco.org/resources">
-  <meta property="og:type" content="website"><meta property="og:title" content="Blind &amp; Low-Vision Family Resources | AdvocateDadCO"><meta property="og:description" content="Free IEP checklists, evaluation guides, Braille and ECC resources for blind and low-vision families, students, and educators. No email required."><meta property="og:url" content="https://advocatedadco.org/resources"><meta property="og:image" content="https://advocatedadco.org/images/advocatedad-brand-social-20261109.png">
+  <meta property="og:type" content="website"><meta property="og:title" content="Blind &amp; Low-Vision Family Resources | AdvocateDadCO"><meta property="og:description" content="Find IEP checklists, Braille and accessible materials, transition guides, and Colorado Medicaid help for families. No email required."><meta property="og:url" content="https://advocatedadco.org/resources"><meta property="og:image" content="https://advocatedadco.org/images/advocatedad-brand-social-20261109.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="628"><meta property="og:image:type" content="image/png"><meta property="og:image:alt" content="Navy, cream, and gold AdvocateDadCO graphic with Colorado mountains and a winding path. Text reads: Lived experience. Lasting change. Access. Accountability. Participation. AdvocateDadCO.org.">
 <meta name="twitter:image" content="https://advocatedadco.org/images/advocatedad-brand-social-20261109.png"><meta name="twitter:image:alt" content="Navy, cream, and gold AdvocateDadCO graphic with Colorado mountains and a winding path. Text reads: Lived experience. Lasting change. Access. Accountability. Participation. AdvocateDadCO.org."><meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -17,54 +17,81 @@
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="recovered-updates.css">
 <style id="resource-pathways-layout">
-.pathway-nav {
-  box-sizing: border-box;
+.resources-hero {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+.resources-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.04;
+}
+.family-paths {
+  padding: clamp(1.75rem, 4vw, 3rem) max(1.25rem, calc((100% - var(--max)) / 2));
+  background: var(--cream);
+  color: var(--navy);
+}
+.family-paths h2,
+.resource-library-nav h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+.family-path-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: clamp(2rem, 4vw, 3rem) max(1.25rem, calc((100% - var(--max))/2));
-  background: var(--navy);
-  border-top: 1px solid #37536b;
-  border-bottom: 1px solid #37536b;
-}
-.pathway-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   gap: 1rem;
-  min-width: 0;
-  padding: clamp(1.5rem, 2.5vw, 2rem);
-  border: 1px solid #597187;
-  border-top: 5px solid var(--gold);
-  border-radius: 0;
-  background: #102e48;
-  color: #fff;
-  text-decoration: none;
 }
-.pathway-nav a > span {
-  color: var(--gold);
-  font: 800 clamp(2.5rem, 4vw, 3.5rem)/1 "Libre Franklin", sans-serif;
-  letter-spacing: -.035em;
+.family-path-grid article {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+  background: var(--white);
 }
-.pathway-nav a > strong {
-  color: #fff;
-  font: 800 clamp(1.4rem, 2vw, 1.75rem)/1.25 "Libre Franklin", sans-serif;
-  letter-spacing: -.025em;
+.family-path-grid h3 {
+  margin: 0 0 .4rem;
+  font: 800 clamp(1.35rem, 2.7vw, 1.75rem)/1.2 "Libre Franklin", sans-serif;
 }
-.pathway-nav a > small {
-  margin-top: auto;
-  color: #e2eaf0;
+.family-path-grid p,
+.resource-library-nav p {
+  margin: 0 0 .55rem;
+  font-size: 1.125rem;
+}
+.family-path-grid ul,
+.resource-library-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.family-path-grid a,
+.resource-library-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--blue);
   font-size: 1.0625rem;
-  line-height: 1.5;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .2em;
 }
-.pathway-nav a:hover { background: #1a3e5c; border-color: var(--gold); }
-.pathway-nav a:hover > strong { text-decoration: underline; text-underline-offset: .2em; }
-.pathway-nav a:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
-@media (max-width: 900px) { .pathway-nav { grid-template-columns: 1fr; } }
-@media (forced-colors: active) { .pathway-nav a { border: 2px solid LinkText; } }
+.family-paths a:focus-visible,
+.resource-library-nav a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.resource-library-nav {
+  padding: 1.75rem max(1.25rem, calc((100% - var(--max)) / 2));
+  border-block: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
+}
+.resource-library-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+@media (max-width: 42rem) {
+  .family-path-grid { grid-template-columns: minmax(0, 1fr); }
+}
 </style>
 <style id="complex-needs-feature-styles">
 .complex-needs-feature{padding:clamp(2rem,5vw,4rem) max(1.25rem,calc((100% - var(--max,72rem))/2));background:#102b3f;color:#fff;scroll-margin-top:7rem}
@@ -80,7 +107,7 @@
 .complex-needs-feature .complex-needs-note{font-size:1rem;color:#fff}
 @media(max-width:48rem){.complex-needs-feature .complex-needs-layout{grid-template-columns:1fr}.complex-needs-feature figure{max-width:26rem}.complex-needs-feature .complex-needs-actions{flex-direction:column}.complex-needs-feature .complex-needs-actions a{width:fit-content;max-width:100%;overflow-wrap:anywhere}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://advocatedadco.org/#website","url":"https://advocatedadco.org/","name":"AdvocateDadCO","description":"Free IEP checklists, transition tools, and Colorado disability resources from parent advocate and CDE Certified IEP Facilitator Rob Harris.","publisher":{"@id":"https://advocatedadco.org/#organization"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://advocatedadco.org/search?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://advocatedadco.org/#organization","name":"AdvocateDadCO","alternateName":["Advocate Dad","#AdvocateDad"],"url":"https://advocatedadco.org/","logo":{"@type":"ImageObject","url":"https://advocatedadco.org/images/advocatedadco-logo.webp"},"foundingLocation":{"@type":"Place","name":"Grand Junction / Western Colorado"},"areaServed":[{"@type":"AdministrativeArea","name":"Colorado"},{"@type":"Country","name":"United States"}],"sameAs":["https://x.com/AdvocateDadCO","https://www.linkedin.com/in/advocatedadrob-harrisco/","https://advocatedad.substack.com/","https://robharris.link/","https://youtu.be/D3PxlDwewK8"],"founder":{"@id":"https://advocatedadco.org/#rob-harris"},"description":"Family resources, special education guides, and disability policy advocacy focused on blindness, low vision, rural access, and Medicaid accountability."},{"@type":"Person","@id":"https://advocatedadco.org/#rob-harris","name":"Rob Harris","url":"https://advocatedadco.org/story","image":"https://advocatedadco.org/images/headshots/rob-harris-seated-portrait-2026.png","jobTitle":"Disability systems advocate; Colorado Department of Education Certified IEP Facilitator","description":"Western Colorado father, caregiver, and systems advocate focused on blindness and low vision, special education, assistive technology, Medicaid and HCBS, and youth self-determination.","homeLocation":{"@type":"Place","name":"Grand Junction, Colorado"},"affiliation":{"@id":"https://advocatedadco.org/#organization"},"knowsAbout":["Blindness advocacy","Braille literacy","Optic nerve hypoplasia","Special education","IEP facilitation","Assistive technology","Medicaid","Home and community-based services","IDEA"],"sameAs":["https://www.linkedin.com/in/advocatedadrob-harrisco/","https://x.com/AdvocateDadCO","https://robharris.link/"],"alternateName":"AdvocateDad","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Certification","name":"Colorado Department of Education Certified IEP Facilitator","recognizedBy":{"@type":"GovernmentOrganization","name":"Colorado Department of Education","url":"https://www.cde.state.co.us/"}}]},{"@type":"WebPage","@id":"https://advocatedadco.org/resources#webpage","url":"https://advocatedadco.org/resources","name":"Free IEP, Braille, and transition tools for families and teams","description":"Free IEP checklists, evaluation guides, Braille and ECC resources for blind and low-vision families, students, and educators. No email required.","isPartOf":{"@id":"https://advocatedadco.org/#website"},"inLanguage":"en-US","breadcrumb":{"@id":"https://advocatedadco.org/resources#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://advocatedadco.org/resources#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":{"@type":"WebPage","@id":"https://advocatedadco.org/","name":"Home"}},{"@type":"ListItem","position":2,"name":"Resources","item":{"@type":"WebPage","@id":"https://advocatedadco.org/resources","name":"Resources"}}],"name":"Resources"}]}</script></head>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://advocatedadco.org/#website","url":"https://advocatedadco.org/","name":"AdvocateDadCO","description":"Free IEP checklists, transition tools, and Colorado disability resources from parent advocate and CDE Certified IEP Facilitator Rob Harris.","publisher":{"@id":"https://advocatedadco.org/#organization"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://advocatedadco.org/search?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://advocatedadco.org/#organization","name":"AdvocateDadCO","alternateName":["Advocate Dad","#AdvocateDad"],"url":"https://advocatedadco.org/","logo":{"@type":"ImageObject","url":"https://advocatedadco.org/images/advocatedadco-logo.webp"},"foundingLocation":{"@type":"Place","name":"Grand Junction / Western Colorado"},"areaServed":[{"@type":"AdministrativeArea","name":"Colorado"},{"@type":"Country","name":"United States"}],"sameAs":["https://x.com/AdvocateDadCO","https://www.linkedin.com/in/advocatedadrob-harrisco/","https://advocatedad.substack.com/","https://robharris.link/","https://youtu.be/D3PxlDwewK8"],"founder":{"@id":"https://advocatedadco.org/#rob-harris"},"description":"Family resources, special education guides, and disability policy advocacy focused on blindness, low vision, rural access, and Medicaid accountability."},{"@type":"Person","@id":"https://advocatedadco.org/#rob-harris","name":"Rob Harris","url":"https://advocatedadco.org/story","image":"https://advocatedadco.org/images/headshots/rob-harris-seated-portrait-2026.png","jobTitle":"Disability systems advocate; Colorado Department of Education Certified IEP Facilitator","description":"Western Colorado father, caregiver, and systems advocate focused on blindness and low vision, special education, assistive technology, Medicaid and HCBS, and youth self-determination.","homeLocation":{"@type":"Place","name":"Grand Junction, Colorado"},"affiliation":{"@id":"https://advocatedadco.org/#organization"},"knowsAbout":["Blindness advocacy","Braille literacy","Optic nerve hypoplasia","Special education","IEP facilitation","Assistive technology","Medicaid","Home and community-based services","IDEA"],"sameAs":["https://www.linkedin.com/in/advocatedadrob-harrisco/","https://x.com/AdvocateDadCO","https://robharris.link/"],"alternateName":"AdvocateDad","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Certification","name":"Colorado Department of Education Certified IEP Facilitator","recognizedBy":{"@type":"GovernmentOrganization","name":"Colorado Department of Education","url":"https://www.cde.state.co.us/"}}]},{"@type":"WebPage","@id":"https://advocatedadco.org/resources#webpage","url":"https://advocatedadco.org/resources","name":"Family resources","description":"Find IEP checklists, Braille and accessible materials, transition guides, and Colorado Medicaid help for families. No email required.","isPartOf":{"@id":"https://advocatedadco.org/#website"},"inLanguage":"en-US","breadcrumb":{"@id":"https://advocatedadco.org/resources#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://advocatedadco.org/resources#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":{"@type":"WebPage","@id":"https://advocatedadco.org/","name":"Home"}},{"@type":"ListItem","position":2,"name":"Resources","item":{"@type":"WebPage","@id":"https://advocatedadco.org/resources","name":"Resources"}}],"name":"Resources"}]}</script></head>
 <body>
   <a class="skip-link" href="/resources#main">Skip to main content</a>
   <header class="site-header" aria-label="Site header">
@@ -108,13 +135,68 @@
       <a href="/contact" class="nav-cta">Contact</a>
     </nav>
   </header>
-  <main id="main" data-pagefind-body><nav aria-label="Breadcrumb" style="margin:1rem 0;font-size:1rem;line-height:1.6"><a href="https://advocatedadco.org/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Resources</span></nav><header class="page-hero"><div class="page-hero-inner"><p class="kicker">Practical tools for families</p><h1>Free IEP, Braille, and transition tools for families and teams</h1><p>Find reliable information, prepare for a meeting, understand disability-specific evaluations, or plan for education, work, and adult life.</p><p><a class="button" href="/find-help" data-resource-id="re1fc602aaee5">Find help with blindness and low vision</a></p><p><a href="/start-here" data-resource-id="r4d8f96867c43">Start here: choose a route for families, educators, or policy readers</a>.</p><p>Search practical lessons by everyday goals, tools, or skills. Build a small skill plan and schedule practice. For families, teachers, and caseworkers.</p></div></header>
-    <nav class="pathway-nav" aria-label="Resource pathways">
-      <a href="#open-access"><span>01</span><strong>Browse open resources</strong><small>No email required</small></a>
-      <a href="#family-guides"><span>02</span><strong>Prepare for school meetings</strong><small>Read online or print</small></a>
-      <a href="/colorado" data-resource-id="r31bf12f92638"><span>03</span><strong>Find Colorado answers</strong><small>100 practical questions</small></a>
-      <a href="/how-can-i-help" data-resource-id="r1c4c7048c801"><span>04</span><strong>How can I help?</strong><small>Everyday assistance and BLV access for professionals</small></a>
-    </nav><section class="page-section" aria-labelledby="help-resources-title"><p class="kicker">Practical access</p><h2 id="help-resources-title">Help well. Build access into everyday life.</h2><p>Offer assistance with confidence, follow the person’s lead, and remove barriers at school, in stores, at church, and in the community.</p><div class="resource-grid"><article><h3>How can I help?</h3><p>Sighted guiding, shopping, community participation, and audio description at the movies.</p><a href="/how-can-i-help" data-resource-id="r1c4c7048c801">Read the everyday assistance guide</a></article><article><h3>The BLV layer for professionals</h3><p>Bring blindness and low-vision access into your existing work as a paraeducator, teacher, or related service provider.</p><a href="/blv-professional-access" data-resource-id="rc409ed8eee2d">Explore professional access strategies and resources</a></article></div></section>
+  <main id="main" data-pagefind-body>
+    <nav aria-label="Breadcrumb" style="margin:1rem 0;font-size:1rem;line-height:1.6"><a href="https://advocatedadco.org/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Resources</span></nav>
+    <header class="page-hero resources-hero">
+      <div class="page-hero-inner">
+        <h1>Family resources</h1>
+        <p>Get ready for an IEP meeting, find Braille and accessible materials, plan for adult life, or get help with Colorado Medicaid.</p>
+      </div>
+    </header>
+    <section class="family-paths" aria-labelledby="family-paths-title">
+      <h2 id="family-paths-title">What do you need help with?</h2>
+      <div class="family-path-grid">
+        <article>
+          <h3>IEP and school meetings</h3>
+          <p>Set priorities for the meeting and know what to ask about evaluations.</p>
+          <ul>
+            <li><a href="/blind-low-vision-iep-checklist" data-resource-id="rc2e22d1661bd">Read the IEP preparation checklist</a></li>
+            <li><a href="/essential-evaluations-blind-low-vision" data-resource-id="r1044f0979724">Read the guide to vision-specific evaluations</a></li>
+          </ul>
+        </article>
+        <article>
+          <h3>Braille and accessible materials</h3>
+          <p>Find Braille books, math resources, and help asking for accessible class materials.</p>
+          <ul>
+            <li><a href="#nls-library">Find Braille books through the National Library Service</a></li>
+            <li><a href="/project-inspire" data-resource-id="re20075b63426">Explore Project INSPIRE’s Braille STEM resources</a></li>
+            <li><a href="/accessible-school-materials#iep-title">Ask your school for accessible materials</a></li>
+          </ul>
+        </article>
+        <article>
+          <h3>Transition to adult life</h3>
+          <p>Plan for work, travel, and daily life around the young person’s own goals.</p>
+          <ul>
+            <li><a href="/ecc-transition-readiness-families" data-resource-id="r86a38c4db155">Read the transition readiness guide</a></li>
+            <li><a href="https://www.ntac.blind.msstate.edu/families-individuals/4-24-app">Learn about 4to24 activities for work and independent living</a></li>
+          </ul>
+        </article>
+        <article>
+          <h3>Colorado Medicaid</h3>
+          <p>Find where to start with coverage, appeals, in-home services, and caregiving.</p>
+          <ul>
+            <li><a href="/colorado#group-coverage">Find answers about coverage and appeals</a></li>
+            <li><a href="/colorado#group-home">Find help with home services and caregiving</a></li>
+            <li><a href="https://www.healthfirstcolorado.gov/">Visit Health First Colorado, the state’s Medicaid website</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <nav class="resource-library-nav" aria-labelledby="resource-library-title">
+      <h2 id="resource-library-title">Browse the full resource collection</h2>
+      <ul>
+        <li><a href="/find-help" data-resource-id="re1fc602aaee5">Find blindness and low-vision help</a></li>
+        <li><a href="#family-guides">Family guides and PDFs</a></li>
+        <li><a href="#open-access">Communication and complex needs</a></li>
+        <li><a href="/how-can-i-help" data-resource-id="r1c4c7048c801">Everyday assistance</a></li>
+        <li><a href="#learning-transition">Training and learning resources</a></li>
+        <li><a href="#accessible-stem">Accessible STEM</a></li>
+        <li><a href="#accessible-meetings">Accessible meetings</a></li>
+        <li><a href="/colorado" data-resource-id="r31bf12f92638">All Colorado family questions</a></li>
+        <li><a href="/start-here" data-resource-id="r4d8f96867c43">Start Here guide for families and teams</a></li>
+      </ul>
+    </nav>
+    <section class="page-section" aria-labelledby="help-resources-title"><p class="kicker">Practical access</p><h2 id="help-resources-title">Help well. Build access into everyday life.</h2><p>Offer assistance with confidence, follow the person’s lead, and remove barriers at school, in stores, at church, and in the community.</p><div class="resource-grid"><article><h3>How can I help?</h3><p>Sighted guiding, shopping, community participation, and audio description at the movies.</p><a href="/how-can-i-help" data-resource-id="r1c4c7048c801">Read the everyday assistance guide</a></article><article><h3>The BLV layer for professionals</h3><p>Bring blindness and low-vision access into your existing work as a paraeducator, teacher, or related service provider.</p><a href="/blv-professional-access" data-resource-id="rc409ed8eee2d">Explore professional access strategies and resources</a></article></div></section>
 <section id="learning-transition" class="page-section" aria-labelledby="learning-transition-title">
 <p class="kicker">Learning, practice, and transition</p><h2 id="learning-transition-title">Build the blindness and low-vision layer into everyday work.</h2>
 <p><a href="#learning-transition">Learning and transition resources</a> · <a href="#accessible-stem">Accessible STEM resources</a> · <a href="#accessible-meetings">Accessible meetings toolkit</a></p><p class="page-copy">For families, paraeducators, teachers, related service providers, and rehabilitation professionals. Choose a resource that fits the learner and the task, then bring the ideas back to the student and team.</p>
