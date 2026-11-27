@@ -34,23 +34,57 @@
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="site-upgrades.css?v=20261030-touch-img">
   <link rel="stylesheet" href="newsletter.css?v=b3877f7">
-<style id="technology-photo-styles">
-.technology-photo-section {
-  grid-column: 1 / -1;
-  width: 100%;
-  max-width: 780px;
-  margin: 1rem auto 0;
+<style id="homepage-flow-styles">
+.home-flow {
+  padding: clamp(2.5rem, 5vw, 4.5rem) max(1.25rem, calc((100% - var(--max)) / 2));
 }
-.technology-photo-section h3 {
-  margin: 0 0 1rem;
-  font: 800 clamp(1.35rem, 2vw, 1.8rem)/1.2 "Libre Franklin", sans-serif;
-  color: var(--navy);
+.home-flow h2 { font-size: clamp(2rem, 3.7vw, 3.5rem); }
+.home-flow a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.home-paths { background: var(--cream); color: var(--navy); }
+.home-path-grid, .home-update-list, .home-more-links {
+  padding: 0;
+  margin: 1.5rem 0 0;
+  list-style: none;
 }
-.technology-photo-section figure { margin: 0; border-bottom: 6px solid var(--red); }
-.technology-photo-section picture { display: block; }
-.technology-photo-section img { display: block; width: 100%; height: auto; object-fit: contain; }
-.technology-photo-section figcaption { padding: 1rem; background: var(--navy); color: var(--cream); }
-
+.home-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.home-path-grid li {
+  padding: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+}
+.home-path-grid h3 { margin: 0; }
+.home-path-grid a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font: 800 1.18rem/1.3 "Libre Franklin", sans-serif;
+}
+.home-path-grid p { margin: .4rem 0 0; color: var(--muted); }
+.home-updates { background: var(--white); }
+.home-update-list { border-top: 1px solid var(--line); }
+.home-update-list li { padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.home-update-list time { display: block; color: var(--muted); font-size: .9rem; }
+.home-flow a { text-underline-offset: .2em; }
+.home-more-links { display: flex; flex-wrap: wrap; gap: .3rem 1.5rem; }
+.home-more-links a, .home-update-list a { display: inline-flex; align-items: center; min-height: 44px; }
+.home-flow .home-quote { margin: 0; padding-left: 1rem; border-left: 4px solid var(--red); max-width: 60ch; }
+.home-flow .home-quote p { margin: 0 0 .35rem; }
+.home-flow.home-support {
+  display: block;
+  color: var(--cream);
+  background: var(--navy);
+}
+.home-support a:focus-visible, .home-support button:focus-visible { outline-color: var(--gold); }
+.home-support .act-buttons { margin: 1.2rem 0 0; }
+.home-support .status { margin: .5rem 0 0; }
+@media (max-width: 760px) {
+  .home-path-grid { grid-template-columns: minmax(0, 1fr); }
+}
 </style>
 <link rel="stylesheet" href="onh.css">
 <link rel="stylesheet" href="feature-article.css">
@@ -128,235 +162,79 @@
       </blockquote>
     </section>
 
+    <section class="home-flow home-paths" aria-labelledby="visitor-paths-title">
+      <h2 id="visitor-paths-title">What brings you here?</h2>
+      <ul class="home-path-grid">
+        <li>
+          <h3><a href="/resources" data-resource-id="rda6e27076b82">Find practical help</a></h3>
+          <p>Prepare for an IEP, find Colorado Medicaid answers, or explore blindness and low vision resources.</p>
+        </li>
+        <li>
+          <h3><a href="/policy-action">Explore policy and take action</a></h3>
+          <p>See what the rules say about accessible school materials and what families and advocates can ask for.</p>
+        </li>
+        <li>
+          <h3><a href="/work-with-rob">Work With Rob</a></h3>
+          <p>Bring a workshop to your organization, talk through a partnership, or book a free 20-minute call.</p>
+        </li>
+      </ul>
+    </section>
 
     <section class="home-featured-story" id="latest-update" aria-labelledby="latest-update-title">
       <div class="home-featured-story-inner">
-        <p class="kicker">Assistive technology · Education &amp; transition · November 15, 2026</p>
+        <p class="kicker">Current priority · Assistive technology and transition</p>
         <h2 id="latest-update-title">From Access to Agency</h2>
         <p>Devices open possibilities. Instruction, reliable access, and personal choice help turn those possibilities into everyday skills. Four questions help families and IEP teams plan for meaningful use, continued access, and the student’s own decisions.</p>
         <p><a class="button primary" href="/from-access-to-agency" data-resource-id="re43a1bd9b9bd">Read From Access to Agency and the four planning questions</a></p>
         <p><a class="plain-link" href="/ecc-transition-readiness-families" data-resource-id="r86a38c4db155">Use the ECC and transition readiness guide</a> — free to read online; no email required.</p>
       </div>
     </section>
-    <section class="home-featured-story" id="medicaid-testimony" aria-labelledby="medicaid-testimony-title">
-      <div class="home-featured-story-inner">
-        <p class="kicker">Medicaid &amp; accountability · Prepared testimony</p>
-        <h2 id="medicaid-testimony-title">Authorized hours don’t provide care. People do.</h2>
-        <p>Rural families cannot be the state’s unlimited unpaid backup workforce. My prepared comments to the Colorado Commission on Medicaid call for workable staffing plans, accessible exceptions, and public reporting on whether people actually get care.</p>
-        <p><a class="button primary" href="/rural-medicaid-accountability-testimony-2026-11-10">Read my testimony and sources</a></p>
-        <p><a class="plain-link" href="/medicaid-commission-testimony">Earlier submitted Medicaid Commission comments</a></p>
-        <p><a class="plain-link" href="/blog">Explore the blog</a></p>
-      </div>
-    </section>
-    <section class="home-featured-story" aria-labelledby="blog-update-title">
-      <div class="home-featured-story-inner">
-        <p class="kicker">From the blog · October 29, 2026</p>
-        <h2 id="blog-update-title">A barrier removed. The work ahead remains.</h2>
-        <p>What the Medicaid medical-frailty ruling changes, what remains, and why Colorado implementation matters for families.</p>
-        <p><a class="button primary" href="/medicaid-medically-frail-ruling-2026-10-29">Read the Medicaid update</a></p>
-        <p><a class="plain-link" href="/blog">Explore the blog</a></p>
-      </div>
-    </section>
-    <section class="statement" id="mission" aria-labelledby="mission-title">
-      <p class="section-number" aria-hidden="true">01</p>
-      <div>
-        <p class="kicker">The mission</p>
-        <h2 id="mission-title">Systems should work for people—not require people to become experts just to survive them.</h2>
-      </div>
-      <div class="statement-copy">
-        <p>I did not set out to become an advocate. I became one because my daughter deserved access, opportunity, and a future shaped by her abilities—not by low expectations or inaccessible systems.</p>
-        <p>Today, I bring a parent’s persistence, a systems thinker’s eye, and years of lived experience to every table where decisions about disabled people are made.</p>
-        <p class="signature">— Rob Harris, father, caregiver & advocate</p>
-      </div>
-      <figure class="mission-photo">
-        <picture>
-          <source type="image/avif" srcset="images/rob-and-isabelle-vail-480.avif 480w, images/rob-and-isabelle-vail-720.avif 720w, images/rob-and-isabelle-vail-900.avif 900w, images/rob-and-isabelle-vail-1600.avif 1600w" sizes="(max-width: 850px) calc(100vw - 2.5rem), 700px"><source srcset="images/rob-and-isabelle-vail-480.webp 480w, images/rob-and-isabelle-vail-720.webp 720w, images/rob-and-isabelle-vail-900.webp 900w, images/rob-and-isabelle-vail-1600.webp 1600w" sizes="(max-width: 850px) calc(100vw - 2.5rem), 700px" type="image/webp">
-          <img src="images/rob-and-isabelle-vail.jpeg" alt="Rob and Isabelle Harris smile together overlooking the mountains in Vail, Colorado." width="1400" height="1050" loading="lazy">
-        </picture>
-        <figcaption>Rob and Isabelle—learning, leading, and building independence together.</figcaption>
-      </figure>
+
+    <section class="home-flow home-updates" aria-labelledby="recent-updates-title">
+      <h2 id="recent-updates-title">Recent updates</h2>
+      <ul class="home-update-list">
+        <li><time datetime="2026-11-22">November 22, 2026</time><a href="/support-the-parents-this-holiday-season">This Holiday Season, Support the Parents, Too</a></li>
+        <li id="medicaid-testimony"><time datetime="2026-11-10">November 10, 2026</time><a href="/rural-medicaid-accountability-testimony-2026-11-10">Authorized hours don’t provide care. People do.</a></li>
+        <li><time datetime="2026-10-29">October 29, 2026</time><a href="/medicaid-medically-frail-ruling-2026-10-29">A barrier removed. The work ahead remains.</a></li>
+      </ul>
+      <p><a href="/blog">Browse all updates</a></p>
     </section>
 
-    <section class="asks" aria-labelledby="asks-title">
-      <div class="asks-heading">
-        <p class="kicker">AdvocateDadCO’s continuing mission</p>
-        <h2 id="asks-title">Three commitments guide the broader work.</h2>
-        <p>These are AdvocateDadCO’s permanent systems-change priorities. They shape work in Colorado and nationally, but they are not three additional Congressional asks for this D.C. delegation.</p>
-      </div>
-      <ol class="asks-grid">
-        <li><span aria-hidden="true">01</span><h3>Deliver access from day one.</h3><p>Make timely Braille, accessible instructional materials, assistive technology, orientation and mobility (O&amp;M), and Expanded Core Curriculum instruction an expectation—not an exception families must repeatedly fight to obtain.</p></li>
-        <li><span aria-hidden="true">02</span><h3>Build and support the workforce.</h3><p>Strengthen the pipeline of teachers of students with visual impairments (TVIs), certified orientation and mobility specialists (COMS), interveners, and related professionals, with specific solutions for rural communities where distance and shortages compound inequity.</p></li>
-        <li><span aria-hidden="true">03</span><h3>Share power with the people affected.</h3><p>Include disabled young people and families meaningfully in policy design, implementation, evaluation, and oversight—not only after decisions have already been made.</p></li>
-      </ol>
-      <a class="button primary" href="/work">See the broader work</a>
-    </section>
-
-    <section class="rob-story" id="hear-rob" aria-labelledby="rob-story-title">
-      <div class="rob-story-inner">
-        <div class="rob-story-intro">
-          <p class="rob-story-kicker">A parent. A purpose. A push for change.</p>
-          <h2 id="rob-story-title">Hear Rob's Story</h2>
-          <p>Listen to Rob's story, or read the full transcript below.</p>
-          <a href="/story">Explore our family story</a>
-        </div>
-        <div class="rob-story-listen">
-          <p id="rob-story-help">Length: about 3 minutes 3 seconds. Use the player to play, pause, adjust volume, or move through the recording. Audio starts only when you choose to play.</p>
-          <audio controls preload="none" aria-label="Hear Rob's Story: audio narration" aria-describedby="rob-story-help">
-            <source src="audio/rob-story.mp3" type="audio/mpeg">
-            Your browser does not support the audio player. Use the audio download link or read the full transcript below.
-          </audio>
-          <p class="rob-story-downloads"><a href="audio/rob-story.mp3" download>Download Rob's story (MP3, 2.8 MB)</a> <a href="audio/rob-story-transcript.txt" download>Download the full transcript (text)</a></p>
-        </div>
-        <details class="rob-story-transcript">
-          <summary>Read the full transcript of Rob's story</summary>
-          <div class="rob-story-transcript-text">
-          <p>Hey there, I&#x27;m Rob Harris, and welcome to AdvocateDadCO. I&#x27;m a dad, a husband, a caregiver, and an advocate. But more than anything, I&#x27;m somebody who believes that when a system isn&#x27;t working, we have a responsibility to ask why. And sometimes, we have to do something about it. Now, I&#x27;ve been doing this for a long time, and I&#x27;ll tell you something. Advocacy isn&#x27;t always about standing behind a microphone, walking into a government office, or meeting with somebody in Washington, D.C.</p>
-          <p>Sometimes, advocacy happens at the kitchen table. Sometimes, it&#x27;s a parent sitting up at midnight trying to figure out why their child isn&#x27;t getting the services they need. And sometimes, it&#x27;s just asking one simple question. Why? Why does this have to be so complicated? Why are families expected to understand systems that even the people running them struggle to explain? And here&#x27;s another question.</p>
-          <p>Who exactly is accountable when those systems fail? Now, don&#x27;t get me wrong. I&#x27;ve met some extraordinary people working inside these systems. Dedicated teachers, nurses, therapists, public servants, and professionals who genuinely care. But good people working inside a broken system don&#x27;t automatically make that system work. That&#x27;s where advocacy comes in. My daughter Isabelle is blind. She&#x27;s also one of the reasons I&#x27;ve spent so many years learning about education, disability policy, assistive technology, and the complicated world of services and supports.</p>
-          <p>And you know what? She&#x27;s taught me more about determination than just about anybody I&#x27;ve ever met. Recently, we traveled together to Washington, D.C. where we joined other advocates to talk about something that matters deeply to our families. Access, opportunity, and the future of special education. Standing in those halls, talking with people who helped shape national policy, I couldn&#x27;t help but think about how far we&#x27;ve come.</p>
-          <p>But I also thought about the families who couldn&#x27;t be there, the parents who are exhausted, the young adults who are trying to find their own voices, the caregivers who are doing everything they can just to make it through another day. Those are the people I carry into these conversations. And here&#x27;s something I believe. You don&#x27;t need a fancy title to make a difference.</p>
-          <p>You don&#x27;t need to know every law, every regulation, or every acronym. You need to be willing to learn. You need to ask questions. And when something doesn&#x27;t make sense, you need the courage to say so. Now, does that mean we always get it right? Heck no. I&#x27;ve made mistakes. I&#x27;ve learned lessons the hard way. And I&#x27;ve certainly had conversations where I walked away thinking, well, that could have gone better.</p>
-          <p>But that&#x27;s life, isn&#x27;t it? We learn, we adjust, and we keep moving forward. Because at the end of the day, this isn&#x27;t about politics. It&#x27;s not about getting credit. And it sure isn&#x27;t about winning arguments on the internet. It&#x27;s about people. It&#x27;s about making sure a child who is blind has access to the tools they need to learn. It&#x27;s about making sure families aren&#x27;t buried under paperwork.</p>
-          <p>And it&#x27;s about holding government and institutions accountable for the promises they make. That&#x27;s what AdvocateDadCO is about. Practical information, honest conversations, a little humor along the way, and a whole lot of determination. So whether you&#x27;re a parent, a professional, a policymaker, or somebody who&#x27;s just trying to figure out where to start, I&#x27;m glad you&#x27;re here. Pull up a chair, ask a question, challenge an idea, because your voice matters.</p>
-          <p>And together, we might just make these systems work a little better. Thanks for listening. I&#x27;m Rob Harris, and this is AdvocateDadCO.</p>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <section class="proof-strip" aria-label="Advocacy experience">
-      <p>Experience behind the mission</p>
-      <ul>
-        <li><a href="https://ed.cde.state.co.us/">Colorado Department of Education (CDE)</a> Certified <abbr title="Individualized Education Program">IEP</abbr> Facilitator</li>
-        <li>Former President, <a href="https://nfbco.org/for-parents">Colorado Parents of Blind Children</a></li>
-        <li><a href="https://aphconnectcenter.org/familyconnect/">American Printing House for the Blind (APH) FamilyConnect</a> Parent Advisor</li>
-        <li><a href="https://www.ed.gov/">U.S. Department of Education</a> Product Review Panel</li>
+    <section class="home-flow" id="mission" aria-labelledby="mission-title">
+      <h2 id="mission-title">Lived experience behind the work</h2>
+      <blockquote class="home-quote">
+        <p>“Systems should work for people—not require people to become experts just to survive them.”</p>
+        <cite>Rob Harris · AdvocateDadCO</cite>
+      </blockquote>
+      <ul class="home-more-links">
+        <li><a href="/story">Read our family story</a></li>
+        <li id="hear-rob"><a href="/story#hear-rob">Hear Rob’s story or read the transcript</a></li>
+        <li id="work"><a href="/work">Explore our work</a></li>
+        <li id="trip"><a href="/dc-mission">Follow the D.C. advocacy and congressional asks</a></li>
+        <li><a href="/press">Find press materials</a></li>
+        <li id="albums"><a href="/albums">Explore the advocacy albums</a></li>
+        <li id="access-warrior"><a href="/albums#access-warrior">View the Access Warrior exhibit</a></li>
+        <li id="onh-resources"><a href="/onh">Explore the optic nerve hypoplasia resource hub</a></li>
+        <li><a href="/how-can-i-help">Learn how to offer assistance</a></li>
+        <li id="contact"><a href="/contact">Contact AdvocateDadCO</a></li>
       </ul>
     </section>
 
-
-
-    <section class="home-featured-story" aria-labelledby="featured-inspire-title">
-      <div class="home-featured-story-inner">
-        <p class="kicker">Featured story</p>
-        <h2 id="featured-inspire-title">When the Work Comes Back Around</h2>
-        <p>How Project INSPIRE’s braille STEM resources helped Isabelle’s education, gave her father evidence when advocacy alone wasn’t enough, and became part of the story behind our federal advocacy.</p>
-        <a class="button primary" href="/project-inspire">Read the Story <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">The work</p>
-          <h2 id="work-title">Advocacy grounded in real life.</h2>
-          <p>From one family’s fight for access to statewide and national systems change.</p>
+    <section class="act home-flow home-support" id="act" aria-labelledby="act-title">
+      <div class="home-support-copy">
+        <p class="kicker light">Support or share</p>
+        <h2 id="act-title">Lived experience belongs wherever decisions are made.</h2>
+        <p class="power-attribution">Share the public policy asks. Private travel and meeting details will stay private.</p>
+        <div class="act-buttons">
+          <a class="button outline-light" href="https://venmo.com/u/HarrisRob" target="_blank" rel="noopener noreferrer" aria-label="Donate to Rob Harris with Venmo at HarrisRob; opens Venmo in a new tab">Donate with Venmo · @HarrisRob</a>
+          <a class="button outline-light" href="https://x.com/AdvocateDadCO">Follow @AdvocateDadCO</a>
+          <a class="button outline-light" id="x-share" href="https://x.com/intent/post?text=Lived%20experience%20belongs%20wherever%20decisions%20are%20made.%20Follow%20Rob%20and%20Isabelle%E2%80%99s%20D.C.%20advocacy%20mission%3A&url=https%3A%2F%2Fadvocatedadco.org%2F&hashtags=AdvocateDad">Share on X</a>
+          <a class="button outline-light" href="mailto:?subject=AdvocateDadCO%20-%20Lived%20Experience%2C%20Lasting%20Change&body=I%20thought%20you%20would%20want%20to%20see%20Rob%20and%20Isabelle%20Harris%E2%80%99s%20advocacy%20mission%3A%20https%3A%2F%2Fadvocatedadco.org%2F">Share by email</a>
+          <button class="button outline-light" id="copy-button" type="button">Copy link</button>
         </div>
-        <figure class="braille-photo">
-          <picture>
-            <source type="image/avif" srcset="images/white-cane-day-community-1200.avif"><source srcset="images/white-cane-day-community-1200.webp" type="image/webp">
-            <img src="images/white-cane-day-community.jpg" alt="White Cane Day participants gather with white canes and guide dogs; several wear Stop for White Canes shirts." width="1400" height="933" loading="lazy">
-          </picture>
-          <figcaption>White Cane Day: community, visibility, and access.</figcaption>
-        </figure>
-      </div>
-      <div class="work-grid">
-        <article>
-          <span class="card-no">01</span>
-          <h3><a href="/work#blindness-literacy">Blindness &amp; literacy</a></h3>
-          <p>Braille, assistive technology, orientation and mobility, the Expanded Core Curriculum, and the presumption of competence.</p>
-        </article>
-        <article>
-          <span class="card-no">02</span>
-          <h3><a href="/work#special-education">Special education</a></h3>
-          <p>Helping families navigate individualized education programs (IEPs) while pushing schools toward meaningful access, accountability, and ambitious outcomes.</p>
-        </article>
-        <article>
-          <span class="card-no">03</span>
-          <h3><a href="/work#medicaid-hcbs">Medicaid &amp; home- and community-based services (HCBS)</a></h3>
-          <p>Centering families in decisions about home- and community-based services, caregiver supports, assessments, and public accountability.</p>
-        </article>
-        <article>
-          <span class="card-no">04</span>
-          <h3><a href="/work#youth-leadership">Youth leadership</a></h3>
-          <p>Creating room for blind and low-vision young people to build confidence, self-determination, interdependence, and their own public voice.</p>
-        </article>
-      </div>
-      <aside class="onh-feature" id="onh-resources" aria-labelledby="onh-feature-title">
-        <p class="kicker">A focused resource for a rare condition</p>
-        <h3 id="onh-feature-title">Optic nerve hypoplasia: reliable information, in one place.</h3>
-        <p>ONH medical references, family connections, school-access guidance, and practical next steps. Sources and review dates included.</p>
-        <p><a href="/onh">Explore the ONH resource hub</a></p>
-      </aside>
-    </section>
-
-
-
-    <section class="trip" id="trip" aria-labelledby="trip-title">
-      <div class="trip-intro">
-        <p class="kicker light">Washington, D.C. · Federal education advocacy</p>
-        <h2 id="trip-title">Two issues. Two asks.</h2>
-        <p>Rob and Isabelle brought lived experience to Washington. The continuing work connects the public policy asks to specialized instruction, rural access, and practical resources for families.</p>
-      </div>
-      <div class="trip-details">
-        <div class="date-block">
-          <p>Washington, D.C. advocacy</p>
-          <p>Fall 2026 · Trip completed</p>
-        </div>
-        <div class="agenda">
-          <h3>The Congressional asks</h3>
-          <ul>
-            <li><span aria-hidden="true">01</span>Protect all of the <a href="https://sites.ed.gov/idea/">Individuals with Disabilities Education Act (IDEA)</a>—including Part D—in final fiscal year 2027 appropriations.</li>
-            <li><span aria-hidden="true">02</span>Support and advance <a href="https://www.congress.gov/bill/119th-congress/senate-bill/5046">S.5046</a> to keep the <a href="https://www.ed.gov/about/ed-offices/osers">Office of Special Education and Rehabilitative Services (OSERS)</a> and core education functions within the <a href="https://www.ed.gov/">U.S. Department of Education</a>.</li>
-          </ul>
-          <p class="meeting-note">Rob connects federal infrastructure to family, rural, and implementation realities. Isabelle speaks as a blind young-adult self-advocate.</p>
-          <p><a class="button cream" href="/dc-mission">Read the full D.C. briefing</a></p>
-        </div>
+        <p class="status" id="share-status" role="status" aria-live="polite"></p>
       </div>
     </section>
-
-    <section class="home-featured-story" id="albums" aria-labelledby="albums-title">
-      <div class="home-featured-story-inner">
-        <p class="kicker">Photo &amp; video albums</p>
-        <h2 id="albums-title">Advocacy Through the Years</h2>
-        <p>Our work in photos and video: advocacy, community, and access in practice. This collection will grow with albums from our work over the years.</p>
-        <p><a class="button primary" href="/albums">Explore the advocacy albums</a></p>
-        <p><a href="https://youtu.be/D3PxlDwewK8">Watch the accessible D.C. slideshow on YouTube</a></p>
-      </div>
-    </section>
-
-    <section class="access-feature" id="access-warrior" aria-labelledby="access-heading"><p class="label">ADVOCACY THROUGH THE YEARS</p><h2 id="access-heading">Access means having a voice.</h2>
-<p>Featured as an “Access Warrior,” I carry a simple message: families and people with disabilities belong in the room before decisions are made. We keep asking the uncomfortable questions and challenging barriers until access and meaningful participation are part of everyday life.</p>
-<div class="gallery">
-<figure class="wide"><picture><source type="image/avif" srcset="images/access-warrior/impact-exhibit.avif"><source type="image/webp" srcset="images/access-warrior/impact-exhibit.webp"><img src="images/access-warrior/impact-exhibit.jpg" width="1182" height="886" loading="lazy" alt="Exhibit headed ‘Every person has an impact—including you,’ with four profiles, colorful tactile panels, and Braille reading panels below."></picture><figcaption>The exhibit brings together four profiles: Dream Believer, Change Maker, Access Warrior, and Barrier Breaker.</figcaption></figure>
-<figure><picture><source type="image/avif" srcset="images/access-warrior/access-warrior.avif"><source type="image/webp" srcset="images/access-warrior/access-warrior.webp"><img src="images/access-warrior/access-warrior.jpg" width="1180" height="1572" loading="lazy" alt="Exhibit panel titled ‘Rob Harris is an Access Warrior,’ featuring a photo of an adult and a young person holding a white cane, beside a raised geometric panel. Full panel text follows the gallery."></picture><figcaption>“An Access Warrior fights to improve accessibility.” The photograph within this exhibit panel is credited to Larry Robinson / The Grand Junction Daily Sentinel.</figcaption></figure>
-<figure><picture><source type="image/avif" srcset="images/access-warrior/change-the-world.avif"><source type="image/webp" srcset="images/access-warrior/change-the-world.webp"><img src="images/access-warrior/change-the-world.jpg" width="901" height="1600" loading="lazy" alt="A camera operator films two people talking beside a wall reading ‘Change the World’ and listing Dream Believer, Change Maker, Access Warrior, and Barrier Breaker."></picture><figcaption>A conversation beside the exhibit’s “Change the World” wall.</figcaption></figure>
-</div>
-<details><summary>Read the Access Warrior panel text</summary><h3>Rob Harris is an Access Warrior.</h3><p>An Access Warrior fights to improve accessibility.</p><blockquote>“For years, I have pushed for families and people with disabilities to be included before decisions are made—not after. I have written the emails, sat through the meetings, challenged the systems, testified, asked the uncomfortable questions, and kept showing up.”</blockquote><p>Image courtesy Larry Robinson / The Grand Junction Daily Sentinel</p></details>
-</section>
-
-    <section class="voices" aria-labelledby="voices-title">
-      <div>
-        <p class="kicker">Why Isabelle’s voice matters</p>
-        <h2 id="voices-title">Nothing about us without us begins by making room for us.</h2>
-      </div>
-      <blockquote>
-        <p>Make room for Isabelle’s own voice and meaningful participation in the decisions that shape her future.</p>
-        <p><strong>“I would like to answer that myself.”</strong></p>
-        <footer>— Isabelle Harris</footer>
-      </blockquote>
-          <section class="technology-photo-section" aria-labelledby="technology-photo-title">
-        <h3 id="technology-photo-title">Assistive technology in real life</h3>
-        <figure>
-          <picture>
-            <source type="image/avif" srcset="images/rob-isabelle-tactile-engineering-800.avif 800w, images/rob-isabelle-tactile-engineering-1400.avif 1400w" sizes="(max-width: 850px) calc(100vw - 2.5rem), 780px"><source srcset="images/rob-isabelle-tactile-engineering-800.webp 800w, images/rob-isabelle-tactile-engineering-1400.webp 1400w" sizes="(max-width: 850px) calc(100vw - 2.5rem), 780px" type="image/webp">
-            <img src="images/rob-isabelle-tactile-engineering.jpg" alt="Rob and Isabelle stand with two men and a guide dog; a man wearing a Tactile Engineering shirt holds a tactile device." width="1400" height="1050" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Rob and Isabelle with Tactile Engineering.</figcaption>
-        </figure>
-      </section>
-
-</section>
 
     <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
       <div class="newsletter-inner">
@@ -379,40 +257,6 @@
         </div>
       </div>
     </section>
-
-    <section class="act power-quote" id="act" aria-labelledby="act-title">
-      <div class="power-quote-copy">
-        <p class="kicker light">Support or share</p>
-        <h2 id="act-title">Lived experience belongs wherever decisions are made.</h2>
-        <p class="power-attribution">Share the public policy asks. Private travel and meeting details will stay private.</p>
-        <div class="act-buttons">
-          <a class="button outline-light" href="https://venmo.com/u/HarrisRob" target="_blank" rel="noopener noreferrer" aria-label="Donate to Rob Harris with Venmo at HarrisRob; opens Venmo in a new tab">Donate with Venmo · @HarrisRob</a>
-          <a class="button outline-light" href="https://x.com/AdvocateDadCO">Follow @AdvocateDadCO</a>
-          <a class="button outline-light" id="x-share" href="https://x.com/intent/post?text=Lived%20experience%20belongs%20wherever%20decisions%20are%20made.%20Follow%20Rob%20and%20Isabelle%E2%80%99s%20D.C.%20advocacy%20mission%3A&url=https%3A%2F%2Fadvocatedadco.org%2F&hashtags=AdvocateDad">Share on X</a>
-          <a class="button outline-light" href="mailto:?subject=AdvocateDadCO%20-%20Lived%20Experience%2C%20Lasting%20Change&body=I%20thought%20you%20would%20want%20to%20see%20Rob%20and%20Isabelle%20Harris%E2%80%99s%20advocacy%20mission%3A%20https%3A%2F%2Fadvocatedadco.org%2F">Share by email</a>
-          <button class="button outline-light" id="copy-button" type="button">Copy link</button>
-        </div>
-        <p class="status" id="share-status" role="status" aria-live="polite"></p>
-      </div>
-    </section>
-
-
-
-
-<section class="contact" id="contact" aria-labelledby="contact-title">
-      <div>
-        <p class="kicker">Connect with #AdvocateDad</p>
-        <h2 id="contact-title">Let’s turn experience into action.</h2>
-      </div>
-      <div class="contact-copy">
-        <p>Choose the connection that fits what you need.</p>
-        <a class="button contact-button" href="mailto:info@AdvocateDadCO.org">Email Rob</a>
-        <p class="contact-address"><span>Direct email:</span> <a href="mailto:info@AdvocateDadCO.org">Questions, speaking, media, or collaboration</a></p>
-        <p class="contact-address"><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/advocatedadrob-harrisco/" rel="me">Connect professionally with Rob Harris</a></p>
-        <p class="contact-address"><span>Newsletter:</span> <a href="https://advocatedad.substack.com/subscribe">Receive AdvocateDad updates by email</a></p>
-      </div>
-    </section>
-    <section class="page-section" aria-labelledby="everyday-help-title" style="padding:clamp(3rem,6vw,5rem) max(1.25rem,calc((100% - 1200px)/2));"><p class="kicker" style="color:#6d4700;">Everyday access</p><h2 id="everyday-help-title">How can I help?</h2><p style="max-width:65ch;">Ask first. Listen. Follow the person’s lead. Find practical ways to offer assistance and improve access at school, in stores, at church, and in the community.</p><p><a class="button primary" style="background:#071b33;color:#fff;" href="/how-can-i-help">Learn how to offer assistance</a></p><p><a href="/blv-professional-access">BLV access resources for paraeducators, teachers, and service providers</a></p></section>
   </main>
 
   <footer>
