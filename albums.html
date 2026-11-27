@@ -30,6 +30,30 @@
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="dc-highlights.css">
 <style>main{overflow-wrap:anywhere}footer{min-width:0;overflow-wrap:anywhere}footer>*{min-width:0;max-width:100%}footer .brand{flex-wrap:wrap}</style>  <link rel="stylesheet" href="access-feature.css">
+<style id="albums-browse-styles">
+.albums-hero, .albums-feature, .albums-browse { padding-block: clamp(1.75rem, 4vw, 3rem); }
+.albums-hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.05; }
+.albums-hero .albums-lead { max-width: 58ch; font-size: 1.25rem; }
+.albums-feature { background: var(--cream); }
+.albums-feature-grid, .albums-card-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(1rem,3vw,2rem); }
+.albums-feature-grid { align-items: center; }
+.albums-feature h2, .albums-browse h2 { margin: 0 0 .7rem; font-size: clamp(1.8rem,4vw,3.15rem); line-height: 1.12; }
+.albums-feature .page-copy, .albums-card p { font-size: 1.125rem; }
+.albums-feature figure { margin: 0; }
+.albums-feature img, .albums-card img { display: block; width: 100%; height: auto; }
+.albums-feature figcaption { padding-top: .5rem; color: var(--muted); }
+.albums-actions { display: flex; flex-wrap: wrap; gap: .35rem 1rem; align-items: center; }
+.albums-actions a, .albums-card a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1.0625rem; font-weight: 700; text-underline-offset: .2em; }
+.albums-actions .button { width: auto; white-space: normal; }
+.albums-hero .albums-actions a { color: var(--cream); }
+.albums-hero .albums-actions a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.albums-feature a:focus-visible, .albums-card a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.albums-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--navy); }
+.albums-card-copy { padding: 1rem 1.25rem; }
+.albums-card h3 { margin: 0 0 .35rem; font: 800 1.3rem/1.25 "Libre Franklin", sans-serif; }
+.albums-card p { margin: .35rem 0; }
+@media (max-width: 48rem) { .albums-feature-grid, .albums-card-grid { grid-template-columns: minmax(0,1fr); } }
+</style>
 </head>
 <body>
   <a class="skip-link" href="/albums#main">Skip to main content</a>
@@ -59,19 +83,40 @@
     </nav>
   </header>
     <main id="main" data-pagefind-body>
-    <header class="page-hero"><div class="page-hero-inner">
-      <p class="kicker">Photo &amp; video albums</p><h1>Advocacy Through the Years</h1>
-      <p>Our work in photos and video: advocacy, community, and access in practice.</p>
-      <p>This collection will grow with albums from our work over the years, organized by year and project.</p>
+    <header class="page-hero albums-hero"><div class="page-hero-inner">
+      <h1>Advocacy Through the Years</h1>
+      <p class="albums-lead">Start with the Washington, D.C. photos or browse the collections from Western Colorado.</p>
+      <nav class="albums-actions" aria-label="Album shortcuts">
+        <a href="/dc-album">Open the D.C. photo album</a>
+        <a href="#browse-albums">Browse other photo collections</a>
+      </nav>
     </div></header>
-    <section class="page-section" aria-labelledby="year-2026">
-      <p class="kicker">2026</p><h2 id="year-2026">Washington, D.C. — Youth Advocacy</h2>
-      <figure style="margin:1.5rem 0;max-width:800px"><picture><source type="image/avif" srcset="/images/dc-highlights/01-small.avif"><img src="/images/dc-highlights/01-small.webp" width="800" height="450" style="display:block;width:100%;height:auto" alt="The advocacy group stands on the Capitol lawn beneath a blue sky." loading="lazy"></picture><figcaption>Advocacy, connection, and access in Washington.</figcaption></figure>
-      <h3>Youth Advocacy in Washington, D.C. | Access, Leadership &amp; Community</h3>
-      <p>Watch the accessible slideshow with narrated photo descriptions and visible captions, or explore the 20-photo album with captions, descriptions, and full-size views.</p>
-      <p><a href="https://youtu.be/D3PxlDwewK8" style="display:inline-block;padding:14px 18px;border:2px solid currentColor;border-radius:6px;font-weight:700;max-width:100%">Watch the accessible slideshow on YouTube</a></p>
-      <p><a href="/dc-album" style="display:inline-block;padding:14px 18px;border:2px solid currentColor;border-radius:6px;font-weight:700;max-width:100%">Explore the accessible D.C. photo album</a></p>
-      <p><a href="/dc-mission">Read about the D.C. mission</a></p>
+    <section class="page-section albums-feature" aria-labelledby="year-2026">
+      <div class="albums-feature-grid">
+        <div>
+          <h2 id="year-2026">Washington, D.C. youth advocacy</h2>
+          <p class="page-copy">Explore 20 photos from the 2026 trip, with captions, descriptions, and full-size views. The slideshow includes narrated photo descriptions and visible captions.</p>
+          <div class="albums-actions">
+            <a class="button primary" href="/dc-album">View all 20 D.C. photos</a>
+            <a href="https://youtu.be/D3PxlDwewK8">Watch the narrated slideshow on YouTube</a>
+          </div>
+          <p><a href="/dc-mission">Read about the D.C. mission</a></p>
+        </div>
+        <figure><picture><source type="image/avif" srcset="/images/dc-highlights/01-small.avif"><img src="/images/dc-highlights/01-small.webp" width="800" height="450" alt="The advocacy group stands on the Capitol lawn beneath a blue sky." decoding="async"></picture><figcaption>The Washington advocacy group on Capitol Hill.</figcaption></figure>
+      </div>
+    </section>
+    <section class="page-section white albums-browse" aria-labelledby="browse-albums">
+      <h2 id="browse-albums">Browse other photo collections</h2>
+      <div class="albums-card-grid">
+        <article class="albums-card">
+          <picture><source type="image/avif" srcset="/images/white-cane-day-2026/community-720.avif"><img src="/images/white-cane-day-2026/community-720.webp" width="720" height="540" alt="White Cane Day participants gather under a tree in Grand Junction, many wearing bright yellow shirts." loading="lazy" decoding="async"></picture>
+          <div class="albums-card-copy"><h3>White Cane Day in Grand Junction</h3><p>Photos from the 2026 gathering on Main Street.</p><a href="/work#white-cane-photos-title">View the White Cane Day photos</a></div>
+        </article>
+        <article class="albums-card">
+          <picture><source type="image/avif" srcset="/images/access-warrior/impact-exhibit.avif"><img src="/images/access-warrior/impact-exhibit.webp" width="1182" height="886" alt="Four exhibit profiles stand above tactile and Braille reading panels." loading="lazy" decoding="async"></picture>
+          <div class="albums-card-copy"><h3>Access Warrior exhibit</h3><p>Exhibit photos, image credits, and the panel text.</p><a href="#access-warrior">View the Access Warrior exhibit</a></div>
+        </article>
+      </div>
     </section>
     <section class="access-feature" id="access-warrior" aria-labelledby="access-heading"><p class="label">ADVOCACY THROUGH THE YEARS</p><h2 id="access-heading">Access means having a voice.</h2>
 <p>Featured as an “Access Warrior,” I carry a simple message: families and people with disabilities belong in the room before decisions are made. We keep asking the uncomfortable questions and challenging barriers until access and meaningful participation are part of everyday life.</p>
