@@ -36,6 +36,10 @@
   <link rel="stylesheet" href="recovered-updates.css">
   <link rel="stylesheet" href="rob-story.css">
 <style id="technology-photo-styles">
+@media (max-width: 760px) {
+  .story-page .proof-strip ul { grid-template-columns: minmax(0, 1fr); }
+  .story-page .proof-strip li { display: block; min-height: 0; overflow-wrap: anywhere; }
+}
 .technology-photo-section {
   grid-column: 1 / -1;
   width: 100%;
